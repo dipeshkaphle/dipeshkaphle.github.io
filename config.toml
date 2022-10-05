@@ -20,11 +20,7 @@ menu = [
     { name= "/about", url= "/about", weight= 3 },
 ]
 
-socials = [
-    { name= "twitter", url= "https://twitter.com/__dipesh_", icon= "twitter" },
-    { name= "github", url= "https=//github.com/dipeshkaphle/", icon = "github" },
-    { name= "linkedin", url= "https=//github.com/dipeshkaphle/", icon = "linkedin" },
-]
+socials = [{ name= "twitter", url= "https://twitter.com/__dipesh_", icon= "twitter" }, { name= "github", url= "https://github.com/dipeshkaphle", icon = "github" },{ name= "linkedin", url= "https://linkedin.com/dipeshk111", icon = "linkedin" }]
 
 # [extra.analytics]
 # enabled = true
