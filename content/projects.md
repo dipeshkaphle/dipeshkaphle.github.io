@@ -1,8 +1,7 @@
----
-layout: page
-title: Projects
-permalink: /projects/
----
++++
+title = "Projects"
+path = "projects"
++++
 
 - ### Code Character
 

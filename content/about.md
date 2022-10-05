@@ -1,8 +1,7 @@
----
-layout: page
-title: About
-permalink: /about/
----
++++
+title = "About"
+path = "about"
++++
 
 Hi I am Dipesh, I am an aspiring Software Engineer. Among many things,
 I enjoy programming, mainly using C++, Rust and a bit of OCaml and Python thrown

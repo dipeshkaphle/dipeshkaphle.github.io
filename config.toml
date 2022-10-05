@@ -1,0 +1,31 @@
+base_url = "https://dipeshkaphle.github.io"
+title = "Dipesh"
+build_search_index = true
+generate_feed = true
+minify_html = true
+
+theme = "apollo"
+
+[markdown]
+highlight_code = true
+highlight_theme = "gruvbox-dark"
+
+[extra]
+use_cdn = false
+theme = "auto"
+
+menu = [
+    { name = "/posts", url= "/posts", weight= 1 },
+    { name= "/projects", url= "/projects", weight= 2 },
+    { name= "/about", url= "/about", weight= 3 },
+]
+
+socials = [
+    { name= "twitter", url= "https://twitter.com/__dipesh_", icon= "twitter" },
+    { name= "github", url= "https=//github.com/dipeshkaphle/", icon = "github" },
+    { name= "linkedin", url= "https=//github.com/dipeshkaphle/", icon = "linkedin" },
+]
+
+# [extra.analytics]
+# enabled = true
+# goatcounter_user = ""
