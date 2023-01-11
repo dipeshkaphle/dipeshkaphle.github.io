@@ -14,6 +14,7 @@ highlight_theme = "gruvbox-dark"
 use_cdn = false
 theme = "auto"
 mathjax = true
+mathjax_dollar_inline_enable = true
 
 menu = [
     { name= "/about", url= "/about", weight= 1 },
@@ -23,6 +24,6 @@ menu = [
 
 socials = [{ name= "twitter", url= "https://twitter.com/__dipesh_", icon= "twitter" }, { name= "github", url= "https://github.com/dipeshkaphle", icon = "github" },{ name= "linkedin", url= "https://linkedin.com/dipeshk111", icon = "linkedin" }]
 
-# [extra.analytics]
-# enabled = true
-# goatcounter_user = ""
+[extra.analytics]
+enabled = true
+goatcounter_user = "dipeshkaphle"
