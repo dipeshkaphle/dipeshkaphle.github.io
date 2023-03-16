@@ -49,4 +49,4 @@ impl LlvmJit {
 
 After some(not a lot) research, I found
 [inkwell](https://github.com/TheDan64/inkwell/) crate, which I reckon will
-server my purpose. Math : \\(x^2\\)
+server my purpose.
