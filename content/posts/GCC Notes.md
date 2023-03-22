@@ -81,6 +81,9 @@ preprocessor - hence the name)
 
 ## Parsing
 
+> `gcc -S <c-file> -O2 -fverbose-asm -fdump-tree-all -fdump-ipa-all -fdump-rtl-all`
+> will generate dumps for every compiler pass that happened
+
 Next the frontend parses the tokens from a flat stream into a tree-like
 structure reflecting the grammar of the language (or complains about syntax
 errors or type errors, and bails out). This stage uses gcc’s **tree** type.
@@ -92,9 +95,6 @@ After each frontend the middle end “sees” a tree representation that we call
 **generic**. **Generic** IR closely resembles the original C code, but sometimes
 you will see control flow expressed via “goto” statements that go to numbered
 labels, and temporary variables introduced by the frontend.
-
-> "gcc -S <c-file> -O2 -fverbose-asm -fdump-tree-all -fdump-ipa-all
-> -fdump-rtl-all" will generate dumps for every compiler pass that happened
 
 ## Gimple
 
@@ -110,10 +110,9 @@ optimizer to work with, so GCC almost immediately converts it into a form named
 Blocks"(Sequences of instructions with no control flow). The control flow is
 expressed as edges between the Basic Blocks.
 
-> "gcc -S <c-file> -O2 -fverbose-asm -fdump-tree-all-graph -fdump-ipa-all-graph
-> -fdump-rtl-all-graph" will generate dot graph dumps for every compiler pass
-> that happened,in addition to normal dumps generated without the graph suffix
-> in the flags
+> `gcc -S <c-file> -O2 -fverbose-asm -fdump-tree-all-graph -fdump-ipa-all-graph -fdump-rtl-all-graph`
+> will generate dot graph dumps for every compiler pass that happened,in
+> addition to normal dumps generated without the graph suffix in the flags
 
 ## Gimple SSA(Static Single Assignment)
 
@@ -187,6 +186,8 @@ functions. These have an “i” code in their dump file.
 
 ## GIMPLE
 
+**INCOMPLETE**
+
 ## Passes
 
 ### Frontend Passes
@@ -233,6 +234,8 @@ functions. These have an “i” code in their dump file.
   `lang_hooks.gimplify_expr`
 
 ### Pass Manager
+
+**INCOMPLETE**
 
 ## Vectorization Related Things
 
