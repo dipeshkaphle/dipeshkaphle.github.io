@@ -30,7 +30,8 @@ $ bear -- make -j$(nproc) # bear will generate compile_commands.json which will 
   [this](https://gcc-newbies-guide.readthedocs.io/en/latest/getting-started.html)
   to learn more about when to enable bootstrap and when to use multiple copies
   of the repo and things like that.
-- For cross compiling
+- For cross compiling(this is just from my experience trying to compile for
+  arm64 host and target, on my x86 machine)
 
 ```
 $ sudo pacman -S aarch64-linux-gnu-gcc \\ install cross compilers(this is for aarch64)
@@ -40,6 +41,9 @@ $ ../configure --prefix=$PWD/GCC-12.2.0 --enable-languages=c,c++ --disable-boots
 $ clear; make -j$(nproc)
 $ make install
 ```
+
+- [This](https://preshing.com/20141119/how-to-build-a-gcc-cross-compiler/) is
+  more comprehensive guide for cross compiling.
 
 ### Tools used(Gcc hacker must learn properly)
 
