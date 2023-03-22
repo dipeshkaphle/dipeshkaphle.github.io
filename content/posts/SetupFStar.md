@@ -1,7 +1,6 @@
 +++
 title = "Setup LowStar in OCaml 4.14"
 date = "2023-01-14"
-draft = true
 +++
 
 ## Steps

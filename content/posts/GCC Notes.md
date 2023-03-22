@@ -1,8 +1,9 @@
 +++
 title = "Notes on GCC"
 date = "2023-02-24"
-draft = true
 +++
+
+> **NOTE** : This is still incomplete and I might add more content
 
 - Takes about 50 minutes for clean build on my current machine
 - X86-64 calling convention :
