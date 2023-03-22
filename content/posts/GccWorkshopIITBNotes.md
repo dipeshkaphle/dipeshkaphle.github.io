@@ -177,3 +177,12 @@ Gcc generates a lot of source code during the build step.
 - Processing of statements done through iterators.
 
 > Many APIs for GIMPLE manipulation can be found in `$(SOURCE_D)/gcc/gimple.h`
+
+#### Manipulating tree
+
+- My friends found a great blog post about manipulating gimple from
+  [Yonatan Goldschmidt](https://github.com/Jongy). The blog post is in 2 parts.
+  It lies [here](https://jongy.github.io/2020/04/25/gcc-assert-introspect.html)
+  and [here](https://jongy.github.io/2020/05/15/gcc-assert-introspect-2.html).
+  The code is [here](https://github.com/Jongy/gcc_assert_introspect) and it's a
+  great resource for learning ast manipulation in gcc.
