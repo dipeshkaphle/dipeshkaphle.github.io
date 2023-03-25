@@ -8,7 +8,7 @@ date = "2023-02-24"
 - Takes about 50 minutes for clean build on my current machine
 - X86-64 calling convention :
   [Link](https://en.wikipedia.org/wiki/X86_calling_conventions)
-- Inside CC1[https://gcc-newbies-guide.readthedocs.io/en/latest/inside-cc1.html]
+- [Inside CC1](https://gcc-newbies-guide.readthedocs.io/en/latest/inside-cc1.html)
 
 ## Setting Up Dev Environment
 
