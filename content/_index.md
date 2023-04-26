@@ -13,4 +13,4 @@ Memory Management and Concurrency nowadays. I'm also trying to blog about things
 On the side, I tend to watch a lot of movies and shows, ocassionally fall into the
 YouTube rabbit hole and learn more about programming languages for fun.
 
-You can find my projects [here](/projects/). You can find my resume [here](https://drive.google.com/file/d/1ARzKGlkeKKrMm_oS9OddW4eOcreHDS39/view?usp=sharing). My blogs are present [here](/posts/)
+You can find my projects [here](/projects/). You can find my resume [here](https://drive.google.com/file/d/1t88HSZQxBz3EKpbnJiyA4vFHqBKmq3Xa/view?usp=sharing). My blogs are present [here](/posts/)
