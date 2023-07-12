@@ -37,3 +37,5 @@ date = "2023-06-20"
   want in dired buffer(can be helpful for renaming mostly and probably many
   other things too). To finish edit `wdired-finish-edit` and to abort
   `wdired-abort-changes`
+- Some cool things
+  [here](https://karthinks.com/software/fifteen-ways-to-use-embark/)
