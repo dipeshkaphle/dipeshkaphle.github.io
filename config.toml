@@ -1,7 +1,8 @@
 base_url = "https://dipeshkaphle.github.io"
 title = "Dipesh"
-build_search_index = true
+build_search_index = false
 generate_feed = true
+compile_sass = true
 minify_html = true
 
 theme = "apollo"
@@ -12,7 +13,7 @@ highlight_theme = "gruvbox-dark"
 
 [extra]
 use_cdn = false
-theme = "auto"
+theme = "toggle"
 mathjax = true
 mathjax_dollar_inline_enable = true
 
@@ -22,7 +23,11 @@ menu = [
     { name= "/projects", url= "/projects", weight= 3 },
 ]
 
-socials = [{ name= "twitter", url= "https://twitter.com/__dipesh_", icon= "twitter" }, { name= "github", url= "https://github.com/dipeshkaphle", icon = "github" },{ name= "linkedin", url= "https://linkedin.com/dipeshk111", icon = "linkedin" }]
+socials = [
+    { name= "twitter", url= "https://twitter.com/__dipesh_", icon= "twitter" },
+    { name= "github", url= "https://github.com/dipeshkaphle", icon = "github" },
+    { name= "linkedin", url= "https://linkedin.com/dipeshk111", icon = "linkedin" }
+]
 
 [extra.analytics]
 enabled = true
