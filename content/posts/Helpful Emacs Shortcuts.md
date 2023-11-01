@@ -12,9 +12,18 @@ date = "2023-06-20"
 - `SPC h` is for help related stuff, same as `C-h`
 - `C-h k` or `SPC h k` or `describe-key` will give information about keys you
   press when it prompts you.
+- `C-h j` and `C-h k` will move to next page and previous page when there's a
+  which-key buffer and there's multiple pages for a particular key press
 - All `describe-*` is super helpful. There's `describe-variable`,
   `describe-command`, `describe-function` and so on.
 - `C-M-h` -> mark-defun will select a whole function
+- If you want to open a file that's in some text, you can select it and then
+  just press `gF` to jump to it(this is evil mode binding). Command:
+  `evil-find-file-at-point-with-line` .This works with line numbers also so if
+  there's something of form <file-name>:line, this is super useful. This
+  helps when you have file names and line names in error messages, you can
+  easily jump to that file+line
+- Use `maximize-window` to maximize one window in splits and do `winner-undo` to undo it
 - `C-M-SPC` -> `mark-sexp` will select the next ast node(sort of), repeating it
   more will move forward. `C-M-<left>` will move backward
 - `fill-paragraph` is nice for formatting text (with max width), bound to `M-q`.
