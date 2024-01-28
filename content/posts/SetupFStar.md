@@ -28,3 +28,20 @@ date = "2023-01-14"
 - ./everest pull FStar make karamel make (Idk but it might help to add -j at the
   end?)
 - Put FStar as well in your path
+
+## Better way
+
+```bash
+$ opam switch create fstar
+$ opam pin add fstar --dev-repo
+$ opam pin add karamel --dev-repo
+```
+
+Above, you may need to run `opam install fstar karamel`, but I don't exactly remember
+
+To use the Fstar switch, do the following
+
+```
+$ opam switch fstar
+$ eval $(opam env --switch=fstar)
+```
