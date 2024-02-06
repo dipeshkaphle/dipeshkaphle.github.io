@@ -48,3 +48,5 @@ date = "2023-06-20"
   `wdired-abort-changes`
 - Some cool things
   [here](https://karthinks.com/software/fifteen-ways-to-use-embark/)
+- See [orderless](https://github.com/oantolin/orderless) for prefixes that
+  trigger different behaviors during minibuffer search in vertico
