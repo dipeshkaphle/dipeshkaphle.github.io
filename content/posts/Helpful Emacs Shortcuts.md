@@ -50,3 +50,4 @@ date = "2023-06-20"
   [here](https://karthinks.com/software/fifteen-ways-to-use-embark/)
 - See [orderless](https://github.com/oantolin/orderless) for prefixes that
   trigger different behaviors during minibuffer search in vertico
+- Use `org-timestamp` to insert date to the buffer(quite cool)
