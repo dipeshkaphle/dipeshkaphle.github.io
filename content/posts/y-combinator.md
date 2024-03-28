@@ -90,13 +90,9 @@ let rec fix f = f (fix f)
 ```
 
 The issue with this is, the moment you call `fix` with some `f`, it'll first try
-to evaluate the `fix f` in RHS, which just keeps on going forever. Haskell doesn't
-suffer from the issue because it only actually evaluates it when it's needed.
-
-Similar definition actually wouldn't make sense in OCaml. Below is one example why.
-
-In Haskell, something like `x=1:x` is valid and if you wanted such constructs to
-be legal, that's when you could use a fix.
+to evaluate the `fix f` in RHS, which just keeps on going forever. Haskell
+doesn't suffer from the issue because it only actually evaluates it when it's
+needed.
 
 ```bash
 ghci> fix f = f (fix f)
@@ -104,18 +100,19 @@ ghci> x y = 1:y
 ghci> infinite1s = fix x
 ghci> take 10 infinite1s
 [1,1,1,1,1,1,1,1,1,1]
-ghci>
-
 ```
 
-Using `fix`, we can make `x=1:x` happen. We basically took `x:: [Integer] ->
-[Integer]` and converted it to `[Integer]` with `fix`. This is anyway not
-possible to represent in OCaml directly(because it's strict) and we would need
-to resort to using thunks(or probably some late-binding hatches to get self
-referencing values) to get similar thing in OCaml.
+Using `fix`, we can define `x=1:x` like above. We basically took
+`x::[Integer] -> [Integer]` and converted it to `[Integer]` with `fix`.
 
-That is exactly what needs to be done in OCaml, use thunks(or partially evaluated functions) 
-to get a definition of `fix`. We define it as follows:
+You can't do this in OCaml directly. This is of the form `a -> a` where
+`a=[Integer]`. This form of fix with the signature `(a -> a) -> a` is possible
+in Haskell because `a` whatever it is, is lazily evaluated. It's actually a
+thunk which evaluates to `a`. In OCaml, `a` is always an evaluated value, so you
+will end up needing some thunking mechanism to define `fix`.
+
+We need to get laziness to do this in OCaml. So, we'll use partially
+evaluated functions to get a definition of `fix`. We define it as follows:
 
 ```ocaml
 val fix : (('a -> 'b) -> 'a -> 'b) -> 'a -> 'b
@@ -141,7 +138,6 @@ utop # (fix fact) 10;;
 ```
 
 That's pretty much it.
-
 
 > This sort of clicked properly for me when I was watching [this excellent
 > lecture by Robert Harper](https://youtu.be/8cXl2Tfhy_Q?si=pQGGg_4bum-NQAhZ),
