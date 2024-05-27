@@ -51,3 +51,7 @@ date = "2023-06-20"
 - See [orderless](https://github.com/oantolin/orderless) for prefixes that
   trigger different behaviors during minibuffer search in vertico
 - Use `org-timestamp` to insert date to the buffer(quite cool)
+- Want to insert unicode symbols in emacs. Do one of the the following([Reference](https://emacs.stackexchange.com/questions/60881/how-to-insert-mathematical-symbols-in-emacs)):
+  - `M-x set-input-method RET tex` or `C-\`
+  - `C-x 8 RET` to see a bunch of searchable symbols and insert them
+  - If we want this to be in every buffer, need to `customize-variable` `default-input-method`
