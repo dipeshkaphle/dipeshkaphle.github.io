@@ -2,6 +2,9 @@
 title = "Non Local Jumps with setjmp and longjmp"
 date = "2023-11-01"
 draft = false
+
+[taxonomies]
+tags=["C","Low-Level"]
 +++
 
 

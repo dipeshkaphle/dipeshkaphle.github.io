@@ -2,6 +2,9 @@
 title = "Par_incr: An incremental computation library with parallelism support"
 date = "2023-08-13"
 draft = true
+
+[taxonomies]
+tags=["FP","Incremental Computation","Parallelism"]
 +++
 
 Over the course of 2 months in my internship at Tarides(May to July 2023), I

@@ -1,6 +1,9 @@
 +++
 title = "Helpful Emacs Shortcuts"
 date = "2023-06-20"
+
+[taxonomies] 
+tags=["Emacs"]
 +++
 
 - Useful commands page for someone else

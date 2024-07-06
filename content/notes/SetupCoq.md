@@ -1,6 +1,9 @@
 +++
 title = "Setup Coq"
 date = "2024-06-29"
+
+[taxonomies]
+tags=["Coq/Rocq"]
 +++
 
 ## Install

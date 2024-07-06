@@ -2,6 +2,9 @@
 title = "Brainfuck with LLVM Jit in Rust"
 date = "2023-01-03"
 draft = true
+
+[taxonomies]
+tags=["LLVM","Rust"]
 +++
 
 Some time ago, I stumbled upon

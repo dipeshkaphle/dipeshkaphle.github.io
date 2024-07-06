@@ -1,6 +1,9 @@
 +++
 title = "Setup FStar in OCaml 4.14"
 date = "2023-01-14"
+
+[taxonomies]
+tags=["F*"]
 +++
 
 ## Steps

@@ -1,6 +1,9 @@
 +++
 title = "What is a Fixed Point Combinator?"
 date = "2024-03-28"
+
+[taxonomies] 
+tags=["PL"]
 +++
 
 (Copy-pasting Wikipedia) A fixed-point combinator (or fixpoint combinator), is a
