@@ -45,7 +45,7 @@ Software Engineer #h(1fr) Bengaluru, India \
 - Working mostly with *Java*, *gRPC*, in-house dependency injection framework(based on *Spring Boot*), *Cadence*(A durable workflow orchestration engine), *Kafka* and *distributed databases* in my day to day work.
 - Contributing to the frontend side of things as well using *Typescript*, *React* and *GraphQL*.
 
-#link("https://github.com/prismlab")[*IIT Madras*] #h(1fr) 06/2022 --  07/2023 \
+#link("https://github.com/prismlab")[*IIT Madras*] #h(1fr) 07/2022 --  02/2024 \
 Research Intern #h(1fr) Remote \
 - Worked with Dr. KC Sivaramakrishnan and Dr. Kartik Nagar alongside a PhD student on a project that aimed to verify an OCaml style garbage collector with F\*/Low\*.
 - Helped with the integration of the extracted verified code with the #link("https://github.com/prismlab/ocaml-gc-hacking")[OCaml bytecode interpreter], ran real-world OCaml programs and ran benchmarks to analyze performance.
@@ -54,11 +54,13 @@ Research Intern #h(1fr) Remote \
 
 #link("https://tarides.com")[*Tarides*] #h(1fr) 05/2023 -- 07/23 \
 Software Engineering Intern #h(1fr) Remote \
-- Worked on developing #link("https://github.com/ocaml-multicore/par_incr")[Par_incr], a library for incremental computation with support for freshly introduced parallelism constructs in OCaml
+- Worked on developing #link("https://github.com/ocaml-multicore/par_incr")[Par_incr], a library for incremental computation with support for freshly introduced parallelism constructs in OCaml.
 
 #link("https://cdac.in/index.aspx?id=BL")[*CDAC Bangalore*] #h(1fr) 02/2023 -- 05/23 \
 Research Intern #h(1fr) Remote \
-- Developed GCC plugins, performed benchmarks and analysis and explored potential optimizations for ARM HPC architecture.
+- Developed proof-of-concept GCC plugins for program transformation, tuning heuristics, etc. and evaluated performance.
+- Developed tool to visualize GCC's AST and filter out unnecessary information, to help with our program transformation experiments.
+- Suggested potential ARM specific optimizations for future exploration.
 
 #link("https://uber.com")[*Uber*] #h(1fr) 06/2022 --  07/2022 \
 Software Engineering Intern #h(1fr) Bengaluru, India \
@@ -85,7 +87,7 @@ Software Engineering Intern #h(1fr) Bengaluru, India \
 - The language has a uni-directional type checker and can be transpiled to readable C++ code or compiled to bytecode. The bytecode interpreter is written in OCaml.
 
 #link("https://github.com/dipeshkaphle/brainfuck")[*BF JITs*] #h(1fr)\
-- Implemented Just In Time compilers for Brainfuck language using Dynasm crate and Inkwell crate(provides LLVM bindings) in *Rust*.
+- Implemented Just In Time compilers for Brainfuck language using Dynasm crate and Inkwell crate (provides LLVM bindings) in *Rust*.
 
 #link("https://github.com/Jayashrri/PCTF21")[*Pragyan CTF*] #h(1fr)\
 - Prepared challenges for Binary Exploitation/Reversing category, involving a small custom memory allocator, reversing SIMD instructions, and other common vulnerabilities.
@@ -110,6 +112,6 @@ Software Engineering Intern #h(1fr) Bengaluru, India \
 == Languages
 #chiline()
 
-- Nepali: Native proficiency
-- Hindi: Native proficiency
-- English: Fluent (Professionally)
+- *Nepali*: Native proficiency
+- *Hindi*: Native proficiency
+- *English*: Fluent (Professionally)
