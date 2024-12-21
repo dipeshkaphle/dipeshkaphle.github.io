@@ -10,7 +10,7 @@ theme = "apollo"
 
 [markdown]
 highlight_code = true
-highlight_theme = "gruvbox-dark"
+highlight_theme = "monokai"
 
 [extra]
 use_cdn = false

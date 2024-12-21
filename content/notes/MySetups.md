@@ -1,6 +1,6 @@
 +++
 title = "My Setup"
-date = 2024-12-21""
+date = "2024-12-21"
 
 [taxonomies]
 tags=["Setup"]
