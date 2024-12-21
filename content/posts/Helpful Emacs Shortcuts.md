@@ -16,7 +16,10 @@ tags=["Emacs"]
 - `C-h k` or `SPC h k` or `describe-key` will give information about keys you
   press when it prompts you.
 - `C-h j` and `C-h k` will move to next page and previous page when there's a
-  which-key buffer and there's multiple pages for a particular key press
+  which-key buffer and there's multiple pages for a particular key press [TODO: figure out why this doesn't work anymore in my setup for some reason]
+- `C-h` on any which-key buffer opens a list of searchable possible
+  keybindings/actions I can take in the current key prefix. Example: Say I press
+  `C-c`, then `C-h` will open up all the actions/keys starting with `C-c`.
 - All `describe-*` is super helpful. There's `describe-variable`,
   `describe-command`, `describe-function` and so on.
 - `C-M-h` -> mark-defun will select a whole function
