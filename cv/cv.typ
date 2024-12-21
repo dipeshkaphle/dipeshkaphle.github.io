@@ -102,6 +102,15 @@ Software Engineering Intern #h(1fr) Bengaluru, India \
 - #link("https://dipeshkaphle.github.io/posts/nonlocaljumps/")[Non Local Jumps with setjmp and longjmp]
 
 
+== Positions of Responsibility
+#chiline()
+
+*Department of Training and Placement, NIT Trichy* #h(1fr)\
+- As the Campus Placement Course (CPC) head, I lead a team dedicated to comprehensively preparing students for placements through mentoring, regular interviews, and coordinated training across various domains.
+
+*Delta Force, NIT Trichy* #h(1fr)\
+- As a member of the coding club, I actively mentored juniors, providing guidance on career, interests and software development while supporting the club's technical projects for college events and administration.
+
 == Skills
 #chiline()
 
