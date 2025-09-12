@@ -26,7 +26,6 @@
 #link("https://linkedin.com/in/dipeshk111/")[linkedin.com/in/dipeshk111] |
 #link("https://dipeshkaphle.github.io")[dipeshkaphle.github.io]
 
-
 Curious Software Engineer with a strong interest in Programming Languages, Formal Verification and Systems Programming.
 
 == Education
@@ -40,16 +39,15 @@ B.Tech in Computer Science and Engineering #h(1fr) CGPA: 8.84/10 \
 #chiline()
 
 #link("https://uber.com")[*Uber*] #h(1fr) 07/2023 -- Present \
-Software Engineer #h(1fr) Bengaluru, India \
-- Primarily a backend engineer in the Trip Operations Platform team responsible for HITL (Human In The Loop) workflow orchestration and building a platform for knowledge workers.
-- Working mostly with *Java*, *gRPC*, in-house dependency injection framework (based on *Spring Boot*), *Cadence* (A durable workflow orchestration engine), *Kafka* and *distributed databases* in my day to day work.
-- Contributing to the frontend side of things as well using *Typescript*, *React* and *GraphQL*.
+Software Engineer I | Software Engineer II (03/2025 -- Present) #h(1fr) Bengaluru, India \
+- Primarily a backend engineer in the Trip Operations Platform team responsible for HITL (Human In The Loop) workflow orchestration and #link("https://www.uber.com/us/en/scaled-solutions/")[a platform for knowledge workers]. Working on improving platform reliability and enhancements, apart from the general feature additions.
+- Working with *Java*, *gRPC*, in-house dependency injection framework (based on *Spring Boot*), *Cadence* (A durable workflow orchestration engine), *Kafka* and *distributed databases* in my day to day work. Ocassionally, contributing to the frontend side of things as well using *Typescript*, *React* and *GraphQL*.
 
 #link("https://github.com/prismlab")[*IIT Madras*] #h(1fr) 07/2022 --  02/2024 \
-Research Intern #h(1fr) Remote \
+Research Intern  #h(1fr) Remote \
 - Worked with Dr. KC Sivaramakrishnan and Dr. Kartik Nagar alongside a PhD student on a project that aimed to verify an OCaml style garbage collector with F\*/Low\*.
 - Helped with the integration of the extracted verified code with the #link("https://github.com/prismlab/ocaml-gc-hacking")[OCaml bytecode interpreter], ran real-world OCaml programs and ran benchmarks to analyze performance.
-- Wrote a #link("https://github.com/kayceesrk/ocaml/tree/29e76177c304dfb9fd75440c35ba4fb2744d4d0b/runtime/verified_gc/allocator")[next-fit allocator in Rust] which would then be hooked with the generated verified stop-the-world mark and sweep code. Analyzed performance using this before the bytecode interpreter integration.
+- Wrote a #link("https://github.com/kayceesrk/ocaml/tree/29e76177c304dfb9fd75440c35ba4fb2744d4d0b/runtime/verified_gc/allocator")[next-fit allocator in Rust] which would then be hooked with the generated verified stop-the-world mark and sweep code. Analyzed performance using this before the bytecode interpreter integration. (#link("https://link.springer.com/article/10.1007/s10817-025-09721-0")[Paper Link]).
 
 #link("https://tarides.com")[*Tarides*] #h(1fr) 05/2023 -- 07/23 \
 Software Engineering Intern #h(1fr) Remote \
@@ -58,8 +56,7 @@ Software Engineering Intern #h(1fr) Remote \
 #link("https://cdac.in/index.aspx?id=BL")[*CDAC Bangalore*] #h(1fr) 02/2023 -- 05/23 \
 Research Intern #h(1fr) Remote \
 - Developed a GCC plugin that transformed a familiar code snippet to highly optimized subroutines and another one that tuned loop unrolling heuristics based on linear regression model.
-- Developed tool to visualize GCC's AST and filter out unnecessary information, to help with our program transformation experiments.
-- Suggested potential ARM specific optimizations for future exploration.
+- Developed tool to visualize GCC's AST and filter out unnecessary information, to help with our program transformation experiments, and suggested potential ARM specific optimizations for future exploration.
 
 #link("https://uber.com")[*Uber*] #h(1fr) 06/2022 --  07/2022 \
 Software Engineering Intern #h(1fr) Bengaluru, India \
