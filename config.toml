@@ -8,9 +8,8 @@ taxonomies = [{ name = "tags" }]
 
 theme = "apollo"
 
-[markdown]
-highlight_code = true
-highlight_theme = "monokai"
+[markdown.highlighting]
+theme = "monokai"
 
 [extra]
 use_cdn = false
