@@ -21,44 +21,56 @@
 
 = Dipesh Kafle
 
-#link("mailto:dipesh.kaphle111@gmail.com")[dipesh.kaphle111\@gmail.com] |
-#link("https://github.com/dipeshkaphle")[github.com/dipeshkaphle] |
-#link("https://linkedin.com/in/dipeshk111/")[linkedin.com/in/dipeshk111] |
-#link("https://dipeshkaphle.github.io")[dipeshkaphle.github.io]
+#link("mailto:dipesh.kaphle111@gmail.com")[Email] |
+#link("mailto:dipesh@comp.nus.edu.sg")[NUS Email] |
+#link("https://github.com/dipeshkaphle")[GitHub] |
+#link("https://linkedin.com/in/dipeshk111/")[LinkedIn] |
+#link("https://dipeshkaphle.github.io")[Website]
 
-Curious Software Engineer with a strong interest in Programming Languages, Formal Verification and Systems Programming.
+Software engineer and PhD student focused on programming languages and formal methods, with a strong interest in systems programming and distributed systems.
 
 == Education
 #chiline()
 
-*National Institute of Technology Tiruchirappalli* #h(1fr) 2019-2023 \
+*National Institute of Technology Tiruchirappalli* #h(1fr) 2019 -- 2023 \
 B.Tech in Computer Science and Engineering #h(1fr) CGPA: 8.84/10 \
 - Studied algorithms and data structures, discrete mathematics, computer architecture, operating systems, computer networks, databases, theory of computation, and compilers.
+
+*National University of Singapore* #h(1fr) 2025 -- Present \
+Ph.D. in Computer Science #h(1fr) Singapore \
+- Coursework: CS6223 Advanced Topics in Software Testing, CS5223 Distributed Systems, CS5232 Formal Specification and Design Techniques, CS5469 Logic in Computer Science, CS6217 Topics in Programming Languages and Software Engineering.
+- Teaching Assistant, CS3213 Foundations of Software Engineering.
 
 == Work Experience
 #chiline()
 
-#link("https://uber.com")[*Uber*] #h(1fr) 07/2023 -- Present \
-Software Engineer I | Software Engineer II (03/2025 -- Present) #h(1fr) Bengaluru, India \
-- Primarily a backend engineer in the Trip Operations Platform team responsible for HITL (Human In The Loop) workflow orchestration and #link("https://www.uber.com/us/en/scaled-solutions/")[a platform for knowledge workers]. Working on improving platform reliability and enhancements, apart from the general feature additions.
-- Working with *Java*, *gRPC*, in-house dependency injection framework (based on *Spring Boot*), *Cadence* (A durable workflow orchestration engine), *Kafka* and *distributed databases* in my day to day work. Ocassionally, contributing to the frontend side of things as well using *Typescript*, *React* and *GraphQL*.
+#link("https://uber.com")[*Uber*] #h(1fr) 2023 -- 2025 \
+Software Engineer I -> Software Engineer II (Promoted 2025) #h(1fr) Bengaluru, India \
+- One of the two backend developers for the initial MVP of what is now Uber's #link("https://www.uber.com/in/en/ai-solutions/")[AI Solutions] initiative.
+- Part of the MVP scaling efforts that improved the platform to support tens of thousands of knowledge workers.
+- Owned the workflow responsible for generating earnings statements for knowledge workers on the platform.
+- Identified key issues and led the authorization improvement initiative for the HITL orchestration backend.
+- Identified reliability issues in the event flow responsible for knowledge worker payouts, and guided an intern to implement the fix with zero rollout issues.
+- Wrote a comprehensive internal guide for testing and debugging backend systems (RPC, Cadence, Kafka, SLATE), used regularly by engineers.
+- Handled multiple production incidents across services and drove fixes through coordination with partner teams.
+- Active code contributor and diff reviewer; go-to engineer for both the HITL orchestration backend and the supply side of AI Solutions.
 
-#link("https://github.com/prismlab")[*IIT Madras*] #h(1fr) 07/2022 --  02/2024 \
-Research Intern  #h(1fr) Remote \
+#link("https://github.com/prismlab")[*IIT Madras*] #h(1fr) 2022 -- 2024 \
+Research Intern #h(1fr) Remote \
 - Worked with Dr. KC Sivaramakrishnan and Dr. Kartik Nagar alongside a PhD student on a project that aimed to verify an OCaml style garbage collector with F\*/Low\*.
 - Helped with the integration of the extracted verified code with the #link("https://github.com/prismlab/ocaml-gc-hacking")[OCaml bytecode interpreter], ran real-world OCaml programs and ran benchmarks to analyze performance.
 - Wrote a #link("https://github.com/kayceesrk/ocaml/tree/29e76177c304dfb9fd75440c35ba4fb2744d4d0b/runtime/verified_gc/allocator")[next-fit allocator in Rust] which would then be hooked with the generated verified stop-the-world mark and sweep code. Analyzed performance using this before the bytecode interpreter integration. (#link("https://link.springer.com/article/10.1007/s10817-025-09721-0")[Paper Link]).
 
-#link("https://tarides.com")[*Tarides*] #h(1fr) 05/2023 -- 07/23 \
+#link("https://tarides.com")[*Tarides*] #h(1fr) 2023 \
 Software Engineering Intern #h(1fr) Remote \
 - Worked on developing #link("https://github.com/ocaml-multicore/par_incr")[Par_incr], a library for incremental computation with support for freshly introduced parallelism constructs in OCaml.
 
-#link("https://cdac.in/index.aspx?id=BL")[*CDAC Bangalore*] #h(1fr) 02/2023 -- 05/23 \
+#link("https://cdac.in/index.aspx?id=BL")[*CDAC Bangalore*] #h(1fr) 2023 \
 Research Intern #h(1fr) Remote \
 - Developed a GCC plugin that transformed a familiar code snippet to highly optimized subroutines and another one that tuned loop unrolling heuristics based on linear regression model.
 - Developed tool to visualize GCC's AST and filter out unnecessary information, to help with our program transformation experiments, and suggested potential ARM specific optimizations for future exploration.
 
-#link("https://uber.com")[*Uber*] #h(1fr) 06/2022 --  07/2022 \
+#link("https://uber.com")[*Uber*] #h(1fr) 2022 \
 Software Engineering Intern #h(1fr) Bengaluru, India \
 - Worked on improving reliability and observability of a service, involved setting up alerts and dashboards, integrating and collecting metrics, and error analysis.
 
@@ -71,22 +83,17 @@ Software Engineering Intern #h(1fr) Bengaluru, India \
 - Identified performance bottlenecks through profiling and applied various optimization techniques in OCaml.
 - Wrote benchmarks, compared the performance with other similar libraries, and achieved similar if not better performance on average.
 
-\
-
 #link("https://github.com/orgs/delta/repositories?q=codecharacter&type=all&language=&sort=")[*Code Character*] #h(1fr)\
 - A strategy-based programming game where you control troops in a turn-based game with the code you write in one of the multiple programming languages (C++, Python, Java) available in the game.
 - Worked on the implementation of the #link("https://github.com/delta/codecharacter-simulator/")[simulator (*C++*)]
-- Worked on the #link("https://github.com/delta/codecharacter-driver/")[game driver (*Rust*)]. Implemented the process orchestration, communication among the game processes, concurrent execution of games. Leveraged different system programming concepts, such as inter-process communication, unix processes, epoll, pipes, SPMC channels, etc in the implementation.
+- Worked on the #link("https://github.com/delta/codecharacter-driver/")[game driver (*Rust*)], including process orchestration, inter-process communication, and concurrent execution.
 
 #link("https://github.com/dipeshkaphle/enma")[*Enma*] #h(1fr)\
 - A programming language written in *C++* and *OCaml*.
-- The language has a uni-directional type checker and can be compiled to bytecode or readable C++ code. The bytecode interpreter is written in OCaml.
+- The language has a unidirectional type checker and can be compiled to bytecode or readable C++ code. The bytecode interpreter is written in OCaml.
 
 #link("https://github.com/dipeshkaphle/brainfuck")[*BF JITs*] #h(1fr)\
 - Implemented Just In Time compilers for Brainfuck language using Dynasm and Inkwell crate (provides LLVM bindings) in *Rust*.
-
-#link("https://github.com/Jayashrri/PCTF21")[*Pragyan CTF*] #h(1fr)\
-- Prepared challenges for Binary Exploitation/Reversing category, involving a small custom memory allocator, reversing SIMD instructions, and other common vulnerabilities.
 
 == Talks and Writings
 #chiline()
@@ -111,12 +118,5 @@ Software Engineering Intern #h(1fr) Bengaluru, India \
 == Skills
 #chiline()
 
-*Programming:* C, C++, Rust, OCaml, Java, Typescript, Python \
+*Programming:* C, C++, Rust, OCaml, Java, TypeScript, Python \
 *Areas:* Programming Languages, Systems Programming, Back-End Development, Databases
-
-== Languages
-#chiline()
-
-- *Nepali*: Native proficiency
-- *Hindi*: Native proficiency
-- *English*: Fluent (Professionally)
