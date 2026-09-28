@@ -45,13 +45,13 @@ Ph.D. in Computer Science #h(1fr) Singapore \
 #chiline()
 
 - *Certified Program Synthesis with a Multi-Modal Verifier.* \
-  Joint first author. #link("https://arxiv.org/abs/2604.16584")[arXiv]
+  ASE, 2026. Joint first author. #link("https://verse-lab.org/papers/leetproof-ase26.pdf")[Paper]
+
+- *Velvet: A Foundational Multi-Modal Verifier for Imperative Programs in Lean.* \
+  CAV, 2026 (Distinguished Paper Award). #link("https://verse-lab.org/papers/velvet-cav26.pdf")[Paper]
 
 - *A Mechanically Verified Garbage Collector for OCaml.* \
   Journal of Automated Reasoning, 2025. #link("https://link.springer.com/article/10.1007/s10817-025-09721-0")[Paper]
-
-- *Velvet: A Foundational Multi-Modal Verifier for Imperative Programs in Lean.* \
-  #link("https://verse-lab.org/papers/velvet-cav26.pdf")[Paper]
 
 == Work Experience
 #chiline()
@@ -81,6 +81,11 @@ Software Engineering Intern #h(1fr) Remote \
 == Technical Projects
 #chiline()
 
+#link("https://github.com/verse-lab/velvet")[*Velvet*] #h(1fr)\
+- A Dafny-style multi-modal verifier for imperative programs embedded in the *Lean 4* proof assistant.
+- Combines SMT-based automated verification (Z3, CVC5) with Lean's interactive proof mode, enabling programs to be specified, verified, and executed within a unified environment.
+- Supports separate reasoning for functional correctness and termination, non-determinism, and direct integration with Lean's `mathlib`.
+
 #link("https://github.com/ocaml-multicore/par_incr")[*Par_incr*] #h(1fr)\
 - A library for incremental computation with support for parallelism in *OCaml*. Other similar libraries lack parallelism constructs. The work is based on the paper #link("https://drive.google.com/file/d/130-sCY1YPzo4j3YAJ7EL9-MflK0l8RmJ/view?pli=1")[Efficient Parallel Self-Adjusting Computation]. [#link("https://dipeshkaphle.github.io/par_incr_presentation/presentation.pdf")[Slides]]
 - Wrote the library from scratch and thoroughly tested it.
@@ -91,13 +96,6 @@ Software Engineering Intern #h(1fr) Remote \
 - A strategy-based programming game where you control troops in a turn-based game with the code you write in one of the multiple programming languages (C++, Python, Java) available in the game.
 - Worked on the implementation of the #link("https://github.com/delta/codecharacter-simulator/")[simulator (*C++*)]
 - Worked on the #link("https://github.com/delta/codecharacter-driver/")[game driver (*Rust*)], including process orchestration, inter-process communication, and concurrent execution.
-
-#link("https://github.com/dipeshkaphle/enma")[*Enma*] #h(1fr)\
-- A programming language written in *C++* and *OCaml*.
-- The language has a unidirectional type checker and can be compiled to bytecode or readable C++ code. The bytecode interpreter is written in OCaml.
-
-#link("https://github.com/dipeshkaphle/brainfuck")[*BF JITs*] #h(1fr)\
-- Implemented Just In Time compilers for Brainfuck language using Dynasm and Inkwell crate (provides LLVM bindings) in *Rust*.
 
 == Talks and Writings
 #chiline()
