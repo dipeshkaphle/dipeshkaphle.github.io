@@ -1,0 +1,70 @@
+% From leetproof/ase26-final/figures/pipeline_prover_loop.tex.
+% Introduced in vericoding-papers commit 419f8a6; using the later final source.
+% Figure wrapper removed; partial-proof outcome highlighted in orange.
+\input{assets/pipeline-styles.tex}
+\begin{tikzpicture}[font=\small, >=stealth]
+  % Coordinates relative to LLM Prover at (0,0)
+  \def\hprover{0}
+  \def\hgoal{-6.2}
+  \def\hdone{2.8}
+  \def\houtcomes{7.2}
+  
+  \def\vtools{2.8}
+  \def\vmidtools{1.7}
+  \def\vbase{0}
+  
+  % Main Flow Nodes
+  \node[pipeline/artifact, minimum width=20mm] (goal) at (\hgoal, \vbase) {Goal /\\ Theorem};
+  \node[pipeline/llmstep, minimum width=24mm] (llm) at (0, 0) {LLM Prover\\[-1pt]\llmboticon};
+  \node[pipeline/step, minimum width=15mm] (done) at (\hdone, \vbase) {Done};
+
+  % Tools Grid (Consistent 24mm width)
+  \node[pipeline/step, minimum width=24mm] (check) at (-2.7, \vtools) {Check Proof};
+  \node[pipeline/step, minimum width=24mm] (decomp) at (0, \vtools) {Decompose};
+  \node[pipeline/step, minimum width=24mm] (search) at (2.7, \vtools) {Lean-Explore\\ Search};
+  
+  \node[pipeline/step, minimum width=24mm] (register) at (-1.35, \vmidtools) {Register Lemmas};
+  \node[pipeline/llmstep, minimum width=24mm] (strategy) at (1.35, \vmidtools) {Proof Strategy \llmboticon};
+
+  % Background containers
+  \begin{scope}[on background layer]
+    % 1. Draw inner Tools Box first
+    \node[pipeline/group, fit=(check) (search) (strategy) (register), inner sep=10pt] (toolsbox) {};
+    
+    % 2. Define label position 
+    \node[font=\scriptsize, anchor=south, inner sep=1pt] (toolslabel) at (toolsbox.north) {Tools};
+
+    % 3. Create an invisible spacer below the LLM Prover to push the bottom line down
+    \coordinate (bottomSpacer) at ($(llm.south) + (0, -0.3)$);
+
+    % 4. Draw Outer Panel (Blue) - now fitting around the bottomSpacer too!
+    \node[pipeline/panel, fit=(toolsbox) (llm) (done) (toolslabel) (bottomSpacer), inner xsep=12pt, inner ysep=2pt] (panel) {};
+    
+    % 5. Redraw inner box to ensure it's on top of panel fill
+    \node[pipeline/group, fit=(check) (search) (strategy) (register), inner sep=10pt] (toolsbox_front) {};
+  \end{scope}
+  
+  % 6. Tools Label (On main layer for absolute visibility)
+  \node[font=\scriptsize, anchor=south, inner sep=1pt] at (toolsbox.north) {Tools};
+
+  % 7. Outcomes (Uniform sizing)
+  \node[pipeline/artifact, minimum width=32mm, minimum height=10mm] (complete) at (\houtcomes, 1.4) {Complete Proof};
+  \node[pipeline/partial, minimum width=32mm, minimum height=10mm] (partial) at (\houtcomes, 0) {Partial Proof};
+  \node[pipeline/step, minimum width=32mm, minimum height=10mm] (recurse) at (\houtcomes, -1.4) {Recursive\\ Decomposition};
+
+  % 8. Flows
+  \draw[pipeline/flow] (goal) -- (llm);
+  \draw[pipeline/flow] (llm) -- (done);
+  
+  % Shortened arrows to prevent bleeding into the green border stroke
+  \draw[pipeline/flow, shorten >=1pt] (llm.110) -- node[pipeline/label, left, pos=0.5] {calls} (llm.110 |- toolsbox_front.south);
+  \draw[pipeline/flow, shorten <=1pt] (llm.70 |- toolsbox_front.south) -- node[pipeline/label, right, pos=0.5] {results} (llm.70);
+
+  % Shifted 'pos' to 0.8 to ensure labels render safely outside the blue panel
+  \draw[pipeline/flow] (done.20) -- node[pipeline/label, sloped, above, pos=0.8] {Proved} (complete.west);
+  \draw[pipeline/flow] (done.east) -- node[pipeline/label, fill=white, inner sep=1pt, pos=0.8] {Stuck} (partial.west);
+  \draw[pipeline/flow] (done.-20) -- node[pipeline/label, sloped, below, pos=0.8] {Decompose} (recurse.west);
+  
+  % Loop back - tighter routing
+  \draw[pipeline/flow] (recurse.south) -- ++(0,-0.4) -| (llm.south);
+\end{tikzpicture}

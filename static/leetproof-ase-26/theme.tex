@@ -1,0 +1,52 @@
+% Small adjustments to the Metropolis theme used in ../par_incr_presentation.
+\metroset{numbering=fraction,progressbar=frametitle}
+\setbeamertemplate{navigation symbols}{}
+\setbeamercolor{background canvas}{bg=white}
+
+\newcommand{\AIImageCreditFrame}{-1}
+\newcommand{\aiimagefooter}{%
+  \xdef\AIImageCreditFrame{\number\value{framenumber}}%
+}
+\setbeamertemplate{frame footer}{%
+  \ifnum\value{framenumber}=\AIImageCreditFrame\relax
+    {\color{gray}Images are AI-generated}%
+  \fi
+}
+
+% Eight authors and three affiliations need a more compact cover.
+\setbeamerfont{title}{size=\Large}
+\setbeamerfont{author}{size=\small,series=\bfseries}
+\setbeamerfont{institute}{size=\scriptsize}
+\setbeamerfont{date}{size=\small}
+
+% The stock title page's fixed spacing is too tall for this author list at 16:9.
+\setbeamertemplate{title page}{%
+  \vspace*{2mm}
+  \includegraphics[height=9mm]{assets/nus-logo.png}%
+  \hspace{8mm}%
+  \includegraphics[height=9mm]{assets/neapolis-logo.png}%
+  \hspace{8mm}%
+  \raisebox{1mm}{\includegraphics[height=7mm]{assets/eth-logo.png}}\par
+  \vspace{5mm}
+  {\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle\par}
+  \vspace{2mm}
+  \usebeamertemplate*{title separator}
+  \vspace{3mm}
+  {\usebeamerfont{author}\insertauthor\par}
+  \vspace{2mm}
+  {\usebeamerfont{institute}\insertinstitute\par}
+  \vspace{3mm}
+  {\usebeamerfont{date}\insertdate\par}
+}
+
+\pdfstringdefDisableCommands{%
+  \def\textsuperscript#1{}%
+  \def\underline#1{#1}%
+  \def\\{ }%
+}
+
+% Keep the PDF metadata readable (without affiliation markers or TeX).
+\hypersetup{
+  pdftitle={Certified program synthesis with a multi-modal verifier},
+  pdfauthor={Yueyang Feng, Dipesh Kafle, Vladimir Gladshtein, Vitaly Kurin, George Pîrlea, Qiyuan Zhao, Peter Müller, Ilya Sergey}
+}
