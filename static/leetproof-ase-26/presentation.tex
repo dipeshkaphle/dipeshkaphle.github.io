@@ -11,6 +11,7 @@
 \usepackage{babel}
 \usepackage{bookmark}
 \usepackage{xurl}
+\usepackage{qrcode}
 \usepackage{listings}
 \usepackage{lstlinebgrd}
 % Match the paper's Inconsolata code font without changing the deck's body font.
@@ -146,79 +147,76 @@ Lean formalization.\\[-0.5mm]
 
 \vspace{4mm}
 \centering
-\textbf{Humans only inspect the claim and assumptions;}\\
-proof checking is left to the verifier.
-
-\end{frame}
-
-\begin{frame}{Motivation}
-\centering
-{\large Can we automate the whole process?\par}
-\vspace{4mm}
-
-\begin{columns}[c,onlytextwidth]
-\begin{column}{0.37\textwidth}
-\centering
-{\Large\bfseries English task\par}
-\vspace{2mm}
-Describe what the program should do.
-\end{column}
-\begin{column}{0.10\textwidth}
-\centering
-{\Huge\color{mLightBrown}$\longrightarrow$}
-\end{column}
-\begin{column}{0.47\textwidth}
-\raggedright
-{\large\bfseries Runnable program\par}
-{\small An implementation we can execute.\par}
-\vspace{2mm}
-{\large\bfseries Formal specification\par}
-{\small A precise statement of intended behavior.\par}
-\vspace{2mm}
-{\large\bfseries Checked proof\par}
-{\small The program satisfies the specification.\par}
-\end{column}
-\end{columns}
-
-\end{frame}
-
-\begin{frame}{Why is this difficult?}
-\setlength{\parskip}{0pt}
-\textbf{\color{teal}Specifications are hard to get right}
-\vspace{3mm}
-
-Capturing intent precisely is difficult, even for humans.\\
-We found issues in existing verification benchmarks:
-
-\vspace{5mm}
-\begin{columns}[c,onlytextwidth]
-\begin{column}{0.47\textwidth}
-\centering
-{\Large\bfseries\color{mLightBrown}16 issues}\quad in \textbf{VERINA}
-\end{column}
-\begin{column}{0.47\textwidth}
-\centering
-{\Large\bfseries\color{mLightBrown}18 issues}\quad in \textbf{CLEVER}
-\end{column}
-\end{columns}
-
-\vspace{8mm}
 \uncover<2->{%
-\textbf{\color{teal}Proofs are hard to complete}
-\vspace{3mm}
-
-Even for a correct program, proof search can consume many tokens\\
-and still leave goals unproved.
+\textbf{In an ideal world:}\\[1mm]
+User gives a task description;\\
+AI gives a specification + implementation + proof.
 }
+
 \end{frame}
 
-\begin{frame}{Easier, more efficient certified synthesis}
+\begin{frame}{Our goal: Certified synthesis from natural language}
+\setlength{\parskip}{0pt}
+Generate a runnable program and a checked correctness proof from an English task.
+
+\vspace{10mm}
+\uncover<2->{{\centering\textbf{Two key challenges}\par}}
+\vspace{4mm}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.47\textwidth}
+\uncover<2->{%
+\textbf{\color{teal}Assessing specifications effectively}\par
+\vspace{3mm}
+Does the specification capture\\
+the intended task?\par
+}
+\end{column}
+\begin{column}{0.47\textwidth}
+\uncover<3->{%
+\textbf{\color{teal}Constructing proofs efficiently}\par
+\vspace{3mm}
+Can we complete the proof\\
+within a limited budget?\par
+}
+\end{column}
+\end{columns}
+
+\end{frame}
+
+\begin{frame}{Outline}
+\centering
+\begin{tikzpicture}[
+  stop/.style={circle,draw=teal,fill=teal!5,line width=1pt,
+    minimum size=12mm,inner sep=0pt,font=\Large\bfseries,text=teal},
+  heading/.style={font=\large\bfseries,text=mDarkTeal,align=center},
+  detail/.style={font=\small,align=center,text width=38mm},
+  journey/.style={->,line width=1pt,draw=mLightBrown}]
+\path[use as bounding box] (-2,-3.4) rectangle (11.4,0.7);
+\node[stop] at (0,0) {1};
+\node[heading] at (0,-1.25) {The idea};
+\node[detail,anchor=north] at (0,-1.85) {Multi-modal\\verification};
+\uncover<2->{%
+  \draw[journey] (0.85,0) -- (3.85,0);
+  \node[stop] at (4.7,0) {2};
+  \node[heading] at (4.7,-1.25) {The pipeline};
+  \node[detail,anchor=north] at (4.7,-1.85) {Inside LeetProof};
+}
+\uncover<3->{%
+  \draw[journey] (5.55,0) -- (8.55,0);
+  \node[stop] at (9.4,0) {3};
+  \node[heading] at (9.4,-1.25) {The evidence};
+  \node[detail,anchor=north] at (9.4,-1.85) {What the results show};
+}
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}{Our approach: Multi-modal verification}
 \begin{uncoverenv}<2->
 \begin{columns}[T,onlytextwidth]
 \begin{column}{0.30\textwidth}
 \textbf{\color{teal}Test}
 
-Reject incorrect candidates cheaply.
+Check examples with unit tests; search for counterexamples with PBT.
 \end{column}
 \begin{column}{0.30\textwidth}
 \textbf{\color{teal}Automate}
@@ -228,16 +226,16 @@ Discharge goals with SMT and Lean automation like \texttt{grind}.
 \begin{column}{0.30\textwidth}
 \textbf{\color{teal}Prove interactively}
 
-Handle goals automation cannot solve.
+Complete proofs when automation gets stuck.
 \end{column}
 \end{columns}
 \end{uncoverenv}
 
 \vspace{8mm}
-\uncover<3->{Combine \textbf{\textit{different modes}} to reject incorrect candidates and prove correct ones.\par}
+\uncover<3->{\href{https://velvetprover.dev/}{\textbf{Velvet}} combines these \textbf{\textit{modes}} for imperative programs in Lean.\par}
 
 \vspace{5mm}
-\uncover<4->{\textbf{\color{mLightBrown}Our hypothesis:} Using \href{https://velvetprover.dev/}{\textbf{Velvet}}, a multi-modal verifier in Lean, we can certify more programs within the same budget.\par}
+\uncover<4->{We present \textbf{\color{mLightBrown}LeetProof}, which uses multi-modality to turn English tasks into verified programs.\par}
 
 \end{frame}
 
@@ -299,113 +297,53 @@ prove_correct IsNonPrime by
 
 \end{frame}
 
-\begin{frame}{Running example}
-Determine whether an array is a rotation of a non-decreasing array.
-
-{\small Duplicates and zero rotation are allowed.}
-\vspace{4mm}
-
-\centering
-\begin{tikzpicture}[
-  cell/.style={draw=mDarkTeal!35, minimum width=8mm, minimum height=8mm,
-               font=\large, inner sep=0pt},
-  moved/.style={cell, draw=mLightBrown, fill=mLightBrown!12},
-  label/.style={font=\small}
-]
-  \foreach \value [count=\i from 0] in {1,2,3}
-    \node[cell] at (0.9*\i,0) {\value};
-  \node[moved] at (2.7,0) {4};
-  \draw[->, thick, mLightBrown] (3.4,0) -- (5,0)
-    node[midway,above,label] {rotate};
-  \node[moved] at (5.8,0) {4};
-  \foreach \value [count=\i from 1] in {1,2,3}
-    \node[cell] at (5.8+0.9*\i,0) {\value};
-  \node[anchor=west, font=\bfseries, text=teal] at (9.2,0) {true};
-
-  \node[anchor=west,label] at (-0.4,-1.5) {Not a rotation of a sorted array:};
-  \foreach \value [count=\i from 0] in {2,1,3,4}
-    \node[cell] at (5.8+0.9*\i,-1.5) {\value};
-  \node[anchor=west, font=\bfseries, text=mLightBrown] at (9.2,-1.5) {false};
-
-  \uncover<2->{
-    \node[label] at (7.15,-0.65) {One drop: $4>1$};
-    \node[label] at (7.15,-2.15) {Two drops: $2>1$ and $4>2$};
-  }
-\end{tikzpicture}
-
-\vspace{3mm}
-\uncover<2->{
-  {\large\bfseries Accept if there is at most one cyclic drop.\par}
-  {\small Compare adjacent elements, including the last-to-first pair.\par}
-}
-
-\end{frame}
-
 \begin{frame}{LeetProof pipeline}
 LeetProof orchestrates the entire pipeline from natural language to a verified implementation in the following phases:
 
 \vspace{6mm}
 \begin{columns}[T,onlytextwidth]
 \begin{column}{0.28\textwidth}
-{\large\textbf{1. Specification}\par}
+{\large\textbf{1. Generate\\specification}\par}
 \small
-Generate a specification and concrete test cases.
-
-\vspace{2mm}
-\textcolor{teal}{Type-check, review, and test the specification.}
+\alert<2->{Capture the intent} of an English description in a Lean specification.
 \end{column}
 \begin{column}{0.05\textwidth}
 \vspace{10mm}
 {\large\color{mLightBrown}$\longrightarrow$}
 \end{column}
 \begin{column}{0.28\textwidth}
-{\large\textbf{2. Program}\par}
+{\large\textbf{2. Synthesize\\program}\par}
 \small
-Generate executable code and loop invariants.
+\textbf{Plain Lean:} Generate a functional implementation.
 
 \vspace{2mm}
-\textcolor{teal}{Run tests and check verification conditions.}
+\textbf{Velvet:} Generate an imperative implementation, then \alert<2->{infer and annotate loops with invariants}.
 \end{column}
 \begin{column}{0.05\textwidth}
 \vspace{10mm}
 {\large\color{mLightBrown}$\longrightarrow$}
 \end{column}
 \begin{column}{0.28\textwidth}
-{\large\textbf{3. Proof}\par}
+{\large\textbf{3. Verify the\\program}\par}
 \small
-Prove the verification conditions.
-
-\vspace{2mm}
-\textcolor{teal}{Apply automation, then AI-assisted Lean proofs.}
+Prove that the synthesized program satisfies the specification.
 \end{column}
 \end{columns}
 
-\vspace{6mm}
-\centering
-Feedback guides revisions within each stage.
-
 \end{frame}
 
 \begin{frame}{Specification generation}
-\begingroup
-\large\textbf{Capturing intent is difficult}\par
-\endgroup
-\vspace{4mm}
-
 \begin{itemize}
-\setlength{\itemsep}{4mm}
-\item<2-> Writing precise specifications is difficult for humans and LLMs.
-\item<3-> A proof is only as good as its specification. So, it is very important that specification is validated against the intent somehow.
+\setlength{\itemsep}{6mm}
+\item<1-> \textbf{Capturing intent is difficult} for LLMs, and even humans.
+\item<2-> Intent capture cannot be guaranteed, but we can effectively \textbf{\color{mLightBrown}search for mismatches}.
 \end{itemize}
 
-\vspace{5mm}
-\uncover<4->{\textbf{\color{mLightBrown}Key insight: We cannot prove agreement with informal intent, but we can effectively search for mismatches.}}
-
 \end{frame}
 
 \begin{frame}{Specification generation}
 \begingroup
-\large\textbf{Checking the LLM's understanding}\par
+\large\textbf{Step 1: Check the LLM's understanding}\par
 \endgroup
 \vspace{4mm}
 
@@ -440,7 +378,7 @@ based on its interpretation (about ten in total).
 \begin{frame}{Specification generation}
 \setlength{\parskip}{0pt}
 \begingroup
-\large\textbf{Gaining confidence in the generated specification}\par
+\large\textbf{Step 2: Gaining confidence in the generated specification}\par
 \endgroup
 \vspace{3mm}
 
@@ -461,73 +399,48 @@ based on its interpretation (about ten in total).
 
 \begin{frame}[fragile]{Specification generation}
 \setlength{\parskip}{0pt}
-\begingroup
-\large\textbf{Result}\par
-\endgroup
-\vspace{1mm}
+{\small Task: Return whether the array is sorted and rotated.\par}
+\vspace{4mm}
 
-\begin{lstlisting}[style=paperLean,escapeinside={|}{|}]
--- A drop is a strict decrease to the cyclic successor.
-def isDrop (nums : Array Int) (i : Nat) : Prop := ...
-
--- A sorted-and-rotated array has at most one cyclic drop.
-def rotSortedProp (nums : Array Int) : Prop := ...
-
--- No extra assumptions on the input.
-def precondition (nums : Array Int) : Prop := True
-
--- The result exactly decides the sorted-and-rotated property.
+\begin{overlayarea}{\textwidth}{21mm}
+\begin{onlyenv}<1-2>
+{\large\textbf{Candidate specification 1}\par}
+\vspace{3mm}
+\begin{lstlisting}[style=paperLean,basicstyle=\paperCodeFont\mdseries\color{black}\fontsize{10}{12}\selectfont]
 def postcondition (nums : Array Int) (result : Bool) :=
-  result = true $\textcolor{mLightBrown}{\leftrightarrow}$ rotSortedProp nums|\tikz[remember picture,baseline] \coordinate (specPostconditionEnd);|
-
-def test1_nums : Array Int := #[1, 2, 3]
-def test1_Expected : Bool := true
--- Additional test cases omitted.
+  result = true $\textcolor{red!75!black}{\to}$ rotSortedProp nums
 \end{lstlisting}
+\end{onlyenv}
+\begin{onlyenv}<3>
+{\large\textbf{Candidate specification 2}\par}
+\vspace{3mm}
+\begin{lstlisting}[style=paperLean,basicstyle=\paperCodeFont\mdseries\color{black}\fontsize{10}{12}\selectfont]
+def postcondition (nums : Array Int) (result : Bool) :=
+  result = true $\textcolor{teal}{\leftrightarrow}$ rotSortedProp nums
+\end{lstlisting}
+\end{onlyenv}
+\end{overlayarea}
 
-\uncover<2->{%
-\begin{tikzpicture}[remember picture,overlay]
-\node[cloud,cloud puffs=12,cloud puff arc=110,aspect=1.3,
-  draw=mLightBrown,fill=orange!7,thick,
-  text width=32mm,align=center,inner sep=1mm,font=\small]
-  (weakSpec) at ($(current page.east)+(-29mm,-5mm)$)
-  {If we had $\to$ instead of $\leftrightarrow$, an implementation returning \texttt{false} always would satisfy the spec.\\[2mm]
-   \textbf{PBT catches this with output uniqueness.}};
-\draw[->,thick,mLightBrown] (weakSpec.south west)
-  to[bend left=10] ([xshift=1mm]specPostconditionEnd);
-\end{tikzpicture}%
+\begin{overlayarea}{\textwidth}{29mm}
+\only<2>{%
+With $\to$, always returning \texttt{false} satisfies the specification.\par
+\vspace{4mm}
+\textbf{Output uniqueness test}\par
+\texttt{[1, 2, 3]}:\quad \texttt{true} $\longrightarrow$ \texttt{false}\quad postcondition still holds!\par
 }
+\end{overlayarea}
 
-\end{frame}
-
-\begin{frame}{Program generation}
-\setlength{\parskip}{0pt}
-\input{assets/pipeline-styles.tex}
+\begin{overlayarea}{\textwidth}{9mm}
 \centering
-\begin{tikzpicture}[
-  stage/.style={draw=teal!65,fill=teal!4,rounded corners=2pt,
-    minimum width=34mm,minimum height=22mm,align=center,font=\small},
-  flow/.style={->,thick,draw=teal!80!black},
-  feedback/.style={->,thick,draw=mLightBrown}]
-\node[stage] (task) at (0,0) {Specification\\+ examples};
-\node[stage] (generate) at (4.3,0)
-  {Generate\\implementation\\[2mm]\llmboticon};
-\node[stage,minimum width=46mm] (check) at (9,0)
-  {\textbf{Check candidate}\\[2mm]Examples\;$\cdot$\;PBT\\LLM review};
-\draw[flow] (task) -- (generate);
-\draw[flow] (generate) -- (check);
-\node[stage,minimum height=10mm,minimum width=46mm] (next) at (9,-3.2)
-  {Infer invariants};
-\draw[flow] (check.south) -- node[right,font=\small] {Pass} (next.north);
-\draw[feedback] (check.south) -- (9,-1.85)
-  -- node[below,font=\small] {Revise on failure} (4.3,-1.85)
-  -- (generate.south);
-\end{tikzpicture}
-
+\only<2>{{\Large\bfseries\color{red!75!black}Rejected by PBT\par}}
+\only<3>{{\Large\bfseries\color{teal}Approved by pipeline\par}}
+\end{overlayarea}
 \end{frame}
 
 \begin{frame}[fragile]{Invariant inference}
 \setlength{\parskip}{0pt}
+{\large\textbf{Step 1: Generate candidate invariants}\par}
+\vspace{5mm}
 \begin{columns}[T,onlytextwidth]
 \begin{column}{0.28\textwidth}
 \textbf{\color{teal}Program}\par
@@ -567,15 +480,14 @@ do
 \end{column}
 \end{columns}
 
-\vspace{9mm}
-We ask the LLM to propose invariants, then focus our effort on validating them.
 \end{frame}
 
-\begin{frame}[fragile]{Gaining confidence in invariants: Prove with automation}
+\begin{frame}[fragile]{Invariant inference}
 \setlength{\parskip}{0pt}
+{\large\textbf{Step 2: Validate invariants (automation)}\par}
+\vspace{3mm}
 \textbf{Discharge obligations automatically using SMT / Lean's automation.}
 \vspace{3mm}
-\invariantFlow{Program + invariants}{Velvet generates VCs}{SMT / Lean automation}
 
 \vspace{3mm}
 {\small\color{teal}A simplified obligation for illustrative purpose\par}
@@ -592,12 +504,13 @@ For the final program of our running example, 14/18 VCs were discharged using au
 }
 \end{frame}
 
-\begin{frame}[fragile]{Gaining confidence in invariants: Counterexample search}
+\begin{frame}[fragile]{Invariant inference}
 \setlength{\parskip}{0pt}
-\invariantFlow{Candidate invariant}{Property-based testing}{Counterexample\;$\to$\;revise}
+{\large\textbf{Step 2: Validate invariants (counterexample search)}\par}
+\vspace{3mm}
 
 \vspace{3mm}
-{\small\color{teal}Invariant from the running example, with $=$ changed to $<$.\par}
+{\small\color{teal}A candidate invariant, with $=$ changed to $<$.\par}
 \vspace{2mm}
 \begin{lstlisting}[
   style=paperLean,escapeinside={|}{|},backgroundcolor=\color{yellow!16}
@@ -621,155 +534,74 @@ nums = #[-18, 10, -13, 11, 8, 17, 13, -19, 15, -1, -27, -25]
 \end{uncoverenv}
 \end{frame}
 
-\begin{frame}[fragile]{Gaining confidence in invariants: LLM judge}
+\begin{frame}{RQ1: Specification quality}
 \setlength{\parskip}{0pt}
-\invariantFlow{Unresolved VC}{LLM review}{Suggested repair}
-
-\vspace{1mm}
-{\scriptsize\color{teal}Simplified review request\par}
-\vspace{1mm}
-\begin{lstlisting}[style=reviewJSON]
-{
-  "goal": "theorem post ... : drops $\leq$ 1 $\leftrightarrow$ rotSortedProp nums",
-  "context": "Specification, implementation, current invariants",
-  "prompt": [
-    "Find counterexamples; check empty collections, zero, singletons.",
-    "Attempt a proof sketch; name lemmas and identify blockers.",
-    "Decide: provable, or hypotheses insufficient?"
-  ]
-}
-\end{lstlisting}
-
-\vspace{3mm}
-\begin{uncoverenv}<2->
-{\scriptsize\color{teal}Illustrative feedback from the judge\par}
-\vspace{1mm}
-\begin{lstlisting}[style=reviewJSON,backgroundcolor=\color{teal!5}]
-{
-  "is_provable": false,
-  "justification": "Index bounds do not constrain drops.",
-  "correction_hint": "Track cyclic decreases in the visited prefix."
-}
-\end{lstlisting}
-\end{uncoverenv}
-\end{frame}
-
-\begin{frame}[fragile]{Program + invariant}
-\setlength{\parskip}{0pt}
-\begin{lrbox}{\programInvariantListing}
-\begin{minipage}{0.70\textwidth}
-\begin{lstlisting}[
-  style=paperLean,
-  lineskip=-1.7pt,
-  columns=fullflexible,keepspaces=true,showstringspaces=false,
-  aboveskip=0pt,belowskip=0pt,mathescape=true,
-  numbers=left,numberstyle=\tiny\color{black!55},numbersep=5pt,
-  xleftmargin=4mm,
-  linebackgroundcolor={\color{white}\ifnum\value{lstnumber}>11 \ifnum\value{lstnumber}<19 \color{yellow!16}\fi\fi\ifnum\value{lstnumber}=26 \color{blue!9}\fi\ifnum\value{lstnumber}=27 \color{green!12}\fi},
-  linebackgroundheight=5.7pt,linebackgrounddepth=1.7pt,
-]
-method CheckSortedAndRotated (nums : Array Int)
-return (result : Bool)
-require precondition nums
-ensures postcondition nums result
-do
-  let n := nums.size
-  if n $\leq$ 1 then return true
-  else
-    let mut drops : Nat := 0
-    let mut i : Nat := 0
-    while i < n
-      invariant "inv_bounds" (i $\leq$ n)
-      invariant "inv_n_def" (n = nums.size)
-      invariant "inv_n_pos" (n > 0)
-      invariant "inv_drops_count" (drops = (Finset.filter
-        (fun k : Nat => nums[(k + 1) % n]! < nums[k]!)
-        (Finset.range i)).card)
-      decreasing n - i
-    do
-      let a := nums[i]!
-      let b := nums[(i + 1) % n]!
-      if b < a then drops := drops + 1
-      i := i + 1
-    return (drops $\leq$ 1)
-
-#guard (CheckSortedAndRotated #[4, 1, 2, 3]).extract
-velvet_plausible_test CheckSortedAndRotated
-\end{lstlisting}
-\end{minipage}
-\end{lrbox}
+\textbf{Generating specifications from English tasks}\par
+\vspace{7mm}
+\begin{columns}[c,onlytextwidth]
+\begin{column}{0.44\textwidth}
 \centering
-\vspace*{3mm}
-\begin{tikzpicture}[remember picture]
-\node[inner sep=0pt] (programListing)
-  {\resizebox*{!}{0.84\textheight}{\usebox{\programInvariantListing}}};
-\uncover<2->{%
-\begin{scope}[overlay,
-  codeCallout/.style={cloud,cloud puffs=10,cloud puff arc=110,
-    aspect=1.3,thick,text width=18mm,align=center,inner sep=0.8mm,
-    font=\fontsize{8}{9}\selectfont}]
-\node[codeCallout,draw=mLightBrown,fill=yellow!12] (invariantNote)
-  at ($(programListing.west)+(-18mm,3mm)$)
-  {Loop invariant annotations};
-\node[codeCallout,draw=codeKeyword,fill=blue!6] (unitNote)
-  at ($(programListing.east)+(20mm,2mm)$)
-  {Unit test using a concrete test case};
-\node[codeCallout,draw=teal,fill=green!8] (pbtNote)
-  at ($(programListing.south east)+(20mm,9mm)$)
-  {Property-based testing (PBT)};
-\coordinate (invariantRow) at
-  ($(programListing.north west)!0.46!(programListing.south west)$);
-\coordinate (unitRow) at
-  ($(programListing.north east)!0.945!(programListing.south east)$);
-\coordinate (pbtRow) at
-  ($(programListing.north east)!0.985!(programListing.south east)$);
-\draw[->,thick,mLightBrown] (invariantNote.east)
-  to[bend left=10] ([xshift=5mm]invariantRow);
-\draw[->,thick,codeKeyword] (unitNote.south west)
-  to[bend right=10] ([xshift=-3mm]unitRow);
-\draw[->,thick,teal] (pbtNote.west)
-  -- ([xshift=-3mm]pbtRow);
-\end{scope}%
-}
-\end{tikzpicture}\par
-\end{frame}
-
-\begin{frame}{Evaluation: RQ1 --- Specification accuracy}
-\setlength{\parskip}{0pt}
-\begingroup
-\large\textbf{How accurate are LeetProof's specifications compared with human-written references?}\par
-\endgroup
-\vspace{3mm}
-{\small 188 VERINA problems; equivalence checking and manual review.\par}
-
-\vspace{10mm}
-\begingroup
-\centering
-\uncover<2->{%
 {\color{teal}\bfseries\fontsize{36}{40}\selectfont 97.4\%\par}
-\vspace{4mm}
-\textbf{150} equivalent to reference\quad +\quad \textbf{33} defensible\textsuperscript{*}\par
-}
-\endgroup
+\vspace{2mm}
+\textbf{Equivalent or defensible\textsuperscript{*}}\par
+\end{column}
+\begin{column}{0.50\textwidth}
+\textbf{188 VERINA problems}\par
+\vspace{5mm}
+\begin{tabular}{@{}r@{\hspace{3mm}}l@{}}
+\textbf{150} & Equivalent to reference\\[3mm]
+\textbf{33} & Defensible differences
+\end{tabular}\par
+\end{column}
+\end{columns}
 
 \vspace{12mm}
-\uncover<2->{%
 {\footnotesize\textsuperscript{*}Defensible: justified differences due to reference errors, valid precondition variations, or ambiguous descriptions.\par}
-}
+\end{frame}
 
+\begin{frame}{RQ1: Specification quality}
+\setlength{\parskip}{0pt}
+\textbf{PBT uncovers issues in human-written benchmarks}\par
+\vspace{6mm}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.47\textwidth}
+\centering
+\textbf{VERINA}\par
+\vspace{3mm}
+\begin{minipage}[c][22mm][c]{\linewidth}
+\centering
+\includegraphics[width=\linewidth,height=22mm,keepaspectratio,trim={30bp 77.5bp 30bp 75bp},clip]{assets/Verina.png}
+\end{minipage}\par
+\vspace{4mm}
+{\Large\bfseries\color{mLightBrown}13 issues}\par
+\end{column}
+\begin{column}{0.47\textwidth}
+\centering
+\textbf{CLEVER}\par
+\vspace{3mm}
+\begin{minipage}[c][22mm][c]{\linewidth}
+\centering
+\includegraphics[width=\linewidth,height=22mm,keepaspectratio,trim={0bp 317.5bp 0bp 40bp},clip]{assets/Clever.png}
+\end{minipage}\par
+\vspace{4mm}
+{\Large\bfseries\color{mLightBrown}18 issues}\par
+\end{column}
+\end{columns}
+\vspace{6mm}
+{\centering Found without LLM assistance.\par}
 \end{frame}
 
 \begin{frame}{Evaluation: RQ2 --- Certified synthesis}
 \setlength{\parskip}{0pt}
 \begingroup
-\large\textbf{More certified solutions than single-mode Lean, at the same cost}\par
+\large\textbf{More certified solutions with Velvet compared to functional Lean, at the same cost}\par
 \endgroup
 \vspace{4mm}
-\textbf{Fully proven:} Lean 17/50; Velvet 28/50.
+\textbf{Fully proven (GPT-5.2):} Lean 17/50; Velvet 28/50.
 \vspace{3mm}
 
 \centering
-\includegraphics[width=0.88\textwidth]{assets/proof-waffle.pdf}
+\includegraphics[height=49mm,trim={0bp 35bp 211.827bp 82bp},clip]{assets/backend-overlap-venn.pdf}
 
 \end{frame}
 
@@ -787,11 +619,9 @@ Can additional proof effort close the remaining goals?\par
 Lean & \textbf{23 / 30}\\[3mm]
 Velvet & \textbf{\color{teal}18 / 18}
 \end{tabular}
-\vspace{5mm}
-
-All partially proven Velvet programs were certified.\par
 \end{column}
 \begin{column}{0.46\textwidth}
+\begin{uncoverenv}<2->
 {\large\textbf{\color{teal}RQ4: Across different LLMs}}\par
 \vspace{3mm}
 Does the advantage hold with another model?\par
@@ -801,50 +631,56 @@ Does the advantage hold with another model?\par
 \begin{tabular}{@{}l@{\hspace{4mm}}r@{\hspace{4mm}}r@{}}
  & Lean & Velvet\\[2mm]
 GPT-5.2 & 17/50 & \textbf{\color{teal}28/50}\\[3mm]
-Opus 4.6 & 7/25 & \textbf{\color{teal}10/25}
-\end{tabular}
-\vspace{2mm}
-
-{\footnotesize Opus: a random subset of 25 problems.\par}
-\vspace{4mm}
-Velvet leads under both models.\par
+Opus 4.6 & 7/25\textsuperscript{*} & \textbf{\color{teal}10/25\textsuperscript{*}}
+\end{tabular}\par
+\vspace{5mm}
+{\footnotesize\textsuperscript{*}25 problems chosen at random from the 50 evaluated with GPT-5.2.\par}
+\end{uncoverenv}
 \end{column}
 \end{columns}
 \end{frame}
 
 \begin{frame}{Summary}
 \setlength{\parskip}{0pt}
+\begingroup
+\small
 \begin{columns}[T,onlytextwidth]
 \begin{column}{0.47\textwidth}
 \textbf{\color{teal}What have we seen}\par
 \vspace{3mm}
 \begin{itemize}
-\setlength{\itemsep}{3mm}
-\item<2-> \textbf{PBT is highly effective.}
-\item<3-> \textbf{Decomposition simplifies synthesis.}
-\item<4-> \textbf{Multi-modality pays off.}
+\setlength{\itemsep}{1.5mm}
+\item<2-> Certified synthesis needs both \textbf{faithful specifications and complete proofs}.
+\item<3-> Testing \textbf{rejects bad candidates} before we spend effort proving them.
+\item<4-> LeetProof uses Velvet's multiple modes to \textbf{certify more programs within the same budget}.
 \end{itemize}
 \end{column}
 \begin{column}{0.47\textwidth}
 \uncover<5->{\textbf{\color{teal}Interesting future directions}}\par
 \vspace{3mm}
 \begin{itemize}
-\setlength{\itemsep}{3mm}
+\setlength{\itemsep}{1.5mm}
 \item<5-> \textbf{Certified synthesis of protocols and distributed systems.}
 \item<6-> \textbf{Going Beyond functional correctness.}
 \end{itemize}
 \end{column}
 \end{columns}
+\endgroup
 
-\vspace{6mm}
+\vspace{3mm}
 \uncover<7->{%
 \centering
-\textbf{Follow our work:} \href{https://verse-lab.org/}{verse-lab.org}\par
+\begin{tabular}{@{}c@{\hspace{14mm}}c@{\hspace{14mm}}c@{\hspace{14mm}}c@{}}
+\qrcode[height=17mm]{https://verse-lab.org/} &
+\qrcode[height=17mm]{https://github.com/verse-lab/velvet/} &
+\qrcode[height=17mm]{https://zenodo.org/records/22046794} &
+\qrcode[height=17mm]{https://verse-lab.org/papers/leetproof-ase26.pdf}\\[1mm]
+\small\href{https://verse-lab.org/}{Verse Lab} &
+\small\href{https://github.com/verse-lab/velvet/}{Velvet} &
+\small\href{https://zenodo.org/records/22046794}{Artifact} &
+\small\href{https://verse-lab.org/papers/leetproof-ase26.pdf}{Paper}
+\end{tabular}\par
 \vspace{2mm}
-\href{https://github.com/verse-lab/velvet/}{Velvet}\quad$\cdot$\quad
-\href{https://zenodo.org/records/22046794}{Artifact}\quad$\cdot$\quad
-\href{https://verse-lab.org/papers/leetproof-ase26.pdf}{Paper}\par
-\vspace{5mm}
 {\large\textbf{\color{teal}Thank you!}\par}
 }
 
