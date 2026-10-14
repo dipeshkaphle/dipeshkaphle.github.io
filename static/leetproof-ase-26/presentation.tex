@@ -344,7 +344,7 @@ Generate a runnable program and a checked correctness proof from an English task
 \node[mode] (auto) at (4.6,0)
   {{\bfseries\color{teal}Automate\par}\vspace{1.5mm}
    {\small SMT, \texttt{grind}\par}\vspace{1mm}
-   {\footnotesize\color{black!60}Proves routine goals,\\but may get stuck.\par}};
+   {\footnotesize\color{black!60}Effective, but incomplete\par}};
 \node[mode] (inter) at (9.2,0)
   {{\bfseries\color{teal}Prove interactively\par}\vspace{1.5mm}
    {\small Lean tactics, AI provers\par}\vspace{1mm}
@@ -873,10 +873,10 @@ Velvet & \fracbar{18}{18}{36}{teal} & \textbf{\color{teal}18 / 18}
 \vspace{3mm}
 \begin{itemize}
 \setlength{\itemsep}{3mm}
-\item PBT significantly helps with hard problems like \textbf{specification generation} and \textbf{invariant inference}: candidates that reach the proof stage are more likely correct and need less proof effort.
-\item Multi-modality \textbf{certifies more programs at the same cost}.
+\item PBT is a \textbf{cheap, effective and versatile} validation technique: it filters out wrong specifications, invariants and programs, and even caught bugs in \textbf{published benchmarks}.
+\item Combining testing, SMT and interactive proof (multi-modality) \textbf{certifies more programs at the same cost}.
 \end{itemize}
-\vspace{9mm}
+\vspace{5mm}
 \uncover<2->{%
 {\textbf{\color{teal}Future directions}\par}
 \vspace{2mm}
@@ -885,6 +885,7 @@ Velvet & \fracbar{18}{18}{36}{teal} & \textbf{\color{teal}18 / 18}
 \setlength{\itemsep}{1mm}
 \item Certified synthesis of protocols and distributed systems.
 \item Going beyond functional correctness.
+\item Synthesizing verified low-level systems code.
 \end{itemize}}}
 \end{column}
 \begin{column}{0.32\textwidth}
