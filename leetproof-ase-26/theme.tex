@@ -1,0 +1,71 @@
+% Small adjustments to the Metropolis theme used in ../par_incr_presentation.
+\metroset{numbering=fraction,progressbar=frametitle}
+\setbeamertemplate{navigation symbols}{}
+\setbeamercolor{background canvas}{bg=white}
+
+\newcommand{\AIImageCreditFrame}{-1}
+\newcommand{\aiimagefooter}{%
+  \xdef\AIImageCreditFrame{\number\value{framenumber}}%
+}
+\setbeamertemplate{frame footer}{%
+  \ifnum\value{framenumber}=\AIImageCreditFrame\relax
+    {\color{gray}Images are AI-generated}%
+  \fi
+}
+
+% Eight authors and three affiliations need a more compact cover.
+\setbeamerfont{title}{size=\Large}
+\setbeamerfont{author}{size=\small,series=\bfseries}
+\setbeamerfont{institute}{size=\scriptsize}
+\setbeamerfont{date}{size=\small}
+
+% Portraits from https://verse-lab.org/, in paper author order.
+\newcommand{\titleAuthor}[3]{%
+  \begin{minipage}[t]{0.118\textwidth}
+    \centering
+    \includegraphics[width=12.5mm,height=12.5mm,keepaspectratio]{assets/authors/#1}\par
+    \vspace{1mm}
+    {\bfseries\fontsize{6.5}{7.5}\selectfont #2\\#3\par}
+  \end{minipage}%
+}
+
+% The stock title page's fixed spacing is too tall for this author list at 16:9.
+\setbeamertemplate{title page}{%
+  \setlength{\parskip}{0pt}
+  \vspace*{2mm}
+  \includegraphics[height=9mm]{assets/nus-logo.png}%
+  \hspace{8mm}%
+  \includegraphics[height=9mm]{assets/neapolis-logo.png}%
+  \hspace{8mm}%
+  \raisebox{1mm}{\includegraphics[height=7mm]{assets/eth-logo.png}}\par
+  \vspace{4mm}
+  {\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle\par}
+  \vspace{2mm}
+  \usebeamertemplate*{title separator}
+  \vspace{3mm}
+  \noindent
+  \titleAuthor{yueyang.jpg}{Yueyang}{Feng\textsuperscript{1,*}}\hfill
+  \titleAuthor{dipesh.jpg}{\underline{Dipesh}}{\underline{Kafle}\textsuperscript{1,*}}\hfill
+  \titleAuthor{vladimir.png}{Vladimir}{Gladshtein\textsuperscript{1}}\hfill
+  \titleAuthor{vitaly.jpg}{Vitaly}{Kurin\textsuperscript{2}}\hfill
+  \titleAuthor{george.jpg}{George}{Pîrlea\textsuperscript{1}}\hfill
+  \titleAuthor{qiyuan.jpg}{Qiyuan}{Zhao\textsuperscript{1}}\hfill
+  \titleAuthor{peter.jpeg}{Peter}{Müller\textsuperscript{3}}\hfill
+  \titleAuthor{ilya.jpg}{Ilya}{Sergey\textsuperscript{1}}\par
+  \vspace{4mm}
+  {\usebeamerfont{institute}\insertinstitute\par}
+  \vspace{3mm}
+  {\usebeamerfont{date}\insertdate\par}
+}
+
+\pdfstringdefDisableCommands{%
+  \def\textsuperscript#1{}%
+  \def\underline#1{#1}%
+  \def\\{ }%
+}
+
+% Keep the PDF metadata readable (without affiliation markers or TeX).
+\hypersetup{
+  pdftitle={Certified program synthesis with a multi-modal verifier},
+  pdfauthor={Yueyang Feng, Dipesh Kafle, Vladimir Gladshtein, Vitaly Kurin, George Pîrlea, Qiyuan Zhao, Peter Müller, Ilya Sergey}
+}

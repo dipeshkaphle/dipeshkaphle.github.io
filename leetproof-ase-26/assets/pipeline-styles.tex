@@ -1,0 +1,84 @@
+% Shared paper diagram styles from pipeline_tikz_styles.tex.
+\providecommand{\llmboticon}{%
+	\tikz[baseline=-0.55ex, x=0.85mm, y=0.85mm]{
+		\draw[line width=0.35mm, rounded corners=0.5mm]
+		(-1.6,-1.2) rectangle (1.6,1.2);
+		\draw[line width=0.35mm] (0,1.2) -- (0,2.0);
+		\fill (0,2.2) circle (0.22);
+		\fill (-0.55,0.2) circle (0.16);
+		\fill (0.55,0.2) circle (0.16);
+		\draw[line width=0.3mm] (-0.75,-0.45) -- (0.75,-0.45);
+		\draw[line width=0.35mm] (-1.6,0) -- (-2.2,0);
+		\draw[line width=0.35mm] (1.6,0) -- (2.2,0);
+		\draw[line width=0.35mm] (-0.8,-1.2) -- (-0.8,-2.0);
+		\draw[line width=0.35mm] (0.8,-1.2) -- (0.8,-2.0);
+	}%
+}
+
+\tikzset{
+	pipeline/base/.style={
+			draw=blue!60!black,
+			rounded corners=3pt,
+			thick,
+			align=center,
+			inner sep=3pt,
+			minimum height=8mm,
+			%font inherited from tikzpicture
+		},
+	pipeline/artifact/.style={
+			pipeline/base,
+			draw=blue!80!black,
+			fill=blue!5
+		},
+	pipeline/panel/.style={
+			draw=blue!60!black,
+			rounded corners=4pt,
+			thick,
+			fill=black!2
+		},
+	pipeline/step/.style={
+			pipeline/base,
+			draw=green!60!black,
+			fill=green!5,
+			minimum width=19mm
+		},
+	pipeline/llmstep/.style={
+			pipeline/base,
+			draw=purple!80!black,
+			fill=purple!10,
+			minimum width=19mm
+		},
+	pipeline/outcome/.style={
+			pipeline/base,
+			draw=blue!80!black,
+			fill=blue!20
+		},
+	pipeline/partial/.style={
+			pipeline/base,
+			draw=orange!70!black,
+			fill=orange!10
+		},
+	pipeline/flow/.style={
+			->,
+			thick,
+			draw=blue!60!black
+		},
+	pipeline/revise/.style={
+			->,
+			thick,
+			dashed,
+			draw=red!70!black
+		},
+	pipeline/label/.style={
+			font=\scriptsize,
+			inner sep=1.5pt,
+			auto
+		},
+	pipeline/group/.style={
+			draw=green!60!black,
+			fill=green!8,
+			rounded corners=3pt,
+			thick
+		}
+}
+

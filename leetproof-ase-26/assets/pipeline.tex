@@ -1,0 +1,118 @@
+% From leetproof/ase26-final/figures/pipeline_spec_and_program.tex
+% and pipeline_tikz_styles.tex in verse-lab/vericoding-papers.
+% Paper layout retained; figure wrapper removed for Beamer.
+\input{assets/pipeline-styles.tex}
+\begin{tikzpicture}[font={\fontsize{9.8}{12}\selectfont}, >=stealth]
+
+  %% ============================================================
+  %% Row 1: Specification Generation
+  %% ============================================================
+  \def\rowy{0}
+
+  \node[pipeline/artifact, minimum width=22mm] (in1) at (-0.3,\rowy)
+    {Task description\\ in natural language};
+
+  \node[pipeline/llmstep, minimum width=22mm] (draft1) at (2.8,\rowy)
+    {LLM drafts\\ specification\\[-1pt]\llmboticon};
+  \node[pipeline/step, minimum width=18mm] (typecheck) at (5.6,\rowy)
+    {Type checking};
+  \node[pipeline/llmstep, minimum width=22mm] (review1) at (8.4,\rowy)
+    {LLM reviews\\ specification\\[-1pt]\llmboticon};
+  \node[pipeline/step, minimum width=24mm] (tests1) at (11.2,\rowy)
+    {PBT};
+  \node[pipeline/artifact, minimum width=20mm] (out1) at (14.3,\rowy)
+    {Hoare-style\\ specification};
+
+  \begin{scope}[on background layer]
+    \node[pipeline/panel, fit=(draft1) (review1) (tests1), inner xsep=6pt, inner ysep=10pt] {};
+  \end{scope}
+
+  \draw[pipeline/flow] (in1) -- (draft1);
+  \draw[pipeline/flow] (draft1) -- (typecheck);
+  \draw[pipeline/flow] (typecheck) -- (review1);
+  \draw[pipeline/flow] (review1) -- (tests1);
+  \draw[pipeline/flow] (tests1) -- (out1);
+
+  \draw[pipeline/revise] (typecheck.south) .. controls +(0,-0.8) and +(0,-0.8) ..
+    node[pipeline/label, pos=0.5, text=red!70!black, fill=white, inner sep=1pt] {\scriptsize Revise} (draft1.south);
+  \draw[pipeline/revise] (review1.south) .. controls +(0,-1.3) and +(0,-1.3) ..
+    node[pipeline/label, pos=0.5, text=red!70!black, fill=white, inner sep=1pt] {\scriptsize Revise} (draft1.south);
+  \draw[pipeline/revise] (tests1.south) .. controls +(0,-1.8) and +(0,-1.8) ..
+    node[pipeline/label, pos=0.5, text=red!70!black, fill=white, inner sep=1pt] {\scriptsize Revise} (draft1.south);
+
+  %% ============================================================
+  %% Row 2: Program Synthesis
+  %% ============================================================
+  \def\rowyy{-3.3}
+
+  \node[pipeline/artifact, minimum width=20mm] (in2) at (-0.3,\rowyy)
+    {Hoare-style\\ specification};
+
+  \node[pipeline/llmstep, minimum width=22mm] (draft2) at (2.8,\rowyy)
+    {LLM drafts\\ program\\[-1pt]\llmboticon};
+  \node[pipeline/step, minimum width=32mm] (checks2) at (6.3,\rowyy)
+    {Build + test case\\ assertion + PBT};
+  \node[pipeline/llmstep, minimum width=22mm] (review2) at (9.8,\rowyy)
+    {LLM reviews\\ program\\[-1pt]\llmboticon};
+  \node[pipeline/artifact, minimum width=22mm] (out2) at (13.0,\rowyy)
+    {Velvet program\\ (no invariants)};
+
+  \begin{scope}[on background layer]
+    \node[pipeline/panel, fit=(draft2) (review2), inner sep=10pt] {};
+  \end{scope}
+
+  \draw[pipeline/flow] (in2) -- (draft2);
+  \draw[pipeline/flow] (draft2) -- (checks2);
+  \draw[pipeline/flow] (checks2) -- (review2);
+  \draw[pipeline/flow] (review2) -- (out2);
+
+  \draw[pipeline/revise] (checks2.south) .. controls +(0,-0.8) and +(0,-0.8) ..
+    node[pipeline/label, pos=0.5, text=red!70!black, fill=white, inner sep=1pt] {\scriptsize Revise} (draft2.south);
+  \draw[pipeline/revise] (review2.south) .. controls +(0,-1.3) and +(0,-1.3) ..
+    node[pipeline/label, pos=0.5, text=red!70!black, fill=white, inner sep=1pt] {\scriptsize Revise} (draft2.south);
+
+  %% --- Dashed connector: Row 1 → Row 2 ---
+  \draw[draw=blue!60!black, thick, ->]
+    (out1.south) .. controls +(0.8,-1.8) and +(-0.8,1.8) .. (in2.north);
+
+  %% ============================================================
+  %% Row 3: Invariant Inference
+  %% ============================================================
+  \def\rowyyy{-6.6}
+
+  \node[pipeline/artifact, minimum width=22mm] (in3) at (-0.3,\rowyyy)
+    {Velvet program\\ (no invariants)};
+
+  \node[pipeline/llmstep, minimum width=22mm] (draft3) at (2.8,\rowyyy)
+    {LLM drafts\\ invariants\\[-1pt]\llmboticon};
+  \node[pipeline/step, minimum width=24mm] (checks3) at (5.8,\rowyyy)
+    {Build + PBT\\ (test invariants)};
+  \node[pipeline/step, minimum width=30mm] (vcchecks) at (9.0,\rowyyy)
+    {Check VCs\\ (SMT + PBT)};
+  \node[pipeline/llmstep, minimum width=22mm] (review3) at (12.2,\rowyyy)
+    {LLM reviews\\ invariants\\[-1pt]\llmboticon};
+  \node[pipeline/artifact, minimum width=24mm] (out3) at (15.2,\rowyyy)
+    {Velvet program\\ + loop invariants};
+
+  \begin{scope}[on background layer]
+    \node[pipeline/panel, fit=(draft3) (review3), inner sep=10pt] {};
+  \end{scope}
+
+  \draw[pipeline/flow] (in3) -- (draft3);
+  \draw[pipeline/flow] (draft3) -- (checks3);
+  \draw[pipeline/flow] (checks3) -- (vcchecks);
+  \draw[pipeline/flow] (vcchecks) -- (review3);
+  \draw[pipeline/flow] (review3) -- (out3);
+
+  \draw[pipeline/revise] (checks3.south) .. controls +(0,-0.8) and +(0,-0.8) ..
+    node[pipeline/label, pos=0.5, text=red!70!black, fill=white, inner sep=1pt] {\scriptsize Revise} (draft3.south);
+  \draw[pipeline/revise] (vcchecks.south) .. controls +(0,-1.3) and +(0,-1.3) ..
+    node[pipeline/label, pos=0.5, text=red!70!black, fill=white, inner sep=1pt] {\scriptsize Revise} (draft3.south);
+  \draw[pipeline/revise] (review3.south) .. controls +(0,-1.8) and +(0,-1.8) ..
+    node[pipeline/label, pos=0.5, text=red!70!black, fill=white, inner sep=1pt] {\scriptsize Revise} (draft3.south);
+
+  %% --- Dashed connector: Row 2 → Row 3 ---
+  \draw[draw=blue!60!black, thick, ->]
+    (out2.south) .. controls +(0.8,-1.6) and +(-0.8,1.6) .. (in3.north);
+
+\end{tikzpicture}

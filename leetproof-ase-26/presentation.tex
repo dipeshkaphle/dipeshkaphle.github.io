@@ -1,0 +1,908 @@
+\documentclass[10pt,aspectratio=169,american]{beamer}
+
+\usepackage{unicode-math}
+\defaultfontfeatures{Scale=MatchLowercase}
+\defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\usepackage{lmodern}
+\usetheme{metropolis}
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath}
+\usepackage{parskip}
+\usepackage{babel}
+\usepackage{bookmark}
+\usepackage{xurl}
+\usepackage{qrcode}
+\usepackage{listings}
+\usepackage{lstlinebgrd}
+% Match the paper's Inconsolata code font without changing the deck's body font.
+\newfontfamily\paperCodeFont[Scale=1,BoldFont=Inconsolatazi4-Bold.otf]{Inconsolatazi4-Regular.otf}
+\newsavebox{\programInvariantListing}
+\newsavebox{\velvetIntroListing}
+
+\definecolor{codeKeyword}{HTML}{204A87}
+\definecolor{codeString}{HTML}{4E9A06}
+\definecolor{codeOperator}{HTML}{CE5C00}
+\definecolor{codeNumber}{HTML}{0000CF}
+\definecolor{codeComment}{HTML}{8F5902}
+\lstdefinestyle{paperLean}{
+  basicstyle=\paperCodeFont\mdseries\color{black}\linespread{1}\fontsize{8.4}{9}\selectfont,
+  columns=fullflexible,keepspaces=true,showstringspaces=false,
+  frame=none,backgroundcolor=\color{white},
+  aboveskip=0pt,belowskip=0pt,mathescape=true,
+  alsoletter={_},
+  morekeywords={def,method,return,require,ensures,do,let,mut,if,then,else,while,invariant,decreasing,fun,guard,by,prove_correct,loom_solve},
+  keywordstyle=\color{codeKeyword}\bfseries,
+  identifierstyle=\color{black}\mdseries,
+  morestring={[b]"},stringstyle=\color{codeString}\mdseries,
+  morecomment={[l]{--}},commentstyle=\color{codeComment}\mdseries\upshape,
+  literate={:=}{{\textcolor{codeOperator}{:=}}}2
+           {=>}{{\textcolor{codeOperator}{=>}}}2
+           {:}{{\textcolor{codeOperator}{:}}}1
+           {(}{{\textcolor{codeOperator}{(}}}1
+           {)}{{\textcolor{codeOperator}{)}}}1
+           {0}{{\textcolor{codeNumber}{0}}}1
+           {1}{{\textcolor{codeNumber}{1}}}1
+           {2}{{\textcolor{codeNumber}{2}}}1
+           {3}{{\textcolor{codeNumber}{3}}}1
+           {4}{{\textcolor{codeNumber}{4}}}1
+           {5}{{\textcolor{codeNumber}{5}}}1
+           {6}{{\textcolor{codeNumber}{6}}}1
+           {7}{{\textcolor{codeNumber}{7}}}1
+           {8}{{\textcolor{codeNumber}{8}}}1
+           {9}{{\textcolor{codeNumber}{9}}}1
+}
+
+\urlstyle{same}
+\setlength{\emergencystretch}{3em}
+
+\usetikzlibrary{arrows,fit,backgrounds,calc,shapes.symbols,decorations.pathreplacing}
+\input{theme.tex}
+\input{assets/pipeline-styles.tex}
+
+% Inline pass/fail marks for the PBT check tables.
+\newcommand{\yes}{\tikz[baseline=-0.6ex]\draw[teal,line width=1.4pt,line cap=round,line join=round]
+  (-0.8ex,0) -- (-0.25ex,-0.6ex) -- (0.9ex,0.8ex);}
+\newcommand{\no}{\tikz[baseline=-0.6ex]\draw[red!75!black,line width=1.4pt,line cap=round]
+  (-0.65ex,-0.65ex) -- (0.65ex,0.65ex) (-0.65ex,0.65ex) -- (0.65ex,-0.65ex);}
+
+% Horizontal bar showing #1 out of #2, #3 mm long, filled with colour #4.
+\newcommand{\fracbar}[4]{%
+\tikz[baseline=-0.7ex]{%
+  \pgfmathsetmacro\fracbarlen{#3*#1/#2}%
+  \fill[black!8,rounded corners=1pt] (0,-1.5mm) rectangle (#3mm,1.5mm);
+  \fill[#4,rounded corners=1pt] (0,-1.5mm) rectangle (\fracbarlen mm,1.5mm);}%
+}
+
+% "You are here" marker in the frame title bar, numbered as in \pipelineFig.
+\newcommand{\stageBadge}[1]{%
+\begin{tikzpicture}[remember picture,overlay,
+  badge/.style={rounded corners=1.5pt,inner xsep=1.4mm,inner ysep=0.7mm,
+    font=\fontsize{6.5}{7}\selectfont,draw=white!45!mDarkTeal,text=white!60!mDarkTeal},
+  here/.style={badge,fill=mLightBrown,draw=mLightBrown,text=white,font=\fontsize{6.5}{7}\selectfont\bfseries},
+  badgeflow/.style={->,draw=white!45!mDarkTeal}]
+\ifnum#1=1 \tikzset{b1/.style=here}\else\tikzset{b1/.style=badge}\fi
+\ifnum#1=2 \tikzset{b2/.style=here}\else\tikzset{b2/.style=badge}\fi
+\ifnum#1=3 \tikzset{b3/.style=here}\else\tikzset{b3/.style=badge}\fi
+\ifnum#1=4 \tikzset{b4/.style=here}\else\tikzset{b4/.style=badge}\fi
+\node[b4,anchor=east] (b4)
+  at ([xshift=-4mm,yshift=-4.4mm]current page.north east) {Proof};
+\node[b3,anchor=east] (b3) at ([xshift=-3mm]b4.west) {Invariants};
+\node[b2,anchor=east] (b2) at ([xshift=-3mm]b3.west) {Program};
+\node[b1,anchor=east] (b1) at ([xshift=-3mm]b2.west) {Spec};
+\draw[badgeflow] (b1) -- (b2);
+\draw[badgeflow] (b2) -- (b3);
+\draw[badgeflow] (b3) -- (b4);
+\end{tikzpicture}%
+}
+
+% The LeetProof stages (paper, Fig. 1). #1 is the stage to highlight
+% (1 spec, 2 program, 3 invariants, 4 proof); 0 shows every stage equally.
+\newcommand{\pipelineFig}[1]{%
+\begingroup
+\tikzset{
+  stg/.style={draw=teal!75,fill=teal!6,rounded corners=3pt,thick,
+    minimum width=23mm,minimum height=17mm,align=center,font=\normalsize},
+  stghere/.style={stg,draw=mLightBrown,fill=mLightBrown!10,line width=1.6pt},
+  stgfaded/.style={stg,opacity=0.3}}
+\ifnum#1=0 \tikzset{p1/.style=stg,p2/.style=stg,p3/.style=stg,p4/.style=stg}%
+\else
+  \ifnum#1=1 \tikzset{p1/.style=stghere}\else\tikzset{p1/.style=stgfaded}\fi
+  \ifnum#1=2 \tikzset{p2/.style=stghere}\else\tikzset{p2/.style=stgfaded}\fi
+  \ifnum#1=3 \tikzset{p3/.style=stghere}\else\tikzset{p3/.style=stgfaded}\fi
+  \ifnum#1=4 \tikzset{p4/.style=stghere}\else\tikzset{p4/.style=stgfaded}\fi
+\fi
+\centerline{\resizebox{0.96\paperwidth}{!}{%
+\begin{tikzpicture}[
+  io/.style={font=\small,align=center,text=black!75,inner sep=2pt},
+  flow/.style={->,thick,draw=black!70}]
+\node[p1] (s1) at (3.15,0) {\textbf{Stage 1}\\Specification\\Generation};
+\node[p2] (s2) at (7.5,0) {\textbf{Stage 2a}\\Program\\Generation};
+\node[p3] (s3) at (11.4,0) {\textbf{Stage 2b}\\Invariant\\Inference};
+\node[p4] (s4) at (15.75,0) {\textbf{Stage 3}\\Proof\\Generation};
+\node[draw=black!45,dashed,rounded corners=4pt,thick,inner sep=2.5mm,fit=(s2) (s3)] (grp) {};
+\draw[flow] (0,0) -- node[io,above]{Task} node[io,below]{description} (s1);
+\draw[flow] (s1) -- node[io,above]{Spec +} node[io,below]{examples} (grp);
+\draw[flow] (s2) -- node[io,above]{Velvet} node[io,below]{program} (s3);
+\draw[flow] (grp) -- node[io,above]{Program +} node[io,below]{invariants} (s4);
+\draw[flow] (s4) -- node[io,above]{Program +} node[io,below]{proof} (18.3,0);
+\end{tikzpicture}}}%
+\endgroup
+}
+
+% Bold keyword colour for code typeset outside listings.
+\newcommand{\kw}[1]{\textcolor{codeKeyword}{\textbf{#1}}}
+
+% A row of array cells, e.g. \cells{1,2,3}; the optional argument styles the cells.
+\newcommand{\cells}[2][]{%
+\tikz[baseline=-0.7ex]{\foreach \v [count=\k] in {#2}
+  {\node[draw=black!55,fill=white,minimum size=5.5mm,inner sep=0pt,
+     font=\paperCodeFont,#1] at (\k*5.5mm,0) {\v};}}%
+}
+
+% Talk roadmap; #1 is the highlighted stop, the others are faded.
+\newcommand{\outlineMap}[1]{%
+\edef\opA{\ifnum#1=1 1\else\ifnum#1=0 1\else 0.28\fi\fi}%
+\edef\opB{\ifnum#1=2 1\else\ifnum#1=0 1\else 0.28\fi\fi}%
+\edef\opC{\ifnum#1=3 1\else\ifnum#1=0 1\else 0.28\fi\fi}%
+\begin{tikzpicture}[
+  stop/.style={circle,draw=teal,fill=teal!5,line width=1pt,
+    minimum size=12mm,inner sep=0pt,font=\Large\bfseries,text=teal},
+  heading/.style={font=\large\bfseries,text=mDarkTeal,align=center},
+  detail/.style={font=\small,align=center,text width=38mm},
+  journey/.style={->,line width=1pt,draw=mLightBrown}]
+\path[use as bounding box] (-2,-3.4) rectangle (11.4,0.7);
+\begin{scope}[opacity=\opA]
+  \node[stop] at (0,0) {1};
+  \node[heading] at (0,-1.25) {The idea};
+  \node[detail,anchor=north] at (0,-1.85) {Multi-modal\\verification};
+\end{scope}
+\begin{scope}[opacity=\opB]
+  \draw[journey] (0.85,0) -- (3.85,0);
+  \node[stop] at (4.7,0) {2};
+  \node[heading] at (4.7,-1.25) {The pipeline};
+  \node[detail,anchor=north] at (4.7,-1.85) {Inside LeetProof};
+\end{scope}
+\begin{scope}[opacity=\opC]
+  \draw[journey] (5.55,0) -- (8.55,0);
+  \node[stop] at (9.4,0) {3};
+  \node[heading] at (9.4,-1.25) {The evidence};
+  \node[detail,anchor=north] at (9.4,-1.85) {What the results show};
+\end{scope}
+\end{tikzpicture}%
+}
+
+% Compact diagrams shared by the three invariant-validation slides.
+\newcommand{\invariantFlow}[3]{%
+\begin{center}
+\begin{tikzpicture}[
+  stage/.style={draw=teal!65,fill=teal!4,rounded corners=2pt,
+    minimum width=36mm,minimum height=10mm,align=center,font=\small},
+  flow/.style={->,thick,draw=mLightBrown}]
+\node[stage] (a) at (0,0) {#1};
+\node[stage] (b) at (4.7,0) {#2};
+\node[stage] (c) at (9.4,0) {#3};
+\draw[flow] (a) -- (b);
+\draw[flow] (b) -- (c);
+\end{tikzpicture}
+\end{center}%
+}
+\lstdefinestyle{reviewJSON}{
+  basicstyle=\paperCodeFont\mdseries\color{black}\linespread{1}\fontsize{7.7}{8.3}\selectfont,
+  columns=fullflexible,keepspaces=true,showstringspaces=false,
+  aboveskip=0pt,belowskip=0pt,mathescape=true,
+  morestring={[b]"},stringstyle=\color{codeKeyword}\mdseries,
+  morekeywords={false,true},keywordstyle=\color{codeOperator}\bfseries
+}
+\hypersetup{
+  pdflang={en-US},
+  colorlinks=true,
+  linkcolor=teal,
+  urlcolor=teal,
+  pdfcreator={XeLaTeX / Beamer}
+}
+
+\title{Certified program synthesis\\
+with a multi-modal verifier}
+\author{Yueyang Feng\textsuperscript{1,*}, \underline{Dipesh Kafle}\textsuperscript{1,*},
+Vladimir Gladshtein\textsuperscript{1}, Vitaly Kurin\textsuperscript{2}\\
+George Pîrlea\textsuperscript{1}, Qiyuan Zhao\textsuperscript{1},
+Peter Müller\textsuperscript{3}, Ilya Sergey\textsuperscript{1}}
+\institute{\textsuperscript{1}National University of Singapore\quad
+\textsuperscript{2}Neapolis University Pafos\quad
+\textsuperscript{3}ETH Zurich\\[0.4em]
+\textsuperscript{*}Joint first authors}
+\date{ASE ’26 · October 15, 2026 · Munich, Germany}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}{Motivation}
+\aiimagefooter
+\centering
+{\large AI writes code for us. An idea becomes an implementation in minutes.\par}
+\vspace{1mm}
+\includegraphics[width=0.86\textwidth,height=36mm,keepaspectratio]{assets/ai-code-review.png}
+
+\pause
+
+{\Large\bfseries\color{mLightBrown}How do we know it does what we asked?\par}
+\vspace{1mm}
+{\small Establishing confidence still takes a tremendous amount of work, despite code generation being fast.\par}
+
+\end{frame}
+
+\begin{frame}{Motivation}
+\aiimagefooter
+\setlength{\parskip}{0pt}
+\centering
+\includegraphics[width=0.8\textwidth,height=34mm,keepaspectratio]{assets/ai-proof-checking.png}\par
+\vspace{1mm}
+{\large Ask the AI for a \textbf{checkable} proof, too.\par}
+\vspace{6mm}
+\uncover<2->{This is not a new problem: many scientific communities have struggled with it.\par}
+\end{frame}
+
+\begin{frame}{Motivation}
+\setlength{\parskip}{0pt}
+\textbf{A recent AI-for-math result: Fermat's Last Theorem in Lean}\quad
+{\scriptsize\href{https://www.anthropic.com/news/formalizing-fermats-last-theorem}{Anthropic, September 2026}\par}
+\vspace{3mm}
+\centering
+\colorbox{black!5}{\parbox{0.8\textwidth}{\centering\vspace{1.5mm}%
+  $\forall\, a\, b\, c\, n : \mathbb{N},\ a \neq 0 \to b \neq 0 \to c \neq 0 \to n \geq 3 \to a^n + b^n \neq c^n$%
+  \vspace{1.5mm}}}\par
+\vspace{3mm}
+\begin{tabular}{@{}l@{\hspace{4mm}}l@{}}
+\textbf{\color{teal}Specification} & 1--2 lines, read by a human\\[1mm]
+\textbf{\color{teal}Proof} & 13 million lines of Lean, checked by Lean
+\end{tabular}\par
+
+\vspace{7mm}
+\uncover<2->{%
+{\large\textbf{We want the same luxury for programs.}\par}
+\vspace{1mm}
+User gives a task; AI gives a specification + implementation + proof.\par
+}
+
+\vspace{5mm}
+\uncover<3->{%
+\begin{tikzpicture}[
+  cheat/.style={draw=red!60!black,fill=red!6,rounded corners=2pt,
+    inner xsep=2mm,inner ysep=1mm,font=\small}]
+\node[anchor=east,font=\small\bfseries,text=red!70!black] (lbl) at (0,0)
+  {But LLMs are notoriously good at cheating:};
+\node[cheat,anchor=west] (c1) at ([xshift=3mm]lbl.east) {\texttt{sorry}};
+\node[cheat,anchor=west] (c2) at ([xshift=2mm]c1.east) {trivial specifications};
+\node[anchor=west,font=\small] (c3) at ([xshift=1mm]c2.east) {\ldots};
+\end{tikzpicture}\par
+\vspace{1mm}
+{\small ``Make no mistakes'' is not enough. We need to be cleverer.\par}
+}
+\end{frame}
+
+\begin{frame}[fragile]{Our goal: Certified synthesis from natural language}
+\setlength{\parskip}{0pt}
+Generate a runnable program and a checked correctness proof from an English task.
+
+\vspace{3mm}
+\centering
+\begin{tikzpicture}[
+  artifact/.style={draw=teal!70,fill=teal!5,rounded corners=3pt,thick,
+    minimum width=32mm,minimum height=9mm,align=center},
+  flow/.style={->,thick,draw=mLightBrown},
+  challenge/.style={draw=mLightBrown,fill=mLightBrown!8,rounded corners=3pt,
+    align=left,font=\small,inner sep=2.2mm,
+    execute at begin node={\hyphenpenalty=10000\exhyphenpenalty=10000}},
+  pointer/.style={->,thick,draw=mLightBrown,dashed}]
+\node[draw=black!40,fill=black!3,rounded corners=3pt,thick,
+  minimum width=28mm,minimum height=9mm,align=center] (task) at (0,0)
+  {English task};
+\node[artifact] (spec) at (4.6,0) {\textbf{Specification}};
+\node[artifact] (impl) at (9.6,0) {\textbf{Program + proof}};
+\draw[flow] (task) -- node[above,font=\scriptsize]{LLM} (spec);
+\draw[flow] (spec) -- node[above,font=\scriptsize]{LLM} (impl);
+\uncover<2->{%
+  \node[challenge,anchor=north,text width=72mm] (c1) at (2.2,-1.05)
+    {\textbf{Challenge 1: is the specification right?}\\[1.5mm]
+     {\paperCodeFont\fontsize{8.5}{10}\selectfont
+     \textcolor{codeComment}{-- postcondition}\\
+     \kw{def} isSorted (arr : Array Int) (res : Array Int) :=\\
+     \hspace*{1em}$\forall$ i j, i < j $\to$ j < res.size $\to$ res[i]! $\leq$ res[j]!\\[1mm]
+     \kw{method} sort (arr : Array Int)\\
+     \hspace*{2em}\kw{return} (res : Array Int)\\
+     \hspace*{1em}\kw{ensures} isSorted arr res\\
+     \hspace*{1em}\kw{do return} \#[]}%
+     \hfill{\color{teal}\yes\,\textbf{verified!}}};
+  \draw[pointer] (c1.north -| spec.south) -- (spec.south);
+}
+\uncover<3->{%
+  \node[challenge,anchor=north,text width=44mm] (c2) at (10.3,-1.05)
+    {\textbf{Challenge 2: can we finish the proof?}\\[1.5mm]
+     Proofs are long and expensive, and we want to minimize the tokens spent on them.};
+  \draw[pointer] (c2.north) -- (impl.south);
+}
+\end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}{Our approach: Multi-modal verification}
+\setlength{\parskip}{0pt}
+\centering
+\begin{tikzpicture}[
+  mode/.style={draw=teal!70,fill=teal!5,rounded corners=3pt,thick,
+    text width=34mm,minimum height=21mm,align=center,inner sep=2mm},
+  how/.style={font=\small},
+  tradeoff/.style={font=\scriptsize,text=black!60},
+  escalate/.style={->,thick,draw=mLightBrown}]
+\node[mode] (test) at (0,0)
+  {{\bfseries\color{teal}Test\par}\vspace{1.5mm}
+   {\small Unit tests + PBT\par}\vspace{1mm}
+   {\footnotesize\color{black!60}Cheap bug detection\par}};
+\node[mode] (auto) at (4.6,0)
+  {{\bfseries\color{teal}Automate\par}\vspace{1.5mm}
+   {\small SMT, \texttt{grind}\par}\vspace{1mm}
+   {\footnotesize\color{black!60}Effective, but incomplete\par}};
+\node[mode] (inter) at (9.2,0)
+  {{\bfseries\color{teal}Prove interactively\par}\vspace{1.5mm}
+   {\small Lean tactics, AI provers\par}\vspace{1mm}
+   {\footnotesize\color{black!60}Tedious and expensive\par}};
+\draw[escalate] (test) -- (auto);
+\draw[escalate] (auto) -- (inter);
+\draw[->,very thick,draw=black!25]
+  ([yshift=-4mm]test.south west) -- node[below,font=\scriptsize,text=black!60]
+  {more effort, stronger guarantees} ([yshift=-4mm]inter.south east);
+\uncover<2->{%
+\draw[decorate,decoration={brace,amplitude=2.5mm},thick,draw=mLightBrown]
+  ([yshift=2mm]test.north west) -- node[above=3.5mm,align=center]
+  {\href{https://velvetprover.dev/}{\textbf{Velvet}}: a Lean library for imperative programs
+   that combines these \textbf{\textit{modes}}}
+  ([yshift=2mm]inter.north east);
+}
+\end{tikzpicture}
+
+\vspace{6mm}
+\uncover<3->{Our agentic pipeline, \textbf{\color{mLightBrown}LeetProof}, uses Velvet's multi-modality\\
+to turn English tasks into verified programs efficiently.\par}
+
+\end{frame}
+
+\begin{frame}[fragile]{Velvet 101}
+\setlength{\parskip}{0pt}
+\begin{lrbox}{\velvetIntroListing}
+\begin{minipage}{0.70\textwidth}
+\begin{lstlisting}[
+  style=paperLean,
+  linebackgroundcolor={\color{white}\ifnum\value{lstnumber}=2 \color{blue!9}\fi\ifnum\value{lstnumber}>7 \ifnum\value{lstnumber}<10 \color{yellow!16}\fi\fi\ifnum\value{lstnumber}>14 \color{green!12}\fi},
+  linebackgroundheight=6.8pt,linebackgrounddepth=2.2pt
+]
+method IsNonPrime (n : Nat) return (result : Bool)
+  ensures result = true $\leftrightarrow$ $\neg$isPrime n
+  do
+    if n $\leq$ 1 then return true
+    let mut i : Nat := 2
+    let mut ret : Bool := false
+    while i * i $\leq$ n
+    invariant $\neg$ret $\leftrightarrow$ $\forall$d, 2 $\leq$ d $\land$ d < i $\to$ n % d $\neq$ 0
+    invariant i $\geq$ 2 $\land$ (i - 1) * (i - 1) $\leq$ n
+    do
+      if n % i = 0 then ret := true
+      i := i + 1
+    return ret
+
+prove_correct IsNonPrime by
+  loom_solve  -- automated VC discharge
+  ...         -- remaining interactive proof
+\end{lstlisting}
+\end{minipage}
+\end{lrbox}
+\begin{tikzpicture}
+\node[inner sep=0pt,anchor=west] (velvetCode) at (0,0)
+  {\usebox{\velvetIntroListing}};
+\uncover<2->{%
+\begin{scope}[overlay,
+  introCallout/.style={cloud,cloud puffs=10,cloud puff arc=110,
+    aspect=2,thick,text width=18mm,align=center,inner sep=0.5mm,
+    font=\fontsize{8}{9}\selectfont}]
+\coordinate (contractRow) at
+  ($(velvetCode.north east)!0.09!(velvetCode.south east)$);
+\coordinate (loopRow) at
+  ($(velvetCode.north east)!0.47!(velvetCode.south east)$);
+\coordinate (proofRow) at
+  ($(velvetCode.north east)!0.91!(velvetCode.south east)$);
+\node[introCallout,draw=codeKeyword,fill=blue!6] (contractNote)
+  at ($(contractRow)+(22mm,-4mm)$) {Postcondition};
+\node[introCallout,draw=mLightBrown,fill=yellow!12] (loopNote)
+  at ($(loopRow)+(22mm,0)$) {Loop invariants};
+\node[introCallout,draw=teal,fill=green!8] (proofNote)
+  at ($(proofRow)+(22mm,0)$) {Automation\newline + interactive\newline proofs};
+\draw[->,thick,codeKeyword] (contractNote.west) -- ([xshift=-3mm]contractRow);
+\draw[->,thick,mLightBrown] (loopNote.west) -- ([xshift=-3mm]loopRow);
+\draw[->,thick,teal] (proofNote.west) -- ([xshift=-3mm]proofRow);
+\end{scope}%
+}
+\end{tikzpicture}\par
+
+\end{frame}
+
+\begin{frame}{LeetProof pipeline}
+\setlength{\parskip}{0pt}
+LeetProof turns an English task into a verified Velvet program in stages.
+\par\vspace{16mm}
+\pipelineFig{0}
+\end{frame}
+
+%% ---------------------------------------------------------------
+%% Stage 1: specification generation (running example: sort)
+%% ---------------------------------------------------------------
+
+\begin{frame}{Specification generation}
+\stageBadge{1}
+\setlength{\parskip}{0pt}
+\vspace{4mm}
+\pipelineFig{1}
+\par\vspace{10mm}
+\centering
+\uncover<2->{Intent capture from English cannot be guaranteed,\\
+but we can effectively \textbf{\color{mLightBrown}test for mismatches}.\par}
+\end{frame}
+
+\begin{frame}{Specification generation}
+\stageBadge{1}
+\setlength{\parskip}{0pt}
+{\large\textbf{Step 1: Check the LLM's understanding}\par}
+\vspace{3mm}
+\centering
+\begin{tikzpicture}[
+  box/.style={draw=teal!70,fill=teal!5,rounded corners=3pt,thick,inner sep=2.5mm},
+  flow/.style={->,thick,draw=mLightBrown}]
+\node[draw=black!40,fill=black!3,rounded corners=3pt,thick,inner sep=2.5mm,
+  text width=70mm,align=left,font=\small] (task) at (2.2,0)
+  {\textbf{Task description}\\[1mm]
+   Sort the array in non-decreasing order.\\
+   \textit{Example:}\ \texttt{[1, 3, 2]} $\mapsto$ \texttt{[1, 2, 3]}};
+\node[text=purple!80!black,align=center,font=\scriptsize] (llm) at (8.0,0)
+  {\scalebox{2.2}{\llmboticon}\\[2mm]LLM};
+\node[box,anchor=north,font=\small,align=left] (spec) at (2.2,-1.4)
+  {\textbf{Specification}\\[1mm]
+   \begin{minipage}{77mm}\paperCodeFont\footnotesize\setlength{\parskip}{0pt}%
+   \kw{def} precondition (arr : Array Int) :=\\
+   \hspace*{1em}arr.size > 0\\[1mm]
+   \textcolor{codeComment}{-- postcondition}\\
+   \kw{def} isSorted (arr : Array Int) (res : Array Int) :=\\
+   \hspace*{1em}$\forall$ i j, i < j $\to$ j < res.size $\to$ res[i]! $\leq$ res[j]!
+   \end{minipage}};
+\node[box,anchor=north,font=\small] (ex) at (9.9,-1.4)
+  {\begin{tabular}{@{}l@{\hspace{6mm}}l@{}}
+   \textbf{Input} & \textbf{Expected output}\\[0.5mm]
+   \texttt{[1, 3, 2]} & \texttt{[1, 2, 3]}\\
+   \texttt{[5, 5, 1]} & \texttt{[1, 5, 5]}\\
+   \texttt{[]} & \texttt{[]}\\
+   \multicolumn{2}{@{}l}{\textit{\color{black!60}\ldots{} about 10 more}}
+   \end{tabular}};
+\draw[flow] (task) -- (llm);
+\draw[flow] (llm.south) |- ([yshift=4mm]spec.north) -- (spec.north);
+\draw[flow] (llm.south) |- ([yshift=4mm]ex.north) -- (ex.north);
+\end{tikzpicture}
+
+\vspace{3mm}
+{\small The LLM writes the specification, plus examples from its own reading of the task.\par}
+\end{frame}
+
+\begin{frame}{Specification generation}
+\stageBadge{1}
+\setlength{\parskip}{0pt}
+{\large\textbf{Step 2: Test the specification against the examples}\par}
+\vspace{2mm}
+Proving every example is expensive, so we \textbf{\color{mLightBrown}search for counterexamples} with property-based testing (PBT).
+\par\vspace{2mm}
+\centering
+{\footnotesize\paperCodeFont\begin{tabular}{@{}l@{}}
+\kw{def} precondition (arr : Array Int) := arr.size > 0\\
+\textcolor{codeComment}{-- postcondition}\\
+\kw{def} isSorted (arr : Array Int) (res : Array Int) :=\\
+\hspace*{1em}$\forall$ i j, i < j $\to$ j < res.size $\to$ res[i]! $\leq$ res[j]!
+\end{tabular}\par}
+\vspace{2mm}
+\renewcommand{\arraystretch}{1.35}
+\begin{tabular}{@{}l@{\hspace{5mm}}l@{\hspace{7mm}}c@{\hspace{7mm}}c@{}}
+& & \small\texttt{[1,3,2]} $\mapsto$ \texttt{[1,2,3]} & \small\texttt{[]} $\mapsto$ \texttt{[]}\\
+\hline
+\uncover<2->{\textbf{\color{teal}Input validity}} &
+  \uncover<2->{\small Does the input satisfy \texttt{precondition}?} &
+  \uncover<2->{\yes} & \uncover<2->{\no}\\
+\uncover<3->{\textbf{\color{teal}Expected output}} &
+  \uncover<3->{\small Does the output satisfy the postcondition?} &
+  \uncover<3->{\yes} & \uncover<3->{\yes}\\
+\uncover<4->{\textbf{\color{teal}Output uniqueness}} &
+  \uncover<4->{\small Is every other output rejected?} &
+  \uncover<4->{\textbf{?}} & \uncover<4->{--}
+\end{tabular}
+
+\vspace{2mm}
+\uncover<2->{{\small\color{red!70!black}Sorting \texttt{[]} is a valid task, but \texttt{precondition} rejects it: it is too strong.\par}}
+\end{frame}
+
+\begin{frame}{Specification generation}
+\stageBadge{1}
+\setlength{\parskip}{0pt}
+{\large\textbf{Output uniqueness: mutate the expected output}\par}
+\vspace{2mm}
+If the spec admits a wrong output, it is usually close to the expected one.\\
+So PBT mutates the expected output and checks the postcondition again.
+\par\vspace{5mm}
+\centering
+\begin{tikzpicture}[flow/.style={->,thick,draw=mLightBrown}]
+\node (exp) at (0,0) {\cells[fill=teal!10]{1,2,3}};
+\node[font=\scriptsize,text=black!60] at (0,-0.65) {expected output};
+\uncover<2->{%
+  \node[anchor=west] (m1) at (3.6,1.0) {\cells{2,3}};
+  \node[anchor=west] (m2) at (3.6,0) {\cells{1,3}};
+  \node[anchor=west] (m3) at (3.6,-1.0) {\cells{1,2}};
+  \draw[flow] (exp.east) -- node[above,font=\scriptsize,sloped]{drop one} (m1.west);
+  \draw[flow] (exp.east) -- (m2.west);
+  \draw[flow] (exp.east) -- (m3.west);
+}
+\uncover<3->{%
+  \foreach \m in {m1,m2,m3}
+    {\node[anchor=west,font=\small] at ([xshift=4mm]\m.east)
+       {\texttt{isSorted} holds: \textcolor{red!70!black}{accepted}};}
+}
+\end{tikzpicture}
+
+\vspace{5mm}
+\uncover<4->{%
+{\Large\bfseries\color{red!75!black}Rejected by PBT:} {\large the postcondition is too weak.\par}
+}
+\end{frame}
+
+\begin{frame}{Specification generation}
+\stageBadge{1}
+\setlength{\parskip}{0pt}
+{\large\textbf{The LLM revises the specification}\par}
+\vspace{3mm}
+\centering
+{\paperCodeFont
+\begin{tabular}{@{}l@{}}
+\kw{def} precondition (arr : Array Int) := \colorbox{teal!15}{True}\\[1mm]
+\textcolor{codeComment}{-- postcondition}\\
+\kw{def} sortedPerm (arr : Array Int) (res : Array Int) :=\\
+\hspace*{1em}isSorted arr res $\land$ \colorbox{teal!15}{isPerm res arr}
+  \quad\textcolor{black!55}{-- \textit{same elements as the input}}
+\end{tabular}\par}
+
+\vspace{3mm}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}l@{\hspace{10mm}}c@{\hspace{10mm}}c@{}}
+& \small\texttt{[1,3,2]} $\mapsto$ \texttt{[1,2,3]} & \small\texttt{[]} $\mapsto$ \texttt{[]}\\
+\hline
+\textbf{\color{teal}Input validity} & \yes & \yes\\
+\textbf{\color{teal}Expected output} & \yes & \yes\\
+\textbf{\color{teal}Output uniqueness} & \yes & \yes
+\end{tabular}
+
+\vspace{3mm}
+\uncover<2->{{\Large\bfseries\color{teal}Approved by the pipeline\par}}
+\end{frame}
+
+%% ---------------------------------------------------------------
+%% Stage 2a: program generation (brief)
+%% ---------------------------------------------------------------
+
+\begin{frame}[fragile]{Program generation}
+\stageBadge{2}
+\setlength{\parskip}{0pt}
+\vspace{26mm}
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tikzpicture}[
+  art/.style={draw=black!40,fill=black!3,rounded corners=3pt,thick,
+    text width=24mm,minimum height=17mm,align=center,font=\normalsize},
+  llmstep/.style={draw=purple!60!black,fill=purple!5,rounded corners=3pt,thick,
+    text width=24mm,minimum height=17mm,align=center,font=\normalsize},
+  check/.style={draw=teal!75,fill=teal!6,rounded corners=3pt,thick,
+    text width=24mm,minimum height=17mm,align=center,font=\normalsize},
+  flow/.style={->,thick,draw=black!70},
+  revise/.style={->,thick,dashed,draw=red!70!black}]
+\node[art] (spec) at (0,0) {Approved spec\\+ examples};
+\node[llmstep] (draft) at (3.3,0) {LLM drafts\\program\\[0.5mm]\llmboticon};
+\node[check] (test) at (6.6,0) {Run examples\\+ PBT};
+\node[llmstep] (review) at (9.9,0) {LLM reviews\\program\\[0.5mm]\llmboticon};
+\node[art] (out) at (13.2,0) {Velvet program\\{\small(no invariants yet)}};
+\draw[flow] (spec) -- (draft);
+\draw[flow] (draft) -- (test);
+\draw[flow] (test) -- (review);
+\draw[flow] (review) -- (out);
+\draw[revise] (test.south) .. controls +(0,-9mm) and +(0,-9mm) ..
+  node[below,font=\small,text=red!70!black]{fail} (draft.south);
+\draw[revise] (review.south) .. controls +(0,-16mm) and +(0,-16mm) ..
+  node[below,font=\small,text=red!70!black]{reject} ([xshift=-4mm]draft.south);
+\end{tikzpicture}}
+\end{frame}
+
+%% ---------------------------------------------------------------
+%% Stage 2b: invariant inference (running example: insertion sort)
+%% ---------------------------------------------------------------
+
+\begin{frame}{Invariant inference}
+\stageBadge{3}
+\setlength{\parskip}{0pt}
+\vspace{4mm}
+\pipelineFig{3}
+\par\vspace{10mm}
+\centering
+\uncover<2->{The program is generated. To prove it correct, every loop needs \textbf{invariants},\\
+facts that hold before and after every iteration.\par}
+\vspace{3mm}
+\uncover<3->{Finding inductive invariants is a \textbf{\color{mLightBrown}notoriously difficult} problem.\\[1mm]
+How do we do this effectively?\par}
+\end{frame}
+
+\begin{frame}[fragile]{Invariant inference}
+\stageBadge{3}
+\setlength{\parskip}{0pt}
+{\large\textbf{Step 1: The LLM proposes loop invariants}\par}
+\vspace{4mm}
+\begin{lrbox}{\programInvariantListing}
+\begin{minipage}{0.86\textwidth}
+\begin{lstlisting}[
+  style=paperLean,
+  basicstyle=\paperCodeFont\mdseries\color{black}\fontsize{9}{10.4}\selectfont,
+  linebackgroundcolor={\color{white}\ifnum\value{lstnumber}>3 \ifnum\value{lstnumber}<7 \color{yellow!16}\fi\fi},
+  linebackgroundheight=7.6pt,linebackgrounddepth=2.6pt
+]
+let mut res := arr
+let mut n : Nat := 1
+while n $\neq$ res.size
+  invariant n_le: n $\leq$ res.size
+  invariant sorted: isSorted arr res
+  invariant same_elems: isPerm res arr
+do
+  -- insert res[n] into the sorted prefix (inner loop)
+  ...
+  n := n + 1
+return res
+\end{lstlisting}
+\end{minipage}
+\end{lrbox}
+\begin{tikzpicture}
+\node[inner sep=0pt,anchor=north west] (code) at (0,0) {\usebox{\programInvariantListing}};
+\uncover<2->{%
+  \coordinate (badRow) at ($(code.north west)!0.415!(code.south west)$);
+  \node[draw=mLightBrown,fill=mLightBrown!10,rounded corners=3pt,font=\small,
+    align=center,inner sep=1.5mm,anchor=west] (note)
+    at ([xshift=72mm]badRow) {Looks plausible\ldots{} but is it true?};
+  \draw[->,thick,mLightBrown] (note.west) -- ([xshift=62mm]badRow);
+}
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile]{Invariant inference}
+\stageBadge{3}
+\setlength{\parskip}{0pt}
+{\large\textbf{Step 2: Validate the invariants}\par}
+\vspace{0.5mm}
+{\small Automation (SMT, \texttt{grind}) tries to prove the obligations;
+for the rest, \textbf{\color{mLightBrown}PBT searches for a counterexample}.\par}
+\vspace{2mm}
+\begin{onlyenv}<1-4>
+\begin{lstlisting}[
+  style=paperLean,backgroundcolor=\color{yellow!16},
+  basicstyle=\paperCodeFont\mdseries\color{black}\fontsize{9}{10.4}\selectfont
+]
+invariant sorted: isSorted arr res
+\end{lstlisting}
+\end{onlyenv}
+\begin{onlyenv}<5>
+\begin{lstlisting}[
+  style=paperLean,backgroundcolor=\color{teal!12},
+  basicstyle=\paperCodeFont\mdseries\color{black}\fontsize{9}{10.4}\selectfont
+]
+invariant sorted_prefix: isSorted arr res[0..n)
+\end{lstlisting}
+\end{onlyenv}
+
+\vspace{1mm}
+\begin{overlayarea}{\textwidth}{16mm}
+\begin{onlyenv}<2-4>
+\begin{lstlisting}[
+  basicstyle=\paperCodeFont\mdseries\color{black}\fontsize{8.5}{9.6}\selectfont,
+  columns=fullflexible,keepspaces=true,showstringspaces=false,
+  backgroundcolor=\color{red!7},aboveskip=0pt,belowskip=0pt
+]
+[velvet_plausible_test] FAIL:
+invariant "sorted" doesn't hold
+arr = #[2, 1]
+\end{lstlisting}
+\end{onlyenv}
+\begin{onlyenv}<5>
+\colorbox{teal!8}{\parbox{\dimexpr\textwidth-2\fboxsep\relax}{\small PBT finds no counterexample\ \ \yes}}
+\end{onlyenv}
+\end{overlayarea}
+
+\begin{uncoverenv}<3->
+\centering
+\renewcommand{\arraystretch}{1.2}
+{\small
+\begin{tabular}{@{}l@{\hspace{5mm}}c@{\hspace{5mm}}l@{\hspace{7mm}}c@{\hspace{5mm}}c@{\hspace{5mm}}c@{}}
+ & \texttt{n} & \texttt{res} & \texttt{n\_le} & \alt<5>{\texttt{\textbf{\color{teal}sorted\_prefix}}}{\texttt{sorted}} & \texttt{same\_elems}\\
+\hline
+loop entry & 1 & \cells[fill=teal!10]{2}\,\cells{1} & \yes & \alt<5>{\yes}{\no} & \yes\\
+after iteration 1 & 2 & \cells[fill=teal!10]{1,2} & \yes & \yes & \yes
+\end{tabular}\par}
+\end{uncoverenv}
+
+\vspace{2mm}
+\begin{overlayarea}{\textwidth}{10mm}
+\only<4>{%
+{\small \texttt{isSorted} only holds once the loop finishes; during the loop only the prefix \texttt{res[0..n)} is sorted.\\
+Only \texttt{sorted} goes back to the LLM, with this counterexample. The rest are kept.\par}}%
+\only<5>{%
+\centering
+{\small The LLM revises \texttt{sorted} to the sorted prefix, which holds at every iteration.\par}}%
+\end{overlayarea}
+\end{frame}
+
+\begin{frame}{Proof generation}
+\stageBadge{4}
+\setlength{\parskip}{0pt}
+{\large\textbf{Prove the final program}\par}
+\vspace{3mm}
+With good invariants, Velvet generates the \textbf{verification conditions} (VCs) and \textbf{tries the cheapest mode first}.
+\par\vspace{8mm}
+\centering
+Insertion sort: \textbf{34 VCs}\par
+\vspace{3mm}
+\begin{tikzpicture}[vc/.style={minimum size=4.6mm,inner sep=0pt,rounded corners=1pt}]
+\foreach \k in {1,...,34}{
+  \pgfmathsetmacro\vx{mod(\k-1,17)*0.56}
+  \pgfmathsetmacro\vy{-floor((\k-1)/17)*0.56}
+  \ifnum\k<34 \node[vc,fill=teal!75] at (\vx,\vy) {};
+  \else \uncover<2->{\node[vc,fill=mLightBrown] at (\vx,\vy) {};}\fi
+}
+\end{tikzpicture}\par
+\vspace{4mm}
+\begin{tabular}{@{}l@{\hspace{4mm}}l@{}}
+{\color{teal}\rule{3mm}{3mm}} & \textbf{33} closed by automation (SMT, \texttt{grind})\\[1mm]
+\uncover<2->{{\color{mLightBrown}\rule{3mm}{3mm}}} &
+  \uncover<2->{\textbf{1} left $\to$ interactive proof by an LLM agent with tools to\\
+  & \uncover<2->{\textit{search lemmas} and \textit{recursively decompose} the proof}}
+\end{tabular}
+\end{frame}
+
+\begin{frame}{Evaluation: PBT finds bugs in benchmarks}
+\setlength{\parskip}{0pt}
+\textbf{We ran our specification checks on human-written Lean benchmarks}\par
+\vspace{5mm}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.48\textwidth}
+\centering
+\textbf{VERINA} {\small(ICLR 2026)}\par\vspace{2mm}
+\begin{minipage}[c][32mm][c]{\linewidth}\centering\fcolorbox{black!25}{white}{\includegraphics[width=0.94\linewidth,height=30mm,keepaspectratio]{assets/Verina.png}}\end{minipage}\par
+\vspace{4mm}
+{\Large\bfseries\color{mLightBrown}13 issues}\par
+\end{column}
+\begin{column}{0.48\textwidth}
+\centering
+\textbf{CLEVER} {\small(NeurIPS 2025)}\par\vspace{2mm}
+\begin{minipage}[c][32mm][c]{\linewidth}\centering\fcolorbox{black!25}{white}{\includegraphics[width=0.94\linewidth,height=30mm,keepaspectratio]{assets/Clever.png}}\end{minipage}\par
+\vspace{4mm}
+{\Large\bfseries\color{mLightBrown}18 issues}\par
+\end{column}
+\end{columns}
+\vspace{6mm}
+{\centering Found by PBT alone, without any LLM assistance.\par}
+\end{frame}
+
+\begin{frame}{Evaluation: Specification quality}
+\setlength{\parskip}{0pt}
+\textbf{Generating specifications from English tasks}\par
+\vspace{7mm}
+\begin{columns}[c,onlytextwidth]
+\begin{column}{0.44\textwidth}
+\centering
+{\color{teal}\bfseries\fontsize{36}{40}\selectfont 97.4\%\par}
+\vspace{2mm}
+\textbf{Equivalent or defensible\textsuperscript{*}}\par
+\end{column}
+\begin{column}{0.50\textwidth}
+\textbf{188 VERINA problems}\par
+\vspace{4mm}
+\begin{tikzpicture}[x=0.36mm]
+\fill[teal!80] (0,0) rectangle (150,7mm);
+\fill[teal!35] (150,0) rectangle (183,7mm);
+\fill[red!55] (183,0) rectangle (188,7mm);
+\node[font=\small\bfseries,text=white] at (75,3.5mm) {150};
+\node[font=\small\bfseries] at (166.5,3.5mm) {33};
+\begin{scope}[font=\small,anchor=west]
+\fill[teal!80] (0,-6mm) rectangle +(3mm,3mm);
+\node at (12,-4.5mm) {Equivalent to reference};
+\fill[teal!35] (0,-11mm) rectangle +(3mm,3mm);
+\node at (12,-9.5mm) {Defensible differences\textsuperscript{*}};
+\fill[red!55] (0,-16mm) rectangle +(3mm,3mm);
+\node at (12,-14.5mm) {Incorrect or over-restrictive (5)};
+\end{scope}
+\end{tikzpicture}\par
+\end{column}
+\end{columns}
+
+\vspace{12mm}
+{\footnotesize\textsuperscript{*}Defensible: justified differences due to reference errors, valid precondition variations, or ambiguous descriptions.\par}
+\end{frame}
+
+\begin{frame}{Evaluation: Certified synthesis}
+\setlength{\parskip}{0pt}
+{\large\textbf{I left something out\ldots}\par}
+\vspace{2mm}
+LeetProof can also generate a \textbf{functional program in plain Lean} and prove it directly.\\
+This is our \textbf{baseline}: a single mode, proving the whole program directly.
+\par\vspace{5mm}
+\begin{uncoverenv}<2->
+\begin{columns}[c,onlytextwidth]
+\begin{column}{0.42\textwidth}
+\textbf{Fully proven} {\small(GPT-5.2, 50 problems, \$5 each)}\par
+\vspace{5mm}
+\begin{tabular}{@{}l@{\hspace{3mm}}l@{\hspace{3mm}}r@{}}
+Lean & \fracbar{17}{50}{36}{black!45} & 17\\[3mm]
+Velvet & \fracbar{28}{50}{36}{teal} & \textbf{\color{teal}28}
+\end{tabular}\par
+\vspace{5mm}
+\uncover<3->{%
+\textbf{Partially proven, finished by Aristotle}\par
+\vspace{3mm}
+\begin{tabular}{@{}l@{\hspace{3mm}}l@{\hspace{3mm}}r@{}}
+Lean & \fracbar{23}{30}{36}{black!45} & 23 / 30\\[2mm]
+Velvet & \fracbar{18}{18}{36}{teal} & \textbf{\color{teal}18 / 18}
+\end{tabular}\par}
+\end{column}
+\begin{column}{0.56\textwidth}
+\centering
+\includegraphics[height=36mm,trim={0bp 35bp 211.827bp 82bp},clip]{assets/backend-overlap-venn.pdf}
+\end{column}
+\end{columns}
+\end{uncoverenv}
+\end{frame}
+
+\begin{frame}{Summary}
+\setlength{\parskip}{0pt}
+\begin{columns}[c,onlytextwidth]
+\begin{column}{0.64\textwidth}
+{\large\textbf{\color{teal}Takeaways}\par}
+\vspace{3mm}
+\begin{itemize}
+\setlength{\itemsep}{3mm}
+\item PBT is a \textbf{cheap, effective and versatile} validation technique: it filters out wrong specifications, invariants and programs, and even caught bugs in \textbf{published benchmarks}.
+\item Combining testing, SMT and interactive proof (multi-modality) \textbf{certifies more programs at the same cost}.
+\end{itemize}
+\vspace{5mm}
+\uncover<2->{%
+{\textbf{\color{teal}Future directions}\par}
+\vspace{2mm}
+{\small
+\begin{itemize}
+\setlength{\itemsep}{1mm}
+\item Certified synthesis of protocols and distributed systems.
+\item Going beyond functional correctness.
+\item Synthesizing verified low-level systems code.
+\end{itemize}}}
+\end{column}
+\begin{column}{0.32\textwidth}
+\centering
+\uncover<2->{%
+\qrcode[height=16mm]{https://verse-lab.org/papers/leetproof-ase26.pdf}\par
+\vspace{1mm}
+{\small\href{https://verse-lab.org/papers/leetproof-ase26.pdf}{Paper}\par}
+\vspace{3mm}
+\qrcode[height=16mm]{https://github.com/verse-lab/velvet/}\par
+\vspace{1mm}
+{\small\href{https://github.com/verse-lab/velvet/}{Velvet}\par}
+\vspace{4mm}
+{\large\textbf{\color{teal}Thank you!}\par}
+}
+\end{column}
+\end{columns}
+\end{frame}
+
+\end{document}
