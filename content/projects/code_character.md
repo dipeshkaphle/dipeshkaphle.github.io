@@ -1,6 +1,6 @@
 +++
 title = "Code Character"
-description = "It is a strategy-based programming game where you control troops in a turn-based game with the code you write in one of the multiple programming languages (C++, Python, Java) available in the game. Worked on the implementation of the game simulator(C++) and on the game driver(Rust) which uses many low level concepts such as SPMC/MPMC channels, IPC, process management, etc."
+description = "A strategy-based programming game where players control troops in a turn-based battle by writing code in C++, Python or Java. The simulator is written in C++, and the game driver in Rust, using SPMC/MPMC channels, IPC and process management."
 weight = 4
 
 [extra]

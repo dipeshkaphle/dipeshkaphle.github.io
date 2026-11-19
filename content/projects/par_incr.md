@@ -1,6 +1,6 @@
 +++
 title = "Par_incr"
-description = "A library for incremental computation with support for parallelism in OCaml. Other similar libraries lack parallelism constructs. The work is based on the paper [\"Efficient Parallel Self-Adjusting Computation\"](https://drive.google.com/file/d/130-sCY1YPzo4j3YAJ7EL9-MflK0l8RmJ/view?pli=1)"
+description = "A library for incremental computation in OCaml with support for parallelism, based on the paper \"Efficient Parallel Self-Adjusting Computation\"."
 weight = 3
 
 [extra]

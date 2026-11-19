@@ -71,7 +71,7 @@ B.Tech in Computer Science and Engineering #h(1fr) CGPA: 8.84/10 \
 #chiline()
 
 #link("https://uber.com")[*Uber*] #h(1fr) 2023 -- 2025 \
-Software Engineer I -> Software Engineer II (Promoted 2025) #h(1fr) Bengaluru, India \
+Software Engineer I, II #h(1fr) Bengaluru, India \
 - Early backend engineer on Uber's #link("https://www.uber.com/in/en/ai-solutions/")[AI Solutions]: one of two engineers on its initial MVP, where I built the first payments workflow for knowledge workers, and later helped scale the platform to tens of thousands of workers.
 - Subject-matter expert for the human-in-the-loop (HITL) orchestration service behind AI Solutions. Led a revamp of its authorization flows, and handled production incidents across services.
 - Found reliability issues in the event-creation flows behind knowledge-worker payouts, and mentored an intern through the fix, which rolled out with no issues.
@@ -128,7 +128,7 @@ Software Engineering Intern #h(1fr) Remote \
 *Par_incr: A Library for Incremental Computation with Support for Parallelism* #h(1fr) Tarides, July 2023 \
 - Presented the library I built during my internship. #link("https://dipeshkaphle.github.io/par_incr_presentation/presentation.pdf")[Slides]
 
-*Understanding Memory Management* #h(1fr)\
+*Understanding Memory Management* #h(1fr) HackerTalks, NIT Trichy \
 - #link("https://github.com/dipeshkaphle/hackertalk-mem-management")[Slides], #link("https://youtu.be/00Rk3o7Nv54")[Video]
 
 *Personal Blog* #h(1fr)\

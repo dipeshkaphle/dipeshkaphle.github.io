@@ -14,3 +14,4 @@ template = "homepage.html"
 
 - **Understanding Memory Management** \
   [Slides](https://github.com/dipeshkaphle/hackertalk-mem-management) · [Video](https://youtu.be/00Rk3o7Nv54)
+  - *HackerTalks* by Delta Force, NIT Trichy.

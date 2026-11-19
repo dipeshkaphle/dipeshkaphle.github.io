@@ -3,7 +3,7 @@ title = "About Me"
 aliases = ["about"]
 +++
 
-Hi, I'm Dipesh. I'm a PhD student at the School of Computing, National University of Singapore, in the [VERSE Lab](https://verse-lab.org), advised by [Ilya Sergey](https://ilyasergey.net).
+Hi, I'm Dipesh. I'm a PhD student at the National University of Singapore, in the [VERSE Lab](https://verse-lab.org), advised by [Ilya Sergey](https://ilyasergey.net).
 
 I'm interested in programming languages, formal verification and systems programming. These days I'm working on getting verified, efficient systems code out of Lean, and maintaining and improving [Velvet](https://github.com/verse-lab/velvet), a multi-modal verifier in Lean.
 
@@ -15,5 +15,5 @@ You can find
 - My Publications: [here](/pubs)
 - My Talks: [here](/talks)
 - My Projects: [here](/projects/)
-- My Blogs: [here](/posts/)
+- My Blog: [here](/posts/)
 - My CV: [here](/cv.pdf)
