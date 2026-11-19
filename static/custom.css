@@ -1,0 +1,16 @@
+/* Font overrides for the Apollo theme (loaded after main.css). */
+@import url("https://cdn.jsdelivr.net/npm/@fontsource/libertinus-serif@5.3.0/400.css");
+@import url("https://cdn.jsdelivr.net/npm/@fontsource/libertinus-serif@5.3.0/400-italic.css");
+@import url("https://cdn.jsdelivr.net/npm/@fontsource/libertinus-serif@5.3.0/600.css");
+@import url("https://cdn.jsdelivr.net/npm/@fontsource/libertinus-serif@5.3.0/700.css");
+
+:root {
+  --text-font: 'Libertinus Serif', Georgia, serif;
+  --paragraph-font: 'Libertinus Serif', Georgia, serif;
+  --header-font: 'Libertinus Serif', Georgia, serif;
+}
+
+body {
+  font-size: 1.15rem;
+  line-height: 1.55;
+}

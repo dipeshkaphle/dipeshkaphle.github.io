@@ -9,11 +9,4 @@ I'm interested in programming languages, formal verification and systems program
 
 Before my PhD, I was a backend software engineer at Uber. Before that, I interned at IIT Madras (verifying an OCaml garbage collector in F\*), Tarides (parallel incremental computation library in OCaml) and CDAC Bangalore (GCC optimizations).
 
-Reach out to me at [dipesh.kaphle111@gmail.com](mailto:dipesh.kaphle111@gmail.com) or [dipesh@u.nus.edu](mailto:dipesh@u.nus.edu).
-
-You can find
-- My Publications: [here](/pubs)
-- My Talks: [here](/talks)
-- My Projects: [here](/projects/)
-- My Blog: [here](/posts/)
-- My CV: [here](/cv.pdf)
+Reach out to me at [dipesh.kaphle111@gmail.com](mailto:dipesh.kaphle111@gmail.com) or [dipesh@u.nus.edu](mailto:dipesh@u.nus.edu). My CV is [here](/cv.pdf).

@@ -1,0 +1,8 @@
+{% extends "section.html" %}
+
+{% block title %}
+    {{ super() }}
+    {% if section.content %}
+        <section class="body">{{ section.content | safe }}</section>
+    {% endif %}
+{% endblock title %}
