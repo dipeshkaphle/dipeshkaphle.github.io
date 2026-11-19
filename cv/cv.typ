@@ -65,7 +65,7 @@ B.Tech in Computer Science and Engineering #h(1fr) CGPA: 8.84/10 \
 
 + *A Mechanically Verified Garbage Collector for OCaml.* \
   Sheera Shamsu, #me, Dhruv Maroo, Kartik Nagar, Karthikeyan Bhargavan, KC Sivaramakrishnan. \
-  _Journal of Automated Reasoning, 2025._ #link("https://link.springer.com/article/10.1007/s10817-025-09721-0")[Paper]
+  _Journal of Automated Reasoning, 2025._ #link("https://kcsrk.info/papers/verifiedgc_feb_25.pdf")[Paper]
 
 == Work Experience
 #chiline()

@@ -11,7 +11,7 @@ template = "homepage.html"
    Vladimir Gladshtein, Vitaly Kurin, Yueyang Feng, <u>Dipesh Kafle</u>, George Pîrlea, Qiyuan Zhao, Ilya Sergey. \
    *CAV 2026.* **Distinguished Paper Award.**
 
-3. **[A Mechanically Verified Garbage Collector for OCaml.](https://link.springer.com/content/pdf/10.1007/s10817-025-09721-0.pdf)** \
+3. **[A Mechanically Verified Garbage Collector for OCaml.](https://kcsrk.info/papers/verifiedgc_feb_25.pdf)** \
    Sheera Shamsu, <u>Dipesh Kafle</u>, Dhruv Maroo, Kartik Nagar, Karthikeyan Bhargavan, KC Sivaramakrishnan. \
    *Journal of Automated Reasoning, 2025.*
 

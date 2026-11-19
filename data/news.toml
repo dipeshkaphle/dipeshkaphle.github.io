@@ -22,4 +22,4 @@ text = "Started my PhD at NUS in the [VERSE Lab](https://verse-lab.org)."
 
 [[items]]
 date = "May 2025"
-text = "[A Mechanically Verified Garbage Collector for OCaml](https://link.springer.com/article/10.1007/s10817-025-09721-0) published in the Journal of Automated Reasoning."
+text = "[A Mechanically Verified Garbage Collector for OCaml](https://kcsrk.info/papers/verifiedgc_feb_25.pdf) published in the Journal of Automated Reasoning."
