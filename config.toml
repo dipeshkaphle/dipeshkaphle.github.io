@@ -28,7 +28,8 @@ menu = [
 socials = [
     { name= "twitter", url= "https://twitter.com/__dipesh_", icon= "twitter" },
     { name= "github", url= "https://github.com/dipeshkaphle", icon = "github" },
-    { name= "linkedin", url= "https://linkedin.com/in/dipeshk111/", icon = "linkedin" }
+    { name= "linkedin", url= "https://linkedin.com/in/dipeshk111/", icon = "linkedin" },
+    { name= "orcid", url= "https://orcid.org/0009-0008-9368-4363", icon = "orcid" }
 ]
 
 [extra.analytics]

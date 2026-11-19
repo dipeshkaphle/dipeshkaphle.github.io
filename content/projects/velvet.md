@@ -4,5 +4,5 @@ description = "A multi-modal verifier for imperative programs in Lean 4, with Da
 weight = 1
 
 [extra]
-link_to = "https://github.com/verse-lab/velvet"
+link_to = "https://velvetprover.dev"
 +++

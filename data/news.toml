@@ -1,0 +1,25 @@
+# Newest first. `text` is inline markdown.
+
+[[items]]
+date = "Oct 2026"
+text = "Presented LeetProof at [ASE '26](https://conf.researchr.org/home/ase-2026) in Munich, and at Jasmin Blanchette's group at LMU Munich."
+
+[[items]]
+date = "Sep 2026"
+text = "Released Velvet 2.0, now built on Lean's standard-library WP monads and `vcgen`, with a new website: [velvetprover.dev](https://velvetprover.dev)."
+
+[[items]]
+date = "Aug 2026"
+text = "[Certified Program Synthesis with a Multi-Modal Verifier](https://verse-lab.org/papers/leetproof-ase26.pdf) accepted at ASE '26."
+
+[[items]]
+date = "Jul 2026"
+text = "[Velvet](https://verse-lab.org/papers/velvet-cav26.pdf) received a Distinguished Paper Award at CAV '26."
+
+[[items]]
+date = "Aug 2025"
+text = "Started my PhD at NUS in the [VERSE Lab](https://verse-lab.org)."
+
+[[items]]
+date = "May 2025"
+text = "[A Mechanically Verified Garbage Collector for OCaml](https://link.springer.com/article/10.1007/s10817-025-09721-0) published in the Journal of Automated Reasoning."
