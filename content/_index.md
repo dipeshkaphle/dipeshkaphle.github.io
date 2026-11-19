@@ -3,14 +3,17 @@ title = "About Me"
 aliases = ["about"]
 +++
 
-Hi I am Dipesh, I am a first year PhD Student in School of Computing @ NUS. I used to work as a software developer (primarily backend) before this.
+Hi, I'm Dipesh. I'm a PhD student at the School of Computing, National University of Singapore, in the [VERSE Lab](https://verse-lab.org), advised by [Ilya Sergey](https://ilyasergey.net).
 
-I am interested in Systems Programming, Programming Languages and Formal Methods. I have experience writing code in multiple languages C++ and Rust in my hobby projects, Java and Typescript as a Software Engineer, and OCaml as hobby and as an intern. I'm also trying to blog about things that I learn nowadays. Lately, I've been working with Lean and trying to gain expertise in it.
+I'm interested in programming languages, formal verification and systems programming. These days I'm working on getting verified, efficient systems code out of Lean, and maintaining and improving [Velvet](https://github.com/verse-lab/velvet), a multi-modal verifier in Lean.
+
+Before my PhD, I was a backend software engineer at Uber. Before that, I interned at IIT Madras (verifying an OCaml garbage collector in F\*), Tarides (parallel incremental computation library in OCaml) and CDAC Bangalore (GCC optimizations).
 
 Reach out to me at [dipesh.kaphle111@gmail.com](mailto:dipesh.kaphle111@gmail.com) or [dipesh@u.nus.edu](mailto:dipesh@u.nus.edu).
 
-You can find 
-- My Blogs: [here](/posts/)
-- My Projects: [here](/projects/)
+You can find
 - My Publications: [here](/pubs)
-- My CV: [here](/cv.pdf).
+- My Talks: [here](/talks)
+- My Projects: [here](/projects/)
+- My Blogs: [here](/posts/)
+- My CV: [here](/cv.pdf)

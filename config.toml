@@ -23,13 +23,14 @@ menu = [
     { name= "/notes", url= "/notes", weight= 3 },
     { name= "/projects", url= "/projects", weight= 4 },
     { name= "/publications", url= "/pubs", weight= 5 },
-    { name= "/tags", url= "/tags", weight= 6 },
+    { name= "/talks", url= "/talks", weight= 6 },
+    { name= "/tags", url= "/tags", weight= 7 },
 ]
 
 socials = [
     { name= "twitter", url= "https://twitter.com/__dipesh_", icon= "twitter" },
     { name= "github", url= "https://github.com/dipeshkaphle", icon = "github" },
-    { name= "linkedin", url= "https://linkedin.com/dipeshk111", icon = "linkedin" }
+    { name= "linkedin", url= "https://linkedin.com/in/dipeshk111/", icon = "linkedin" }
 ]
 
 [extra.analytics]
