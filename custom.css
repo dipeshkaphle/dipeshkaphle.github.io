@@ -1,0 +1,97 @@
+/* Font overrides for the Apollo theme (loaded after main.css). */
+@import url("https://cdn.jsdelivr.net/npm/@fontsource/libertinus-serif@5.3.0/400.css");
+@import url("https://cdn.jsdelivr.net/npm/@fontsource/libertinus-serif@5.3.0/400-italic.css");
+@import url("https://cdn.jsdelivr.net/npm/@fontsource/libertinus-serif@5.3.0/600.css");
+@import url("https://cdn.jsdelivr.net/npm/@fontsource/libertinus-serif@5.3.0/700.css");
+
+:root {
+  --text-font: 'Libertinus Serif', Georgia, serif;
+  --paragraph-font: 'Libertinus Serif', Georgia, serif;
+  --header-font: 'Libertinus Serif', Georgia, serif;
+}
+
+body {
+  font-size: 1.15rem;
+  line-height: 1.55;
+}
+
+/* News list on the homepage: date column + text. */
+.news {
+  display: grid;
+  grid-template-columns: 5.5em 1fr;
+  column-gap: 1.2em;
+  row-gap: 0.6em;
+  margin: 0.5em 0 1em;
+}
+.news-date {
+  white-space: nowrap;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+@media (max-width: 600px) {
+  .news { grid-template-columns: 1fr; row-gap: 0.1em; }
+  .news-text { margin-bottom: 0.6em; }
+}
+.news-text code { font-size: 0.85em; }
+
+/* Homepage photo, floated beside the intro; stacked on phones. */
+.headshot {
+  float: right;
+  width: 170px;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 0.3em 0 1em 1.5em;
+}
+@media (max-width: 600px) {
+  .headshot { float: none; display: block; margin: 0 auto 1em; width: 140px; height: 140px; }
+}
+/* Keep the News heading below the photo. */
+.body h2 { clear: both; }
+
+/* Use one monospace font for all code (inline and blocks). */
+:root { --code-font: 'Jetbrains Mono', monospace; }
+code, pre, kbd, samp { font-family: 'Jetbrains Mono', monospace; }
+
+/* ---- Calmer colour palette (overrides the theme's bright red accent). ---- */
+:root.light {
+  --bg-0: #fbfaf7;
+  --bg-1: #f0eee9;
+  --bg-2: #fbfaf7;
+  --text-0: #23252a;
+  --text-1: #5f636b;
+  --primary-color: #2f5d8a;
+  --link-underline: rgba(47, 93, 138, 0.35);
+  --hover-color: #1d3f61;
+}
+:root.dark {
+  --bg-0: #17191d;
+  --bg-1: #20232a;
+  --bg-2: #1b1e23;
+  --text-0: #d9dadc;
+  --text-1: #9a9ea6;
+  --primary-color: #8fb3dc;
+  --link-underline: rgba(143, 179, 220, 0.35);
+  --hover-color: #b9d2ee;
+}
+body { background-color: var(--bg-0); color: var(--text-0); }
+
+/* Links: subtle underline, no solid highlight block on hover. */
+a {
+  border-bottom: 1px solid var(--link-underline);
+}
+a:hover {
+  background-color: transparent;
+  color: var(--hover-color);
+  border-bottom-color: currentColor;
+}
+
+/* Drop the "##" heading prefixes and the coloured full stop after titles. */
+h1::before, h2::before, h3::before, h4::before, h5::before, h6::before { content: none; }
+.page-header .primary-color { display: none; }
+
+.news-date, time { color: var(--text-1); }
+.headshot { border: none; }
+
+/* Links in content use the accent colour; header/nav stay neutral. */
+a { color: var(--primary-color); }
+header a, nav a { color: inherit; }

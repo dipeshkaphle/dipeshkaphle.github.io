@@ -1,0 +1,1048 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Dipesh</title>
+    <link rel="self" type="application/atom+xml" href="https://dipeshkaphle.github.io/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://dipeshkaphle.github.io"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2024-12-21T00:00:00+00:00</updated>
+    <id>https://dipeshkaphle.github.io/atom.xml</id>
+    <entry xml:lang="en">
+        <title>My Setup</title>
+        <published>2024-12-21T00:00:00+00:00</published>
+        <updated>2024-12-21T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://dipeshkaphle.github.io/notes/mysetups/"/>
+        <id>https://dipeshkaphle.github.io/notes/mysetups/</id>
+        
+        <content type="html" xml:base="https://dipeshkaphle.github.io/notes/mysetups/">&lt;h2 id=&quot;nix-just-for-common-packages&quot;&gt;Nix (Just for common packages)&lt;&#x2F;h2&gt;
+&lt;p&gt;I don&#x27;t really want to move to full-fledged nix setup because it&#x27;s a lot of
+effort. However, I do want to keep some of my common packages&#x2F;tools in version
+control, so that it&#x27;s easy for me to set them up easily when (if) I move my
+setup.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;nix-env&quot;&gt;nix-env&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Install nix&lt;&#x2F;li&gt;
+&lt;li&gt;Add the unstable channel so that I have mostly latest versions.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #F8F8F2; background-color: #272822;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #A6E22E;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color: #E6DB74;&quot;&gt; nix-channel&lt;&#x2F;span&gt;&lt;span style=&quot;color: #AE81FF;&quot;&gt; --add&lt;&#x2F;span&gt;&lt;span style=&quot;color: #E6DB74;&quot;&gt; https:&#x2F;&#x2F;nixos.org&#x2F;channels&#x2F;nixpkgs-unstable nixpkgs&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;ul&gt;
+&lt;li&gt;Update the channels&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #F8F8F2; background-color: #272822;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #A6E22E;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color: #E6DB74;&quot;&gt; nix-channel&lt;&#x2F;span&gt;&lt;span style=&quot;color: #AE81FF;&quot;&gt; --update&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;ul&gt;
+&lt;li&gt;Install my stuff&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #F8F8F2; background-color: #272822;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #A6E22E;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color: #E6DB74;&quot;&gt; nix-env&lt;&#x2F;span&gt;&lt;span style=&quot;color: #AE81FF;&quot;&gt; -iA&lt;&#x2F;span&gt;&lt;span style=&quot;color: #E6DB74;&quot;&gt; nixpkgs.myPackages&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;ul&gt;
+&lt;li&gt;My config is stored in my &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;dipeshkaphle&#x2F;dotfiles&#x2F;tree&#x2F;master&#x2F;nixpkgs&quot;&gt;dotfiles repo&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;emacs-primary-editor&quot;&gt;Emacs (Primary Editor)&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Doom emacs with my configs piling up over the time. &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;dipeshkaphle&#x2F;dotfiles&#x2F;tree&#x2F;master&#x2F;.doom.d&quot;&gt;Link&lt;&#x2F;a&gt;, &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;dipeshkaphle.github.io&#x2F;posts&#x2F;helpful-emacs-shortcuts&#x2F;&quot;&gt;tips and tricks for myself&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Setup Coq</title>
+        <published>2024-06-29T00:00:00+00:00</published>
+        <updated>2024-06-29T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://dipeshkaphle.github.io/notes/setupcoq/"/>
+        <id>https://dipeshkaphle.github.io/notes/setupcoq/</id>
+        
+        <content type="html" xml:base="https://dipeshkaphle.github.io/notes/setupcoq/">&lt;h2 id=&quot;install&quot;&gt;Install&lt;&#x2F;h2&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #F8F8F2; background-color: #272822;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #A6E22E;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color: #E6DB74;&quot;&gt; opam switch create with-coq&lt;&#x2F;span&gt;&lt;span style=&quot;color: #AE81FF;&quot;&gt; 4.10.2&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #A6E22E;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color: #E6DB74;&quot;&gt; opam repo add coq-released https:&#x2F;&#x2F;coq.inria.fr&#x2F;opam&#x2F;released&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #A6E22E;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color: #E6DB74;&quot;&gt; opam pin add coq&lt;&#x2F;span&gt;&lt;span style=&quot;color: #AE81FF;&quot;&gt; 8.19.2&lt;&#x2F;span&gt;&lt;span style=&quot;color: #88846F;&quot;&gt; # opam pin add coq $VERSION (can be used to upgrade by mentioning new version)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;h2 id=&quot;use&quot;&gt;Use&lt;&#x2F;h2&gt;
+&lt;p&gt;To use the switch, do the following&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #F8F8F2; background-color: #272822;&quot;&gt;&lt;code data-lang=&quot;plain&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;$ opam switch with-coq&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;$ eval $(opam env --switch=with-coq)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>What is a Fixed Point Combinator?</title>
+        <published>2024-03-28T00:00:00+00:00</published>
+        <updated>2024-03-28T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://dipeshkaphle.github.io/posts/y-combinator/"/>
+        <id>https://dipeshkaphle.github.io/posts/y-combinator/</id>
+        
+        <content type="html" xml:base="https://dipeshkaphle.github.io/posts/y-combinator/">&lt;p&gt;(Copy-pasting Wikipedia) A fixed-point combinator (or fixpoint combinator), is a
+higher-order function that returns some fixed point (a value that is mapped to
+itself) of its argument function, if one exists.&lt;&#x2F;p&gt;
+&lt;p&gt;It has the following type(given in Haskell)&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #F8F8F2; background-color: #272822;&quot;&gt;&lt;code data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #A6E22E;&quot;&gt;fix&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F92672;&quot;&gt; ::&lt;&#x2F;span&gt;&lt;span&gt; (a&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F92672;&quot;&gt; -&amp;gt;&lt;&#x2F;span&gt;&lt;span&gt; a)&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F92672;&quot;&gt; -&amp;gt;&lt;&#x2F;span&gt;&lt;span&gt; a&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;We&#x27;ll assume it&#x27;s defined somewhere already and move on for now.&lt;&#x2F;p&gt;
+&lt;p&gt;Now, a classic example for showing it&#x27;s usage is a factorial function(or any
+recursive function would work).&lt;&#x2F;p&gt;
+&lt;p&gt;Generally it would be written recursively like this:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #F8F8F2; background-color: #272822;&quot;&gt;&lt;code data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #A6E22E;&quot;&gt;fact&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F92672;&quot;&gt;::&lt;&#x2F;span&gt;&lt;span style=&quot;color: #66D9EF;font-style: italic;&quot;&gt; Integer&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F92672;&quot;&gt; -&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #66D9EF;font-style: italic;&quot;&gt; Integer&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;fact n &lt;&#x2F;span&gt;&lt;span style=&quot;color: #F92672;&quot;&gt;= if&lt;&#x2F;span&gt;&lt;span&gt; n &lt;&#x2F;span&gt;&lt;span style=&quot;color: #F92672;&quot;&gt;==&lt;&#x2F;span&gt;&lt;span style=&quot;color: #AE81FF;&quot;&gt; 0&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F92672;&quot;&gt; then&lt;&#x2F;span&gt;&lt;span style=&quot;color: #AE81FF;&quot;&gt; 1&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F92672;&quot;&gt; else&lt;&#x2F;span&gt;&lt;span&gt; n &lt;&#x2F;span&gt;&lt;span style=&quot;color: #F92672;&quot;&gt;*&lt;&#x2F;span&gt;&lt;span&gt; (fact (n &lt;&#x2F;span&gt;&lt;span style=&quot;color: #F92672;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span style=&quot;color: #AE81FF;&quot;&gt; 1&lt;&#x2F;span&gt;&lt;span&gt;))&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;But, let&#x27;s assume we don&#x27;t have recursion in our language. So, let&#x27;s try to write it a bit differently.&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #F8F8F2; background-color: #272822;&quot;&gt;&lt;code data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #A6E22E;&quot;&gt;fact&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F92672;&quot;&gt;::&lt;&#x2F;span&gt;&lt;span&gt; (&lt;&#x2F;span&gt;&lt;span style=&quot;color: #66D9EF;font-style: italic;&quot;&gt;Integer&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F92672;&quot;&gt; -&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #66D9EF;font-style: italic;&quot;&gt; Integer&lt;&#x2F;span&gt;&lt;span&gt;)&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F92672;&quot;&gt; -&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #66D9EF;font-style: italic;&quot;&gt; Integer&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F92672;&quot;&gt; -&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #66D9EF;font-style: italic;&quot;&gt; Integer&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;fact&amp;#39; f n &lt;&#x2F;span&gt;&lt;span style=&quot;color: #F92672;&quot;&gt;= if&lt;&#x2F;span&gt;&lt;span&gt; n &lt;&#x2F;span&gt;&lt;span style=&quot;color: #F92672;&quot;&gt;==&lt;&#x2F;span&gt;&lt;span style=&quot;color: #AE81FF;&quot;&gt; 0&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F92672;&quot;&gt; then&lt;&#x2F;span&gt;&lt;span style=&quot;color: #AE81FF;&quot;&gt; 1&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F92672;&quot;&gt; else&lt;&#x2F;span&gt;&lt;span&gt; n &lt;&#x2F;span&gt;&lt;span style=&quot;color: #F92672;&quot;&gt;*&lt;&#x2F;span&gt;&lt;span&gt; (f (n &lt;&#x2F;span&gt;&lt;span style=&quot;color: #F92672;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span style=&quot;color: #AE81FF;&quot;&gt; 1&lt;&#x2F;span&gt;&lt;span&gt;))&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Now, using &lt;code&gt;fix&lt;&#x2F;code&gt;, we could define our &lt;code&gt;fact&lt;&#x2F;code&gt; to be something like this&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #F8F8F2; background-color: #272822;&quot;&gt;&lt;code data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #88846F;&quot;&gt;-- fact:: Integer -&amp;gt; Integer&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #88846F;&quot;&gt;-- fix:: (a -&amp;gt; a) -&amp;gt; a&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #88846F;&quot;&gt;-- fact&amp;#39; :: (Integer -&amp;gt; Integer) -&amp;gt; Integer -&amp;gt; Integer&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #88846F;&quot;&gt;-- which can be rewritten as&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #88846F;&quot;&gt;-- fact&amp;#39; :: (Integer -&amp;gt; Integer) -&amp;gt; (Integer -&amp;gt; Integer)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #88846F;&quot;&gt;--&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #88846F;&quot;&gt;-- in fix fact&amp;#39;, a is substituted to be (Integer -&amp;gt; Integer)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #88846F;&quot;&gt;-- so fix fact:: Integer -&amp;gt; Integer&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;fact n &lt;&#x2F;span&gt;&lt;span style=&quot;color: #F92672;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span&gt; fix fact&amp;#39;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;But &lt;code&gt;fix&lt;&#x2F;code&gt; has been a blackbox for us till now. Let&#x27;s see how we can define it.&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #F8F8F2; background-color: #272822;&quot;&gt;&lt;code data-lang=&quot;plain&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;fix:: (a -&amp;gt; a) -&amp;gt; a&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;fix f = &amp;lt;t&amp;gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Now what could go in for &lt;code&gt;t&lt;&#x2F;code&gt; expression there? If we think purely in terms of types, we have
+a function as parameter &lt;code&gt;f: a-&amp;gt; a&lt;&#x2F;code&gt; and we need result to be of type &lt;code&gt;a&lt;&#x2F;code&gt;. So, it&#x27;s probably
+going to be achieved by applying &lt;code&gt;f&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Now, what is something of type &lt;code&gt;a&lt;&#x2F;code&gt; we can apply to &lt;code&gt;f: a -&amp;gt; a&lt;&#x2F;code&gt;. We really only know of one thing
+whose result is type &lt;code&gt;a&lt;&#x2F;code&gt; i.e &lt;code&gt;fix&lt;&#x2F;code&gt;. So, it&#x27;s just going to be&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #F8F8F2; background-color: #272822;&quot;&gt;&lt;code data-lang=&quot;plain&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;fix f = f (fix f)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;andd, that&#x27;s the definition of &lt;code&gt;fix&lt;&#x2F;code&gt;, the fixed-point combinator.&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;NOTE: Since, fix is defined recursively, it has to be a primitive provided by
+host language(language in which the interpreter is written), since we
+mentioned before we didn&#x27;t support recursion.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;NOTE: Also this definition of fix works in a call by name language(lazy
+language) like Haskell, but will overflow the stack in something like OCaml.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;h3 id=&quot;let-s-try-defining-it-in-ocaml&quot;&gt;Let&#x27;s try defining it in OCaml&lt;&#x2F;h3&gt;
+&lt;h4 id=&quot;why-do-we-need-to-do-it-differently-in-ocaml&quot;&gt;Why do we need to do it differently in OCaml?&lt;&#x2F;h4&gt;
+&lt;p&gt;Issue arises due to strictness.  If you translate the program
+to OCaml, it&#x27;ll be like this:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #F8F8F2; background-color: #272822;&quot;&gt;&lt;code data-lang=&quot;plain&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;let rec fix f = f (fix f)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;The issue with this is, the moment you call &lt;code&gt;fix&lt;&#x2F;code&gt; with some &lt;code&gt;f&lt;&#x2F;code&gt;, it&#x27;ll first try
+to evaluate the &lt;code&gt;fix f&lt;&#x2F;code&gt; in RHS, which just keeps on going forever. Haskell
+doesn&#x27;t suffer from the issue because it only actually evaluates it when it&#x27;s
+needed.&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #F8F8F2; background-color: #272822;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #A6E22E;&quot;&gt;ghci&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #E6DB74;&quot;&gt; fix f = f&lt;&#x2F;span&gt;&lt;span&gt; (fix&lt;&#x2F;span&gt;&lt;span style=&quot;color: #E6DB74;&quot;&gt; f&lt;&#x2F;span&gt;&lt;span&gt;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #A6E22E;&quot;&gt;ghci&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #E6DB74;&quot;&gt; x y = 1:y&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #A6E22E;&quot;&gt;ghci&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #E6DB74;&quot;&gt; infinite1s = fix x&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #A6E22E;&quot;&gt;ghci&lt;&#x2F;span&gt;&lt;span&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #E6DB74;&quot;&gt; take&lt;&#x2F;span&gt;&lt;span style=&quot;color: #AE81FF;&quot;&gt; 10&lt;&#x2F;span&gt;&lt;span style=&quot;color: #E6DB74;&quot;&gt; infinite1s&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;[1,1,1,1,1,1,1,1,1,1]&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Using &lt;code&gt;fix&lt;&#x2F;code&gt;, we can define &lt;code&gt;x=1:x&lt;&#x2F;code&gt; like above. We basically took
+&lt;code&gt;x::[Integer] -&amp;gt; [Integer]&lt;&#x2F;code&gt; and converted it to &lt;code&gt;[Integer]&lt;&#x2F;code&gt; with &lt;code&gt;fix&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;You can&#x27;t do this in OCaml directly. This is of the form &lt;code&gt;a -&amp;gt; a&lt;&#x2F;code&gt; where
+&lt;code&gt;a=[Integer]&lt;&#x2F;code&gt;. This form of fix with the signature &lt;code&gt;(a -&amp;gt; a) -&amp;gt; a&lt;&#x2F;code&gt; is possible
+in Haskell because &lt;code&gt;a&lt;&#x2F;code&gt; whatever it is, is lazily evaluated. It&#x27;s actually a
+thunk which evaluates to &lt;code&gt;a&lt;&#x2F;code&gt;. In OCaml, &lt;code&gt;a&lt;&#x2F;code&gt; is always an evaluated value, so you
+will end up needing some thunking mechanism to define &lt;code&gt;fix&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;We need to get laziness to do this in OCaml. So, we&#x27;ll use partially
+evaluated functions to get a definition of &lt;code&gt;fix&lt;&#x2F;code&gt;. We define it as follows:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #F8F8F2; background-color: #272822;&quot;&gt;&lt;code data-lang=&quot;ocaml&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #66D9EF;font-style: italic;&quot;&gt;val&lt;&#x2F;span&gt;&lt;span style=&quot;color: #A6E22E;&quot;&gt; fix&lt;&#x2F;span&gt;&lt;span style=&quot;color: #E6DB74;&quot;&gt; :&lt;&#x2F;span&gt;&lt;span&gt; ((&lt;&#x2F;span&gt;&lt;span style=&quot;color: #FD971F;font-style: italic;&quot;&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F92672;&quot;&gt;a&lt;&#x2F;span&gt;&lt;span style=&quot;color: #E6DB74;&quot;&gt; -&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #FD971F;font-style: italic;&quot;&gt; &amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F92672;&quot;&gt;b&lt;&#x2F;span&gt;&lt;span&gt;)&lt;&#x2F;span&gt;&lt;span style=&quot;color: #E6DB74;&quot;&gt; -&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #FD971F;font-style: italic;&quot;&gt; &amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F92672;&quot;&gt;a&lt;&#x2F;span&gt;&lt;span style=&quot;color: #E6DB74;&quot;&gt; -&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #FD971F;font-style: italic;&quot;&gt; &amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F92672;&quot;&gt;b&lt;&#x2F;span&gt;&lt;span&gt;)&lt;&#x2F;span&gt;&lt;span style=&quot;color: #E6DB74;&quot;&gt; -&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #FD971F;font-style: italic;&quot;&gt; &amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F92672;&quot;&gt;a&lt;&#x2F;span&gt;&lt;span style=&quot;color: #E6DB74;&quot;&gt; -&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #FD971F;font-style: italic;&quot;&gt; &amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F92672;&quot;&gt;b&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #F92672;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span style=&quot;color: #E6DB74;&quot;&gt; rec&lt;&#x2F;span&gt;&lt;span style=&quot;color: #A6E22E;&quot;&gt; fix&lt;&#x2F;span&gt;&lt;span style=&quot;color: #FD971F;font-style: italic;&quot;&gt; f x&lt;&#x2F;span&gt;&lt;span style=&quot;color: #66D9EF;font-style: italic;&quot;&gt; =&lt;&#x2F;span&gt;&lt;span&gt; f (fix f) x&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;(if you think about it, is sort of similar to &lt;code&gt;(a -&amp;gt; a)-&amp;gt; a&lt;&#x2F;code&gt; in Haskell,
+but &lt;code&gt;a&lt;&#x2F;code&gt; maps to &lt;code&gt;&#x27;a -&amp;gt; &#x27;b&lt;&#x2F;code&gt; here.)&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;This doesn&#x27;t blow up because the usage of fix in RHS is also partial, it
+doesn&#x27;t get fully evaluated until we actually use it. We end up creating lazy
+semantics of our own here.&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #F8F8F2; background-color: #272822;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #A6E22E;&quot;&gt;utop&lt;&#x2F;span&gt;&lt;span style=&quot;color: #88846F;&quot;&gt; # let rec fix f x = f (fix f) x;;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #A6E22E;&quot;&gt;val&lt;&#x2F;span&gt;&lt;span style=&quot;color: #E6DB74;&quot;&gt; fix :&lt;&#x2F;span&gt;&lt;span&gt; ((&lt;&#x2F;span&gt;&lt;span style=&quot;color: #E6DB74;&quot;&gt;&amp;#39;a -&amp;gt; &amp;#39;&lt;&#x2F;span&gt;&lt;span&gt;b) -&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F92672;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #E6DB74;&quot;&gt; &amp;#39;a -&amp;gt; &amp;#39;&lt;&#x2F;span&gt;&lt;span&gt;b) -&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F92672;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #E6DB74;&quot;&gt; &amp;#39;a -&amp;gt; &amp;#39;&lt;&#x2F;span&gt;&lt;span&gt;b = &lt;&#x2F;span&gt;&lt;span style=&quot;color: #F92672;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;fun&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F92672;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #A6E22E;&quot;&gt;─(&lt;&#x2F;span&gt;&lt;span style=&quot;color: #E6DB74;&quot;&gt; 16:05:30&lt;&#x2F;span&gt;&lt;span&gt; )─&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F92672;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt; command 7 &lt;&#x2F;span&gt;&lt;span style=&quot;color: #F92672;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span&gt;──────────────────────────────────────────────────────────────────────────────────────────────{&lt;&#x2F;span&gt;&lt;span style=&quot;color: #A6E22E;&quot;&gt; counter:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #AE81FF;&quot;&gt; 0&lt;&#x2F;span&gt;&lt;span style=&quot;color: #E6DB74;&quot;&gt; }─&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #A6E22E;&quot;&gt;utop&lt;&#x2F;span&gt;&lt;span style=&quot;color: #88846F;&quot;&gt; # let fact f n = if n=0 then 1 else n * (f (n - 1));;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #A6E22E;&quot;&gt;val&lt;&#x2F;span&gt;&lt;span style=&quot;color: #E6DB74;&quot;&gt; fact :&lt;&#x2F;span&gt;&lt;span&gt; (int -&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F92672;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #E6DB74;&quot;&gt; int&lt;&#x2F;span&gt;&lt;span&gt;) -&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F92672;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span&gt; int -&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F92672;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span&gt; int = &lt;&#x2F;span&gt;&lt;span style=&quot;color: #F92672;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt;fun&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F92672;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #A6E22E;&quot;&gt;─(&lt;&#x2F;span&gt;&lt;span style=&quot;color: #E6DB74;&quot;&gt; 16:05:34&lt;&#x2F;span&gt;&lt;span&gt; )─&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F92672;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span&gt; command 8 &lt;&#x2F;span&gt;&lt;span style=&quot;color: #F92672;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span&gt;──────────────────────────────────────────────────────────────────────────────────────────────{&lt;&#x2F;span&gt;&lt;span style=&quot;color: #A6E22E;&quot;&gt; counter:&lt;&#x2F;span&gt;&lt;span style=&quot;color: #AE81FF;&quot;&gt; 0&lt;&#x2F;span&gt;&lt;span style=&quot;color: #E6DB74;&quot;&gt; }─&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #A6E22E;&quot;&gt;utop&lt;&#x2F;span&gt;&lt;span style=&quot;color: #88846F;&quot;&gt; # (fix fact) 10;;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #A6E22E;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span style=&quot;color: #E6DB74;&quot;&gt; : int =&lt;&#x2F;span&gt;&lt;span style=&quot;color: #AE81FF;&quot;&gt; 3628800&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;That&#x27;s pretty much it.&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;This sort of clicked properly for me when I was watching &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;youtu.be&#x2F;8cXl2Tfhy_Q?si=pQGGg_4bum-NQAhZ&quot;&gt;this excellent
+lecture by Robert Harper&lt;&#x2F;a&gt;,
+so I thought I&#x27;d write it out as a small blog&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Non Local Jumps with setjmp and longjmp</title>
+        <published>2023-11-01T00:00:00+00:00</published>
+        <updated>2023-11-01T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://dipeshkaphle.github.io/posts/nonlocaljumps/"/>
+        <id>https://dipeshkaphle.github.io/posts/nonlocaljumps/</id>
+        
+        <content type="html" xml:base="https://dipeshkaphle.github.io/posts/nonlocaljumps/">&lt;p&gt;While going through Postgres source code, I found a really cool way technique
+they were using to do non local jumps(acting sort of as an exception handling
+mechanism). Postgres is written in C and C doesn&#x27;t really have a construct for
+exceptions, so how would they do something like this?&lt;&#x2F;p&gt;
+&lt;p&gt;One very common functionality we observe in any interactive shell is when we
+press &lt;code&gt;Ctrl-c&lt;&#x2F;code&gt;, that operation gets cancelled. You can take python repl as an example.
+When I pressed &lt;code&gt;Ctrl-c&lt;&#x2F;code&gt; it aborted and printed &lt;code&gt;KeyboardInterrupt&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #F8F8F2; background-color: #272822;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #A6E22E;&quot;&gt;λ&lt;&#x2F;span&gt;&lt;span style=&quot;color: #E6DB74;&quot;&gt; python&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #A6E22E;&quot;&gt;Python&lt;&#x2F;span&gt;&lt;span style=&quot;color: #AE81FF;&quot;&gt; 3.11.5&lt;&#x2F;span&gt;&lt;span&gt; (main,&lt;&#x2F;span&gt;&lt;span style=&quot;color: #E6DB74;&quot;&gt; Sep&lt;&#x2F;span&gt;&lt;span style=&quot;color: #AE81FF;&quot;&gt;  2&lt;&#x2F;span&gt;&lt;span style=&quot;color: #E6DB74;&quot;&gt; 2023, 14:16:33&lt;&#x2F;span&gt;&lt;span&gt;) [GCC &lt;&#x2F;span&gt;&lt;span style=&quot;color: #AE81FF;&quot;&gt;13.2.1&lt;&#x2F;span&gt;&lt;span&gt; 20230801] on linux&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #A6E22E;&quot;&gt;Type&lt;&#x2F;span&gt;&lt;span style=&quot;color: #E6DB74;&quot;&gt; &amp;quot;help&amp;quot;, &amp;quot;copyright&amp;quot;, &amp;quot;credits&amp;quot; or &amp;quot;license&amp;quot; for more information.&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;&amp;gt;&amp;gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color: #66D9EF;&quot;&gt; print&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #A6E22E;&quot;&gt;KeyboardInterrupt&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;&amp;gt;&amp;gt;&amp;gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Postgres also offers a similar interactive environment in the form of &lt;code&gt;psql&lt;&#x2F;code&gt;
+binary which lets us run db operations interactively. They also obviously offer
+similar functionality of aborting when you press &lt;code&gt;Ctrl-c&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;To understand how this functionality would be implemented, we need to know a few
+things. When we press &lt;code&gt;Ctrl-c&lt;&#x2F;code&gt;, we are sending something called an interrupt.
+That interrupt is handled by the kernel by sending a signal to the running
+process(&lt;a href=&quot;https:&#x2F;&#x2F;dipeshkaphle.github.io&#x2F;posts&#x2F;nonlocaljumps&#x2F;#references-1&quot;&gt;1&lt;&#x2F;a&gt;). Our &lt;code&gt;Ctrl-c&lt;&#x2F;code&gt; keypress will trigger a &lt;code&gt;SIGINT&lt;&#x2F;code&gt; signal. And we have mechanism to handle signals(&lt;a href=&quot;https:&#x2F;&#x2F;dipeshkaphle.github.io&#x2F;posts&#x2F;nonlocaljumps&#x2F;#references-2&quot;&gt;2&lt;&#x2F;a&gt;) ourselves in user
+code. Using that, we can use that to do a lot of powerful things.&lt;&#x2F;p&gt;
+&lt;p&gt;Let&#x27;s take a look into the postgres(&lt;code&gt;psql&lt;&#x2F;code&gt; to be specific) code to figure out
+how they do this.&lt;&#x2F;p&gt;
+&lt;p&gt;The directory for &lt;code&gt;psql&lt;&#x2F;code&gt; code lies at &lt;code&gt;src&#x2F;bin&#x2F;psql&lt;&#x2F;code&gt;. The entrypoint(main
+function) is inside &lt;code&gt;startup.c&lt;&#x2F;code&gt;, which internally calls &lt;code&gt;MainLoop&lt;&#x2F;code&gt; function in
+&lt;code&gt;mainloop.c&lt;&#x2F;code&gt;(aptly named).&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;In &lt;code&gt;startup.c&lt;&#x2F;code&gt;, there&#x27;s a call to &lt;code&gt;psql_setup_cancel_handler&lt;&#x2F;code&gt;(which is a
+oneliner &lt;code&gt;setup_cancel_handler(psql_cancel_callback)&lt;&#x2F;code&gt;) which eventually ends up
+calling &lt;code&gt;setup_cancel_handler()&lt;&#x2F;code&gt; in &lt;code&gt;src&#x2F;fe_utils&#x2F;cancel.c&lt;&#x2F;code&gt;(there signal handler
+for SIGINT is registered, and also a callback function is registered). The
+&lt;code&gt;handle_sigint&lt;&#x2F;code&gt; function is registered for handling &lt;code&gt;SIGINT&lt;&#x2F;code&gt;, inside which it
+calls &lt;code&gt;cancel_callback&lt;&#x2F;code&gt; function if it&#x27;s not NULL(which it won&#x27;t be for our
+particular codepath).&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;&lt;a id=&quot;setup_cancel_handler&quot;&gt; &lt;&#x2F;a&gt;
+&lt;img src=&quot;&#x2F;nonlocaljumps&#x2F;setup_cancel_handler.png&quot; alt=&quot;setup_cancel_handler&quot; &#x2F;&gt;
+&lt;a id=&quot;handle_sigint&quot;&gt; &lt;&#x2F;a&gt;
+&lt;img src=&quot;&#x2F;nonlocaljumps&#x2F;handle_sigint.png&quot; alt=&quot;handle_sigint&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;a id=&quot;signal_conclusion&quot;&gt;&lt;&#x2F;a&gt;
+So, basically &lt;code&gt;psql_cancel_callback&lt;&#x2F;code&gt; function is run as part of the signal handler (&lt;code&gt;handle_sigint&lt;&#x2F;code&gt;).&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Now, let&#x27;s look at the main loop. The &lt;code&gt;MainLoop&lt;&#x2F;code&gt; function does a bunch of
+stuff at the start(which I have no clue about) but the actual loop is mainly
+the following code. It&#x27;s a huge function which does a lot of things(expected
+since it&#x27;s what drives the whole program). If you scroll through it you&#x27;ll
+find that it&#x27;s getting line and executing it(handling exits,clearing,etc.
+too), it&#x27;s quite involved really.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;I came across this particular code snippet(where I have my cursor in the
+screenshot). I had heard about something called &lt;code&gt;setjmp&#x2F;longjmp&lt;&#x2F;code&gt; before but
+hadn&#x27;t really encountered them in real world code(Could be that I haven&#x27;t seen a
+lot of real world code).&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;a id=&quot;sigsetjmp&quot;&gt;&lt;&#x2F;a&gt;
+&lt;img src=&quot;&#x2F;nonlocaljumps&#x2F;main_loop.png&quot; alt=&quot;MainLoop&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;short-primer-on-non-local-jump-construct-in-c&quot;&gt;Short primer on non local jump construct in C&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;setjmp&lt;&#x2F;code&gt; : Marks the point where this was called as somewhat of a checkpoint
+by saving the execution state&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;longjmp&lt;&#x2F;code&gt;: We jump to the checkpoint from wherever we are. This can be across
+functions (of course locally too).&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;An example (taken straight from
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Setjmp.h&quot;&gt;Wikipedia&lt;&#x2F;a&gt;) will make it a bit more
+clearer. The wikipedia page does a great job of showing how it can be used.&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #F8F8F2; background-color: #272822;&quot;&gt;&lt;code data-lang=&quot;c&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #F92672;&quot;&gt;#include&lt;&#x2F;span&gt;&lt;span style=&quot;color: #E6DB74;&quot;&gt; &amp;lt;stdio.h&amp;gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #F92672;&quot;&gt;#include&lt;&#x2F;span&gt;&lt;span style=&quot;color: #E6DB74;&quot;&gt; &amp;lt;setjmp.h&amp;gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #F92672;&quot;&gt;static&lt;&#x2F;span&gt;&lt;span&gt; jmp_buf buf;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #66D9EF;font-style: italic;&quot;&gt;void&lt;&#x2F;span&gt;&lt;span style=&quot;color: #A6E22E;&quot;&gt; second&lt;&#x2F;span&gt;&lt;span&gt;() {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #A6E22E;&quot;&gt;    printf&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color: #E6DB74;&quot;&gt;&amp;quot;second&lt;&#x2F;span&gt;&lt;span style=&quot;color: #AE81FF;&quot;&gt;\n&lt;&#x2F;span&gt;&lt;span style=&quot;color: #E6DB74;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;);&lt;&#x2F;span&gt;&lt;span style=&quot;color: #88846F;&quot;&gt;         &#x2F;&#x2F; prints&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #A6E22E;&quot;&gt;    longjmp&lt;&#x2F;span&gt;&lt;span&gt;(buf,&lt;&#x2F;span&gt;&lt;span style=&quot;color: #AE81FF;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span&gt;);&lt;&#x2F;span&gt;&lt;span style=&quot;color: #88846F;&quot;&gt;             &#x2F;&#x2F; jumps back to where setjmp was called - making setjmp now return 1&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #66D9EF;font-style: italic;&quot;&gt;void&lt;&#x2F;span&gt;&lt;span style=&quot;color: #A6E22E;&quot;&gt; first&lt;&#x2F;span&gt;&lt;span&gt;() {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #A6E22E;&quot;&gt;    second&lt;&#x2F;span&gt;&lt;span&gt;();&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #A6E22E;&quot;&gt;    printf&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color: #E6DB74;&quot;&gt;&amp;quot;first&lt;&#x2F;span&gt;&lt;span style=&quot;color: #AE81FF;&quot;&gt;\n&lt;&#x2F;span&gt;&lt;span style=&quot;color: #E6DB74;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;);&lt;&#x2F;span&gt;&lt;span style=&quot;color: #88846F;&quot;&gt;          &#x2F;&#x2F; does not print&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #66D9EF;font-style: italic;&quot;&gt;int&lt;&#x2F;span&gt;&lt;span style=&quot;color: #A6E22E;&quot;&gt; main&lt;&#x2F;span&gt;&lt;span&gt;() {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #F92672;&quot;&gt;    if&lt;&#x2F;span&gt;&lt;span&gt; (&lt;&#x2F;span&gt;&lt;span style=&quot;color: #F92672;&quot;&gt;!&lt;&#x2F;span&gt;&lt;span style=&quot;color: #A6E22E;&quot;&gt;setjmp&lt;&#x2F;span&gt;&lt;span&gt;(buf))&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #A6E22E;&quot;&gt;        first&lt;&#x2F;span&gt;&lt;span&gt;();&lt;&#x2F;span&gt;&lt;span style=&quot;color: #88846F;&quot;&gt;                &#x2F;&#x2F; when executed, setjmp returned 0&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #F92672;&quot;&gt;    else&lt;&#x2F;span&gt;&lt;span style=&quot;color: #88846F;&quot;&gt;                        &#x2F;&#x2F; when longjmp jumps back, setjmp returns 1&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #A6E22E;&quot;&gt;        printf&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color: #E6DB74;&quot;&gt;&amp;quot;main&lt;&#x2F;span&gt;&lt;span style=&quot;color: #AE81FF;&quot;&gt;\n&lt;&#x2F;span&gt;&lt;span style=&quot;color: #E6DB74;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;);&lt;&#x2F;span&gt;&lt;span style=&quot;color: #88846F;&quot;&gt;       &#x2F;&#x2F; prints&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #F92672;&quot;&gt;    return&lt;&#x2F;span&gt;&lt;span style=&quot;color: #AE81FF;&quot;&gt; 0&lt;&#x2F;span&gt;&lt;span&gt;;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Postgres doesn&#x27;t use &lt;code&gt;setjmp&#x2F;longjmp&lt;&#x2F;code&gt; but uses &lt;code&gt;sigsetjmp&#x2F;siglongjmp&lt;&#x2F;code&gt; because
+they&#x27;re supposed to be used if you&#x27;re using them in signal handling context it
+seems(again a piece of knowledge from the linked wikipedia page).&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Something fun to do: Look into if &lt;code&gt;setjmp&#x2F;longjmp&lt;&#x2F;code&gt; allow us to implement
+delimited continuations(TODO: I need to understand them better)&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;h2 id=&quot;tying-together-all-the-pieces&quot;&gt;Tying together all the pieces&lt;&#x2F;h2&gt;
+&lt;p&gt;We saw the &lt;code&gt;sigsetjmp&lt;&#x2F;code&gt; call to establish a checkpoint(&lt;a href=&quot;https:&#x2F;&#x2F;dipeshkaphle.github.io&#x2F;posts&#x2F;nonlocaljumps&#x2F;#sigsetjmp&quot;&gt;here&lt;&#x2F;a&gt;). Now we need to find where &lt;code&gt;siglongjmp&lt;&#x2F;code&gt; call is coming from. Well, that&#x27;s easy, it&#x27;s probably coming somewhere from the signal handler.&lt;&#x2F;p&gt;
+&lt;p&gt;Seeing &lt;a href=&quot;https:&#x2F;&#x2F;dipeshkaphle.github.io&#x2F;posts&#x2F;nonlocaljumps&#x2F;#setup_cancel_handler&quot;&gt;setup_cancel_handler&lt;&#x2F;a&gt;, we see a callback
+function(i.e &lt;code&gt;query_cancel_callback&lt;&#x2F;code&gt;, which is basically &lt;code&gt;psql_cancel_callback&lt;&#x2F;code&gt;)
+being assigned to &lt;code&gt;cancel_callback&lt;&#x2F;code&gt; variable and that is called in the
+&lt;a href=&quot;https:&#x2F;&#x2F;dipeshkaphle.github.io&#x2F;posts&#x2F;nonlocaljumps&#x2F;#handle_sigint&quot;&gt;handle_sigint&lt;&#x2F;a&gt; function. I had already mentioned this
+&lt;a href=&quot;https:&#x2F;&#x2F;dipeshkaphle.github.io&#x2F;posts&#x2F;nonlocaljumps&#x2F;#signal_conclusion&quot;&gt;before&lt;&#x2F;a&gt;).&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;a id=&quot;psql_cancel_callback&quot;&gt;&lt;&#x2F;a&gt;
+&lt;img src=&quot;&#x2F;nonlocaljumps&#x2F;psql_cancel_callback.png&quot; alt=&quot;psql_cancel_callback&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Voila, We see the &lt;code&gt;siglongjmp&lt;&#x2F;code&gt; call here.&lt;&#x2F;p&gt;
+&lt;p&gt;So, all of the stuff above is responsible for this small functionality.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;nonlocaljumps&#x2F;interruption_before.png&quot; alt=&quot;Interruption handler&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;verifying-what-i-figured-out-above-isn-t-a-load-of-crap&quot;&gt;Verifying what I figured out above isn&#x27;t a load of crap&lt;&#x2F;h2&gt;
+&lt;p&gt;Let&#x27;s make change to &lt;a href=&quot;https:&#x2F;&#x2F;dipeshkaphle.github.io&#x2F;posts&#x2F;nonlocaljumps&#x2F;#psql_cancel_callback&quot;&gt;psql_cancel_callback&lt;&#x2F;a&gt; and add a new print statement.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;nonlocaljumps&#x2F;printing_cancel_callback.png&quot; alt=&quot;printing_callback&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;And let&#x27;s also add a print after &lt;code&gt;sigsetjmp&lt;&#x2F;code&gt; in &lt;code&gt;MainLoop&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;nonlocaljumps&#x2F;printing_mainloop.png&quot; alt=&quot;printing_mainloop&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;After I compile with these changes, the behaviour of &lt;code&gt;Ctrl-c&lt;&#x2F;code&gt; changes slightly in &lt;code&gt;psql&lt;&#x2F;code&gt;. Now I get this&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;nonlocaljumps&#x2F;interruption_after.png&quot; alt=&quot;After modification&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;So, I guess it wasn&#x27;t incorrect.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;references&quot;&gt;References&lt;&#x2F;h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a id=&quot;references-1&quot;&gt;&lt;&#x2F;a&gt; &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;stackoverflow.com&#x2F;questions&#x2F;13341870&#x2F;signals-and-interrupts-a-comparison&quot;&gt;Signals and
+Interrupts&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a id=&quot;references-2&quot;&gt;&lt;&#x2F;a&gt; &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;beej.us&#x2F;guide&#x2F;bgc&#x2F;html&#x2F;split&#x2F;signal-handling.html&quot;&gt;Signal Handling&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a id=&quot;set-jmp&quot;&gt;&lt;&#x2F;a&gt; &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Setjmp.h&quot;&gt;Setjmp Wikipedia&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Tips for optimizing OCaml code</title>
+        <published>2023-07-21T00:00:00+00:00</published>
+        <updated>2023-07-21T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://dipeshkaphle.github.io/posts/ocamloptimizationtips/"/>
+        <id>https://dipeshkaphle.github.io/posts/ocamloptimizationtips/</id>
+        
+        <content type="html" xml:base="https://dipeshkaphle.github.io/posts/ocamloptimizationtips/">&lt;blockquote&gt;
+&lt;p&gt;NOTE: This is a Work In Progress post, I&#x27;ll update this as I learn more.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;Try to reduce &lt;code&gt;caml_modify&lt;&#x2F;code&gt; calls&lt;&#x2F;li&gt;
+&lt;li&gt;Reduce allocations, avoiding something like &lt;code&gt;&#x27;a option&lt;&#x2F;code&gt; can help with
+performance quite a lot.&lt;&#x2F;li&gt;
+&lt;li&gt;Use higher order functions sparingly. For example: see
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;janestreet&#x2F;base&#x2F;blob&#x2F;master&#x2F;src&#x2F;list.ml#L702&quot;&gt;here&lt;&#x2F;a&gt;. That
+kind of goes on to show the cost of indirect calls(which means inlining can&#x27;t
+possibly happen)&lt;&#x2F;li&gt;
+&lt;li&gt;Looking into the assembly generated is your friend.
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;discuss.ocaml.org&#x2F;t&#x2F;viewing-generated-assembly-from-ocaml-source-files&#x2F;6858&quot;&gt;Link which tells you how to do that&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;This &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;ocaml.org&#x2F;docs&#x2F;profiling&quot;&gt;Profiling section for ocaml.org&lt;&#x2F;a&gt; and
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;dev.realworldocaml.org&#x2F;compiler-backend.html&quot;&gt;Compiler Backend section Real World OCaml&lt;&#x2F;a&gt;
+gives overview of profiling and some information on generated assembly.&lt;&#x2F;li&gt;
+&lt;li&gt;Useful links for knowing more about internals :
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;stackoverflow.com&#x2F;questions&#x2F;11322163&#x2F;ocaml-calling-convention-is-this-an-accurate-summary&quot;&gt;1&lt;&#x2F;a&gt;,
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;rwmj.wordpress.com&#x2F;2009&#x2F;08&#x2F;04&#x2F;ocaml-internals&#x2F;https:&#x2F;&#x2F;rwmj.wordpress.com&#x2F;2009&#x2F;08&#x2F;04&#x2F;ocaml-internals&#x2F;&quot;&gt;2&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Helpful Emacs Shortcuts</title>
+        <published>2023-06-20T00:00:00+00:00</published>
+        <updated>2023-06-20T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://dipeshkaphle.github.io/posts/helpful-emacs-shortcuts/"/>
+        <id>https://dipeshkaphle.github.io/posts/helpful-emacs-shortcuts/</id>
+        
+        <content type="html" xml:base="https://dipeshkaphle.github.io/posts/helpful-emacs-shortcuts/">&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Useful commands page for someone else
+&lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;irreal.org&#x2F;emacs-reminders.html&quot;&gt;Emacs-reminders&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;describe-bindings&lt;&#x2F;code&gt; or &lt;code&gt;SPC h b b&lt;&#x2F;code&gt; is super helpful for knowing what happens
+when you press stuff&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;describe-prefix-bindings&lt;&#x2F;code&gt; can be used to see bindings in current mode.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;SPC h&lt;&#x2F;code&gt; is for help related stuff, same as &lt;code&gt;C-h&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;C-h k&lt;&#x2F;code&gt; or &lt;code&gt;SPC h k&lt;&#x2F;code&gt; or &lt;code&gt;describe-key&lt;&#x2F;code&gt; will give information about keys you
+press when it prompts you.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;C-h j&lt;&#x2F;code&gt; and &lt;code&gt;C-h k&lt;&#x2F;code&gt; will move to next page and previous page when there&#x27;s a
+which-key buffer and there&#x27;s multiple pages for a particular key press [TODO: figure out why this doesn&#x27;t work anymore in my setup for some reason]&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;C-h&lt;&#x2F;code&gt; on any which-key buffer opens a list of searchable possible
+keybindings&#x2F;actions I can take in the current key prefix. Example: Say I press
+&lt;code&gt;C-c&lt;&#x2F;code&gt;, then &lt;code&gt;C-h&lt;&#x2F;code&gt; will open up all the actions&#x2F;keys starting with &lt;code&gt;C-c&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;All &lt;code&gt;describe-*&lt;&#x2F;code&gt; is super helpful. There&#x27;s &lt;code&gt;describe-variable&lt;&#x2F;code&gt;,
+&lt;code&gt;describe-command&lt;&#x2F;code&gt;, &lt;code&gt;describe-function&lt;&#x2F;code&gt; and so on.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;C-M-h&lt;&#x2F;code&gt; -&amp;gt; mark-defun will select a whole function&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;If you want to open a file that&#x27;s in some text, you can select it and then
+just press &lt;code&gt;gF&lt;&#x2F;code&gt; to jump to it(this is evil mode binding). Command:
+&lt;code&gt;evil-find-file-at-point-with-line&lt;&#x2F;code&gt; .This works with line numbers also so if
+there&#x27;s something of form &lt;file-name&gt;:line, this is super useful. This
+helps when you have file names and line names in error messages, you can
+easily jump to that file+line&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Use &lt;code&gt;maximize-window&lt;&#x2F;code&gt; to maximize one window in splits and do &lt;code&gt;winner-undo&lt;&#x2F;code&gt; to undo it&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;C-M-SPC&lt;&#x2F;code&gt; -&amp;gt; &lt;code&gt;mark-sexp&lt;&#x2F;code&gt; will select the next ast node(sort of), repeating it
+more will move forward. &lt;code&gt;C-M-&amp;lt;left&amp;gt;&lt;&#x2F;code&gt; will move backward&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;fill-paragraph&lt;&#x2F;code&gt; is nice for formatting text (with max width), bound to &lt;code&gt;M-q&lt;&#x2F;code&gt;.
+In &lt;code&gt;tuareg-mode&lt;&#x2F;code&gt;,&lt;code&gt;M-q&lt;&#x2F;code&gt; is bound to &lt;code&gt;tuareg-indent-phrase&lt;&#x2F;code&gt; which helps in
+formatting comments in ocaml&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Registers are there in emacs too. &lt;code&gt;C-x r s &amp;lt;reg-name&amp;gt;&lt;&#x2F;code&gt; to copy things to a
+register and &lt;code&gt;C-x r i &amp;lt;reg-name&amp;gt;&lt;&#x2F;code&gt; or &lt;code&gt;consult-register&lt;&#x2F;code&gt; followed by
+&lt;code&gt;&amp;lt;reg-name&amp;gt;&lt;&#x2F;code&gt; to paste it. If you&#x27;re using evil mode, the usual vim way can be
+used &lt;code&gt;&quot;&amp;lt;reg-name&amp;gt;y&#x2F;p&lt;&#x2F;code&gt;. More info can be found in
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.emacswiki.org&#x2F;emacs&#x2F;Registers&quot;&gt;emacswiki&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Very useful emacs stuff at &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;emacsrocks.com&#x2F;&quot;&gt;emacsrocks.com&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;www.emacswiki.org&#x2F;emacs&#x2F;FlySpell&quot;&gt;Flyspell&lt;&#x2F;a&gt; is super helpful&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;apropos&lt;&#x2F;code&gt; is super helpful, like a regex search for emacs commands(&lt;code&gt;SPC-h-a&lt;&#x2F;code&gt;
+in doom, &lt;code&gt;C-h-a&lt;&#x2F;code&gt; also works)&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;C-u &amp;lt;param&amp;gt; M-x &amp;lt;command&amp;gt;&lt;&#x2F;code&gt; will run &lt;code&gt;&amp;lt;command&amp;gt;&lt;&#x2F;code&gt; with &lt;code&gt;&amp;lt;param&amp;gt;&lt;&#x2F;code&gt;. This is
+useful when say you have &lt;code&gt;mark-sexp&lt;&#x2F;code&gt;, you maybe mark an extra sexp, so you&#x27;d
+do &lt;code&gt;C-u -1 M-x mark-sexp&lt;&#x2F;code&gt;(for evil mode(doomemacs) it&#x27;s
+&lt;code&gt;SPC-u -1 M-x mark-sexp&lt;&#x2F;code&gt; )&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;dired-toggle-read-only&lt;&#x2F;code&gt; allows to change(makes dired editable) whatever we
+want in dired buffer(can be helpful for renaming mostly and probably many
+other things too). To finish edit &lt;code&gt;wdired-finish-edit&lt;&#x2F;code&gt; and to abort
+&lt;code&gt;wdired-abort-changes&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Some cool things
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;karthinks.com&#x2F;software&#x2F;fifteen-ways-to-use-embark&#x2F;&quot;&gt;here&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;See &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;oantolin&#x2F;orderless&quot;&gt;orderless&lt;&#x2F;a&gt; for prefixes that
+trigger different behaviors during minibuffer search in vertico&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Use &lt;code&gt;org-timestamp&lt;&#x2F;code&gt; to insert date to the buffer(quite cool)&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Want to insert unicode symbols in emacs. Do one of the the following(&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;emacs.stackexchange.com&#x2F;questions&#x2F;60881&#x2F;how-to-insert-mathematical-symbols-in-emacs&quot;&gt;Reference&lt;&#x2F;a&gt;):&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;M-x set-input-method RET tex&lt;&#x2F;code&gt; or &lt;code&gt;C-\&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;C-x 8 RET&lt;&#x2F;code&gt; to see a bunch of searchable symbols and insert them&lt;&#x2F;li&gt;
+&lt;li&gt;If we want this to be in every buffer, need to &lt;code&gt;customize-variable&lt;&#x2F;code&gt; &lt;code&gt;default-input-method&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>GCC Workshop IITB Notes</title>
+        <published>2023-02-27T00:00:00+00:00</published>
+        <updated>2023-02-27T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://dipeshkaphle.github.io/notes/gccworkshopiitbnotes/"/>
+        <id>https://dipeshkaphle.github.io/notes/gccworkshopiitbnotes/</id>
+        
+        <content type="html" xml:base="https://dipeshkaphle.github.io/notes/gccworkshopiitbnotes/">&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;NOTE&lt;&#x2F;strong&gt; : This is still incomplete and I might add content as I see the
+videos more.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;h2 id=&quot;notes&quot;&gt;Notes&lt;&#x2F;h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Variable Meanings&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;$(SOURCE_D) = Source directory&lt;&#x2F;li&gt;
+&lt;li&gt;$(BUILD) = Build directory&lt;&#x2F;li&gt;
+&lt;li&gt;$(INSTALL) = Install directory&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The workshop was held in 2012, so a lot has changed code wise but the concept
+is pretty much same. One major thing is, most of the code is C++ code(.cc
+extension) but when this workshop was happening it was all C files(.c
+extension).&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;h2 id=&quot;configuring-gcc&quot;&gt;Configuring GCC&lt;&#x2F;h2&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;IITB-GCC&#x2F;Configuring.png&quot; alt=&quot;&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Convention followed in the picture:&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;Box =&amp;gt; Executable&lt;&#x2F;li&gt;
+&lt;li&gt;Not in Box =&amp;gt; File&#x2F;Data&#x27;&lt;&#x2F;li&gt;
+&lt;li&gt;Oval =&amp;gt; Library&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;Gcc generates a lot of source code during the build step.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;terminologies&quot;&gt;Terminologies&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;The sources of the compiler are compiled on &lt;code&gt;Build System&lt;&#x2F;code&gt;.&lt;&#x2F;li&gt;
+&lt;li&gt;The built compiler runs on &lt;code&gt;Host System&lt;&#x2F;code&gt;(host).&lt;&#x2F;li&gt;
+&lt;li&gt;The compiler compiles code for the &lt;code&gt;Target System&lt;&#x2F;code&gt;(target).&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;More on configure terminologies found
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;gcc.gnu.org&#x2F;onlinedocs&#x2F;gccint&#x2F;Configure-Terms.html#Configure-Terms&quot;&gt;here&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;All Configure Options found
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;gcc.gnu.org&#x2F;install&#x2F;configure.html&quot;&gt;here&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;h2 id=&quot;what-happens-during-build&quot;&gt;What happens during build?&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;normal-build-steps&quot;&gt;Normal Build Steps&lt;&#x2F;h3&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;IITB-GCC&#x2F;build_steps.png&quot; alt=&quot;&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;native-build-with-bootstrapping&quot;&gt;Native Build With Bootstrapping&lt;&#x2F;h3&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;IITB-GCC&#x2F;native_build_bootstrap.png&quot; alt=&quot;&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;build-stages&quot;&gt;Build Stages&lt;&#x2F;h3&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;IITB-GCC&#x2F;stage_1_build.png&quot; alt=&quot;&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Stage 1 files created in $(BUILD)&#x2F;stage1-gcc&lt;&#x2F;li&gt;
+&lt;li&gt;Stage 2 files created in $(BUILD)&#x2F;prev-gcc&lt;&#x2F;li&gt;
+&lt;li&gt;Stage 2 files created in $(BUILD)&#x2F;gcc&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;NOTE: Cross compilation is difficult and weird&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;There&#x27;s explanation of mechanism to add new target to gcc in the workshop. But
+since it&#x27;s unlikely you&#x27;d want to do this, I&#x27;m skipping it. It starts at 3&#x2F;4th
+of the video L3-B.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;h2 id=&quot;directory-structure&quot;&gt;Directory Structure&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;frontend-code&quot;&gt;Frontend Code&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Kept in &lt;code&gt;&amp;lt;source_directory&amp;gt;&#x2F;gcc&#x2F;&amp;lt;lang&amp;gt;&lt;&#x2F;code&gt; where &lt;code&gt;lang&lt;&#x2F;code&gt; can be language frontends
+c,cp,go,etc&lt;&#x2F;li&gt;
+&lt;li&gt;It contains parsing code, additional ast&#x2F;generic nodes,if any. It also has
+interface to generic creation&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;optimizer-code-and-backend-generator-code&quot;&gt;Optimizer Code and Backend Generator Code&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Kept in &lt;code&gt;&amp;lt;source_directory&amp;gt;&#x2F;gcc&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;source_directory&amp;gt;&#x2F;gcc&#x2F;config&#x2F;&amp;lt;target_dir&amp;gt;&lt;&#x2F;code&gt; has backend code. &lt;code&gt;&amp;lt;target&amp;gt;.md&lt;&#x2F;code&gt;
+and &lt;code&gt;&amp;lt;target&amp;gt;.h&lt;&#x2F;code&gt; files will be present. &lt;code&gt;&amp;lt;target&amp;gt;.cc&lt;&#x2F;code&gt; may also be there. It&#x27;ll
+have more files than this though.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;plugins&quot;&gt;Plugins&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;static-plugin&quot;&gt;Static Plugin&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Changes required in gcc&#x2F;Makefile.in, some header and source files.&lt;&#x2F;li&gt;
+&lt;li&gt;Atleast cc1 may have to be rebuild and all other files that were affected by
+source change.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;dynamic-plugin&quot;&gt;Dynamic Plugin&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Supported on platforms that support -ldl -rdynamic.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Loaded using dlopen and invoked at pre-determined locations in compilation
+process.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Command line option: -fplugin=&#x2F;path&#x2F;to&#x2F;name.so&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;The compilers are also plugins. They are static plugins however and can be
+found in &lt;code&gt;$(SOURCE_D)&#x2F;gcc&#x2F;gcc.cc&lt;&#x2F;code&gt;. There&#x27;s an array of them, called
+&lt;code&gt;static const struct compiler default_compilers[]&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;# means default specs not availble in top level directory. Defined
+somewhere else. @ means Aliased entry.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;$(SOURCE_D)&#x2F;gcc&#x2F;&amp;lt;lang&amp;gt;&#x2F;lang-specs.h&lt;&#x2F;code&gt; has more information about the compiler.
+Example: C++&#x27;s specs can be seen in &lt;code&gt;$(SOURCE_D)&#x2F;gcc&#x2F;cp&#x2F;lang-specs.h&lt;&#x2F;code&gt; and for
+C, it&#x27;s defined in the gcc.cc file itself(so it&#x27;s @ implying it&#x27;s aliased
+entry. For C++ it&#x27;s in different directory, so it doesn&#x27;t have default specs).&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Dynamic plugin mechanism just adds a node to the linked list of optimization
+passes.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Passes are executed with &lt;code&gt;execute_pass_list&lt;&#x2F;code&gt; function defined in
+&lt;code&gt;$(SOURCE_D)&#x2F;gcc&#x2F;passes.cc&lt;&#x2F;code&gt; which is just a while loop running all the passes.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h4 id=&quot;interprocedural-pass&quot;&gt;Interprocedural Pass&lt;&#x2F;h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;simple_ipa_opt_pass&lt;&#x2F;code&gt; =&amp;gt; Works on functions in a translation unit, stored in
+variable &lt;code&gt;all_simple_ipa_passes&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;Regular IPA pass =&amp;gt; Works across translation units. Used in link time
+optimization. &lt;code&gt;ipa_opt_pass_d&lt;&#x2F;code&gt; has details about ipa passes,which will be used
+in lto.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h4 id=&quot;predefined-pass-lists&quot;&gt;Predefined pass lists&lt;&#x2F;h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;all_lowering_passes&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;all_small_ipa_passes&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;all_regular_ipa_passes&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;all_lto_gen_passes&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;all_passes&lt;&#x2F;code&gt; =&amp;gt; Intraprocedural passes on gimple and rtl&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;adding-a-static-pass&quot;&gt;Adding a static Pass&lt;&#x2F;h3&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;IITB-GCC&#x2F;add_static_pass.png&quot; alt=&quot;&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;control-flow&quot;&gt;Control Flow&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;gcc-driver-program&quot;&gt;GCC Driver Program&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;control flow can be found in &lt;code&gt;$(SOURCE_D)&#x2F;gcc&#x2F;gcc.cc&lt;&#x2F;code&gt; in &lt;code&gt;driver::main&lt;&#x2F;code&gt;
+function definition.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;cc1-top-level-control-flow&quot;&gt;CC1 Top Level Control Flow&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;can be found in toplev.cc &lt;code&gt;$(SOURCE_D)&#x2F;gcc&#x2F;toplev.cc&lt;&#x2F;code&gt; in &lt;code&gt;toplev::main&lt;&#x2F;code&gt;
+function definition.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;NOTE: Watch L5-A if more insights needed about the flow of program. It has
+many more things such as code gen flow, passes flow, lowering passes flow,
+etc.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;NOTE: Better to See L5-B by yourself as well, the LTO section is amazing.
+Skipping it because it&#x27;s kind of an advanced topic. &lt;strong&gt;TODO&lt;&#x2F;strong&gt; : Make notes on
+this&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;h2 id=&quot;generic-gimple-and-rtl&quot;&gt;GENERIC, GIMPLE and RTL&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;generic&quot;&gt;GENERIC&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Language independent IR for a complete function in the form of trees&lt;&#x2F;li&gt;
+&lt;li&gt;Obtained by removing language specific constructs from ASTs&lt;&#x2F;li&gt;
+&lt;li&gt;All tree codes defined in &lt;code&gt;$(SOURCE_D)&#x2F;gcc&#x2F;tree.def&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;With this, all language can have their own ASTs and they just have to emit
+GENERIC and gcc will take over from there.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;gimple&quot;&gt;GIMPLE&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Language indepedent 3 address code representation&lt;&#x2F;li&gt;
+&lt;li&gt;It is simplified subset of GENERIC.&lt;&#x2F;li&gt;
+&lt;li&gt;It has 3 address codes, simplified scope(block begin and end), Control Flow
+Lowering, simplified and restricted grammar&lt;&#x2F;li&gt;
+&lt;li&gt;Easy to optimize&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h4 id=&quot;manipulating-gimple&quot;&gt;Manipulating GIMPLE&lt;&#x2F;h4&gt;
+&lt;ul&gt;
+&lt;li&gt;A Basic Block contains a doubly linked list of GIMPLE statements&lt;&#x2F;li&gt;
+&lt;li&gt;The statements are represented as GIMPLE tuple and the operands are
+represented by a tree data structure.&lt;&#x2F;li&gt;
+&lt;li&gt;Processing of statements done through iterators.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Many APIs for GIMPLE manipulation can be found in &lt;code&gt;$(SOURCE_D)&#x2F;gcc&#x2F;gimple.h&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;h4 id=&quot;manipulating-tree&quot;&gt;Manipulating tree&lt;&#x2F;h4&gt;
+&lt;ul&gt;
+&lt;li&gt;My friends found a great blog post about manipulating gimple from
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;Jongy&quot;&gt;Yonatan Goldschmidt&lt;&#x2F;a&gt;. The blog post is in 2 parts.
+It lies &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;jongy.github.io&#x2F;2020&#x2F;04&#x2F;25&#x2F;gcc-assert-introspect.html&quot;&gt;here&lt;&#x2F;a&gt;
+and &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;jongy.github.io&#x2F;2020&#x2F;05&#x2F;15&#x2F;gcc-assert-introspect-2.html&quot;&gt;here&lt;&#x2F;a&gt;.
+The code is &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;Jongy&#x2F;gcc_assert_introspect&quot;&gt;here&lt;&#x2F;a&gt; and it&#x27;s a
+great resource for learning ast manipulation in gcc.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Notes on GCC</title>
+        <published>2023-02-24T00:00:00+00:00</published>
+        <updated>2023-02-24T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://dipeshkaphle.github.io/notes/gcc-notes/"/>
+        <id>https://dipeshkaphle.github.io/notes/gcc-notes/</id>
+        
+        <content type="html" xml:base="https://dipeshkaphle.github.io/notes/gcc-notes/">&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;NOTE&lt;&#x2F;strong&gt; : This is still incomplete and I might add more content&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;Takes about 50 minutes for clean build on my current machine&lt;&#x2F;li&gt;
+&lt;li&gt;X86-64 calling convention :
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;X86_calling_conventions&quot;&gt;Link&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;gcc-newbies-guide.readthedocs.io&#x2F;en&#x2F;latest&#x2F;inside-cc1.html&quot;&gt;Inside CC1&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;setting-up-dev-environment&quot;&gt;Setting Up Dev Environment&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;gcc.gnu.org&#x2F;wiki&#x2F;Regenerating_GCC_Configuration#fnref-1ac2645085d52b5887d132f08d57c97f6969ef7d&quot;&gt;Useful Link&lt;&#x2F;a&gt;
+(Important to learn if you want to hack on gcc)&lt;&#x2F;li&gt;
+&lt;li&gt;Create a different build directory(convention followed). Build tree =&amp;gt; build
+directory, Source tree =&amp;gt; the root directory where source code lies.&lt;&#x2F;li&gt;
+&lt;li&gt;Install bear to generate compile_commands.json&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #F8F8F2; background-color: #272822;&quot;&gt;&lt;code data-lang=&quot;plain&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;$ .&#x2F;contrib&#x2F;download_prerequisites&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;$ mkdir build # create build tree&#x2F;directory&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;$ cd build&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;$ ..&#x2F;configure --prefix=$PWD&#x2F;GCC-INSTALL-DIR --enable-languages=c,c++ --disable-bootstrap # Disable bootstrap to make build fast&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;$ bear -- make -j$(nproc) # bear will generate compile_commands.json which will be used by development env for understanding about the repo&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;ul&gt;
+&lt;li&gt;See
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;gcc-newbies-guide.readthedocs.io&#x2F;en&#x2F;latest&#x2F;getting-started.html&quot;&gt;this&lt;&#x2F;a&gt;
+to learn more about when to enable bootstrap and when to use multiple copies
+of the repo and things like that.&lt;&#x2F;li&gt;
+&lt;li&gt;For cross compiling(this is just from my experience trying to compile for
+arm64 host and target, on my x86 machine)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #F8F8F2; background-color: #272822;&quot;&gt;&lt;code data-lang=&quot;plain&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;$ sudo pacman -S aarch64-linux-gnu-gcc \\ install cross compilers(this is for aarch64)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;$ mkdir build&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;$ cd build&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;$ ..&#x2F;configure --prefix=$PWD&#x2F;GCC-12.2.0 --enable-languages=c,c++ --disable-bootstrap  --host=aarch64-linux-gnu --target=aarch64-linux-gnu&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;$ clear; make -j$(nproc)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;$ make install&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;preshing.com&#x2F;20141119&#x2F;how-to-build-a-gcc-cross-compiler&#x2F;&quot;&gt;This&lt;&#x2F;a&gt; is
+more comprehensive guide for cross compiling.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;tools-used-gcc-hacker-must-learn-properly&quot;&gt;Tools used(Gcc hacker must learn properly)&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Autoconf (&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Configure_script&quot;&gt; configure.ac &lt;&#x2F;a&gt;
+files), Automake are used.
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Automake&quot;&gt;Link(has a nice diagram about how they work together)&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;Configure shell scripts and .in header templates&lt;&#x2F;li&gt;
+&lt;li&gt;Makefile is generated using Makefile.{def,tpl,in}(.in is generated from .def
+and .tpl using &lt;code&gt;autogen&lt;&#x2F;code&gt;) files present in source directory. This is done by
+the configure script and it should be generated in the build directory.&lt;&#x2F;li&gt;
+&lt;li&gt;There are two level of configurations, the topmost &lt;code&gt;$GCCTOP&#x2F;configure&lt;&#x2F;code&gt; and the
+one in &lt;code&gt;$GCCTOP&#x2F;gcc&#x2F;configure&lt;&#x2F;code&gt; (&lt;code&gt;GCCTOP =&amp;gt; source directory&lt;&#x2F;code&gt;). Some configure
+arguments are passed from the topmost to the lower, but the topmost --help
+don&#x27;t mention them.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;must-understand&quot;&gt;Must Understand&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Source Directory and what they have .
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;gcc.gnu.org&#x2F;onlinedocs&#x2F;gccint&#x2F;Top-Level.html#Top-Level&quot;&gt;Link&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;Gcc subdirectory.
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;gcc.gnu.org&#x2F;onlinedocs&#x2F;gccint&#x2F;gcc-Directory.html#gcc-Directory&quot;&gt;Link&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;Passes&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;general-notes&quot;&gt;General Notes&lt;&#x2F;h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;In general, the names of macros are all in uppercase, while the names of
+functions are entirely in lowercase. There are rare exceptions to this rule.
+You should assume that any macro or function whose name is made up entirely of
+uppercase letters may evaluate its arguments more than once. You may assume
+that a macro or function whose name is made up entirely of lowercase letters
+will evaluate its arguments only once.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;h2 id=&quot;lexing&quot;&gt;Lexing&lt;&#x2F;h2&gt;
+&lt;p&gt;First the input source is “tokenized”, so that the stream of input characters is
+divided into a stream of tokens. This is called “lexing”, and largely
+implemented in gcc in libcpp(folder in gcc) (which also implements the
+preprocessor - hence the name)&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;parsing&quot;&gt;Parsing&lt;&#x2F;h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;gcc -S &amp;lt;c-file&amp;gt; -O2 -fverbose-asm -fdump-tree-all -fdump-ipa-all -fdump-rtl-all&lt;&#x2F;code&gt;
+will generate dumps for every compiler pass that happened&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;Next the frontend parses the tokens from a flat stream into a tree-like
+structure reflecting the grammar of the language (or complains about syntax
+errors or type errors, and bails out). This stage uses gcc’s &lt;strong&gt;tree&lt;&#x2F;strong&gt; type.
+There may be frontend-specific kinds of node, in the tree but the frontend will
+convert these to a generic form. &lt;strong&gt;Most warnings and lint things are implemented
+in this phase&lt;&#x2F;strong&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;After each frontend the middle end “sees” a tree representation that we call
+&lt;strong&gt;generic&lt;&#x2F;strong&gt;. &lt;strong&gt;Generic&lt;&#x2F;strong&gt; IR closely resembles the original C code, but sometimes
+you will see control flow expressed via “goto” statements that go to numbered
+labels, and temporary variables introduced by the frontend.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;gimple&quot;&gt;Gimple&lt;&#x2F;h2&gt;
+&lt;p&gt;The tree-based IR can contain arbitrarily-complicated nested expressions, which
+is relatively easy for the frontends to generate, but difficult for the
+optimizer to work with, so GCC almost immediately converts it into a form named
+“gimple”.
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;gcc.gnu.org&#x2F;onlinedocs&#x2F;gccint&#x2F;GIMPLE.html&quot;&gt;Gimple Documentation&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;gimple-with-cfg-control-flow-graph&quot;&gt;Gimple with CFG(Control Flow Graph)&lt;&#x2F;h2&gt;
+&lt;p&gt;&lt;strong&gt;Gimple&lt;&#x2F;strong&gt; is almost immediately converted to a CFG, a directed graph of &quot;Basic
+Blocks&quot;(Sequences of instructions with no control flow). The control flow is
+expressed as edges between the Basic Blocks.&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;gcc -S &amp;lt;c-file&amp;gt; -O2 -fverbose-asm -fdump-tree-all-graph -fdump-ipa-all-graph -fdump-rtl-all-graph&lt;&#x2F;code&gt;
+will generate dot graph dumps for every compiler pass that happened,in
+addition to normal dumps generated without the graph suffix in the flags&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;h2 id=&quot;gimple-ssa-static-single-assignment&quot;&gt;Gimple SSA(Static Single Assignment)&lt;&#x2F;h2&gt;
+&lt;p&gt;SSA form is commonly used inside compilers, as it makes many kinds of
+optimization much easier to implement. In SSA, every local variable is only ever
+assigned to once; if there are multiple assignments to a local variable, it gets
+split up into multiple versions. Pretty much any major compiler uses SSA form at
+one point. Heavily used in LLVM as well. More
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Static_single-assignment_form&quot;&gt;here&lt;&#x2F;a&gt;. Involves
+concept such as &#x27;phi-nodes&#x27; and more.&lt;&#x2F;p&gt;
+&lt;p&gt;GCC-Gimple-SSA documentation:
+&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;gcc.gnu.org&#x2F;onlinedocs&#x2F;gccint&#x2F;Tree-SSA.html&quot;&gt;here&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;In SSA form, almost 200 passes are there.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;intraprocedural-passes&quot;&gt;Intraprocedural Passes&lt;&#x2F;h3&gt;
+&lt;p&gt;These work on one function at a time. They have a “t” code in their dump file.
+For example, test.c.175t.switchlower is the dump file for an optimization pass
+which converts gimple switch statements into lower-level gimple statements and
+control flow (which doesn’t do anything in our example above, as it doesn’t have
+any switch statements; try writing a simple C source file with a switch
+statement and see what it does)&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;interprocedural-passes&quot;&gt;Interprocedural Passes&lt;&#x2F;h3&gt;
+&lt;p&gt;Consider all of the functions at once, such as which functions call which other
+functions. These have an “i” code in their dump file.&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;All sets of optimizations can be found in &lt;code&gt;gcc&#x2F;passes.def&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;h2 id=&quot;rtl&quot;&gt;RTL&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Gimple is converted to Register Transfer Language (RTL), a much lower-level
+representation of the code, which will allow us to eventually go all the way
+to assembler.&lt;&#x2F;li&gt;
+&lt;li&gt;This conversion happens in an optimization pass called &quot;expand&quot;.&lt;&#x2F;li&gt;
+&lt;li&gt;RTL form of the IR is much closer to assembler: whereas gimple works in terms
+of variables of specific data types, RTL instructions work in terms of
+low-level operations on an arbitrary number of registers of specific bit
+sizes.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;optimization-passes-in-rtl&quot;&gt;Optimization passes in RTL&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Implements calling convention of an ABI&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Does register allocation&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Uses actual instruction and addressing modes of CPU rather than assuming an
+ideal set of combinations&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Optimizations such as scheduling instructions, handling delay slot, etc to
+make it run efficiently on the machine.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Converts the CFG that RTL inherited from gimple into a flat series of
+instructions connected by jumps (honoring constraints such as limitations on
+how many bytes a jump instruction can go)&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Final form of RTL is generated in a pass called &quot;final&quot;. This form is suitable
+for output in assembler.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;generic&quot;&gt;GENERIC&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Union Crimes happening in codebase. Abusing union memory layout.. &lt;code&gt;tree_node&lt;&#x2F;code&gt;
+is a union, which has two fields that always need to exist. &lt;code&gt;TREE_CHAIN&lt;&#x2F;code&gt; and
+&lt;code&gt;TREE_TYPE&lt;&#x2F;code&gt; macros defined in &lt;code&gt;gcc&#x2F;tree.h&lt;&#x2F;code&gt; need to access &lt;code&gt;common&lt;&#x2F;code&gt; and &lt;code&gt;typed&lt;&#x2F;code&gt;
+field of &lt;code&gt;tree_node&lt;&#x2F;code&gt;(in &lt;code&gt;gcc&#x2F;tree-core.h&lt;&#x2F;code&gt;) and they&#x27;ll always end up being
+valid because the minimum size of anything inside that union is
+&lt;code&gt;tree_typed&lt;&#x2F;code&gt;(which makes &lt;code&gt;TREE_TYPE&lt;&#x2F;code&gt; always valid because of union memory
+layout) and whenever they need to use &lt;code&gt;TREE_CHAIN&lt;&#x2F;code&gt;, many cases it&#x27;s having
+&lt;code&gt;tree_common&lt;&#x2F;code&gt; as first field in struct and hence making it valid. I&#x27;m assuming
+this needs to be checked however as some type have &lt;code&gt;tree_typed&lt;&#x2F;code&gt; as member and
+not &lt;code&gt;tree_common&lt;&#x2F;code&gt; (maybe because they don&#x27;t need the next pointer).&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;gimple-1&quot;&gt;GIMPLE&lt;&#x2F;h2&gt;
+&lt;p&gt;&lt;strong&gt;INCOMPLETE&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;passes&quot;&gt;Passes&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;frontend-passes&quot;&gt;Frontend Passes&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Language frontend is invoked only once.&lt;&#x2F;li&gt;
+&lt;li&gt;I think gcc&#x2F;toplev.cc is the driver program? I&#x27;m not sure&lt;&#x2F;li&gt;
+&lt;li&gt;langs_hook.parse_file is invoked in &lt;code&gt;gcc&#x2F;toplev.cc&lt;&#x2F;code&gt;. I&#x27;m not sure how this is
+working?&lt;&#x2F;li&gt;
+&lt;li&gt;Each front end provides its own lang hook initializer. Lang hook routines
+common to C++ and ObjC++ appear in cp&#x2F;cp-objcp-common.cc&lt;&#x2F;li&gt;
+&lt;li&gt;Languages can use whatever intermediate language representation they want. (C
+uses GENERIC trees + some language specific tree codes, defined in
+c-common.def), while Fortran uses completely different private representation.&lt;&#x2F;li&gt;
+&lt;li&gt;C Frontend invokes the gimplifier manually on each function and uses the
+callbacks to convert language specific tree nodes directly to &lt;code&gt;GIMPLE&lt;&#x2F;code&gt;, before
+passing the function off to be compiled. Fortran however follows private repr
+=&amp;gt; GENERIC =&amp;gt; GIMPLE path.&lt;&#x2F;li&gt;
+&lt;li&gt;The call-graph is a data structure designed for inter-procedural optimization.
+It represents a multi-graph where nodes are functions (symbols within symbol
+table) and edges are call sites.&lt;&#x2F;li&gt;
+&lt;li&gt;The front end needs to pass all function definitions and top level
+declarations off to the middle-end so that they can be compiled and emitted to
+the object file.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;gimplification-passes&quot;&gt;Gimplification Passes&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Tree lowering pass. This pass converts the GENERIC functions-as-trees tree
+representation into the GIMPLE form.&lt;&#x2F;li&gt;
+&lt;li&gt;The main entry point to this pass is &lt;code&gt;gimplify_function_tree&lt;&#x2F;code&gt; located in
+&lt;code&gt;gimplify.cc&lt;&#x2F;code&gt;. Processes entire function, gimplifying each of the statements.
+Main thing to look into is the &lt;code&gt;gimplify_expr&lt;&#x2F;code&gt;.&lt;&#x2F;li&gt;
+&lt;li&gt;See &lt;code&gt;gcc&#x2F;cgraphunit.cc&lt;&#x2F;code&gt; which implements main driver of the compilation
+process. This is where &lt;code&gt;lower_nested_functions&lt;&#x2F;code&gt; (in cgraphnode::analyze) is
+called which I inside it calls &lt;code&gt;gimplify_function_tree&lt;&#x2F;code&gt; inside it on all the
+functions. Also look into the &lt;code&gt;cgraph_node&lt;&#x2F;code&gt; structure defined in
+&lt;code&gt;gcc&#x2F;cgraph.h&lt;&#x2F;code&gt;. (The call-graph is a data structure designed for
+inter-procedural optimization. It represents a multi-graph where nodes are
+functions (symbols within symbol table) and edges are call sites)&lt;&#x2F;li&gt;
+&lt;li&gt;See &lt;code&gt;gimplify_stmt&lt;&#x2F;code&gt; and &lt;code&gt;gimplify_expr&lt;&#x2F;code&gt;(Has lots of comments to understand.
+TODO: understand this as I&#x27;m not clear with representation fully) in
+&lt;code&gt;gcc&#x2F;gimplify.cc&lt;&#x2F;code&gt;.&lt;&#x2F;li&gt;
+&lt;li&gt;There&#x27;s a language specific &lt;code&gt;gimplify_expr&lt;&#x2F;code&gt; that will be implemented as
+language hook. Called in &lt;code&gt;gimplify_expr&lt;&#x2F;code&gt; in &lt;code&gt;gcc&#x2F;gimplify.cc&lt;&#x2F;code&gt; as
+&lt;code&gt;lang_hooks.gimplify_expr&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;pass-manager&quot;&gt;Pass Manager&lt;&#x2F;h3&gt;
+&lt;p&gt;&lt;strong&gt;INCOMPLETE&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;vectorization-related-things&quot;&gt;Vectorization Related Things&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Cost Model is described in &lt;code&gt;$(SOURCE_D)&#x2F;gcc&#x2F;tree-vect-loop.cc&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;More details &lt;a rel=&quot;external&quot; href=&quot;http:&#x2F;&#x2F;gcc.gnu.org&#x2F;projects&#x2F;tree-ssa&#x2F;vectorization.html&quot;&gt;here&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Setup FStar in OCaml 4.14</title>
+        <published>2023-01-14T00:00:00+00:00</published>
+        <updated>2023-01-14T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://dipeshkaphle.github.io/notes/setupfstar/"/>
+        <id>https://dipeshkaphle.github.io/notes/setupfstar/</id>
+        
+        <content type="html" xml:base="https://dipeshkaphle.github.io/notes/setupfstar/">&lt;h2 id=&quot;steps&quot;&gt;Steps&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;setup-dependencies-properly&quot;&gt;Setup dependencies properly&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;opam install ocamlbuild&lt;&#x2F;li&gt;
+&lt;li&gt;opam install ocamlfind&lt;&#x2F;li&gt;
+&lt;li&gt;sudo pacman -S libffi&lt;&#x2F;li&gt;
+&lt;li&gt;opam install ppx_deriving_yojson&lt;&#x2F;li&gt;
+&lt;li&gt;opam install -I +str ppx_deriving_yojson&lt;&#x2F;li&gt;
+&lt;li&gt;opam install str&lt;&#x2F;li&gt;
+&lt;li&gt;opam install ctypes ctypes-foreign&lt;&#x2F;li&gt;
+&lt;li&gt;opam uninstall integers&lt;&#x2F;li&gt;
+&lt;li&gt;opam install ctypes&lt;&#x2F;li&gt;
+&lt;li&gt;opam install ppx_deriving_yojson zarith pprint &quot;menhir&amp;gt;=20161115&quot; sedlex
+process fix &quot;wasm&amp;gt;=2.0.0&quot; visitors ctypes-foreign ctypes&lt;&#x2F;li&gt;
+&lt;li&gt;sudo pacman -S dotnet-sdk-6.0&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;actual-setup&quot;&gt;Actual Setup&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;fstarlang.github.io&#x2F;lowstar&#x2F;html&#x2F;Setup.html&quot;&gt;Setup Link&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;.&#x2F;everest z3 opam&lt;&#x2F;li&gt;
+&lt;li&gt;You have to add path to .zshrc or .bashrc it&#x27;ll show up in output&lt;&#x2F;li&gt;
+&lt;li&gt;.&#x2F;everest pull FStar make karamel make (Idk but it might help to add -j at the
+end?)&lt;&#x2F;li&gt;
+&lt;li&gt;Put FStar as well in your path&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;better-way&quot;&gt;Better way&lt;&#x2F;h2&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #F8F8F2; background-color: #272822;&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #A6E22E;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color: #E6DB74;&quot;&gt; opam switch create fstar&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #A6E22E;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color: #E6DB74;&quot;&gt; opam pin add fstar&lt;&#x2F;span&gt;&lt;span style=&quot;color: #AE81FF;&quot;&gt; --dev-repo&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #A6E22E;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color: #E6DB74;&quot;&gt; opam pin add karamel&lt;&#x2F;span&gt;&lt;span style=&quot;color: #AE81FF;&quot;&gt; --dev-repo&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Above, you may need to run &lt;code&gt;opam install fstar karamel&lt;&#x2F;code&gt;, but I don&#x27;t exactly remember&lt;&#x2F;p&gt;
+&lt;p&gt;To use the Fstar switch, do the following&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #F8F8F2; background-color: #272822;&quot;&gt;&lt;code data-lang=&quot;plain&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;$ opam switch fstar&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;$ eval $(opam env --switch=fstar)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Hello World</title>
+        <published>2022-10-05T00:00:00+00:00</published>
+        <updated>2022-10-05T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://dipeshkaphle.github.io/posts/hello-world/"/>
+        <id>https://dipeshkaphle.github.io/posts/hello-world/</id>
+        
+        <content type="html" xml:base="https://dipeshkaphle.github.io/posts/hello-world/">&lt;p&gt;Hi, This is my blog&#x2F;personal site&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;testing-inline-math&quot;&gt;Testing Inline Math&lt;&#x2F;h1&gt;
+&lt;ul&gt;
+&lt;li&gt;$(a+b)^2$ = $a^2 + 2ab + b^2$&lt;&#x2F;li&gt;
+&lt;li&gt;A polynomial P of degree d over $\mathbb{F}_p$ is an expression of the form
+$P(s) = a_0 + a_1 . s + a_2 . s^2 + ... + a_d . s^d$ for some
+$a_0,..,a_d \in \mathbb{F}_p$&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h1 id=&quot;testing-displayed-math&quot;&gt;Testing Displayed Math&lt;&#x2F;h1&gt;
+&lt;p&gt;$$
+p := (\sum_{k∈I}{c_k.v_k} +
+\delta_v.t(x))·(\sum_{k∈I}{c_k.w_k} +
+\delta_w.t(x)) −
+(\sum_{k∈I}{c_k.y_k} + \delta_y.t(x))
+$$&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;testing-code-support&quot;&gt;Testing Code Support&lt;&#x2F;h1&gt;
+&lt;pre class=&quot;giallo&quot; style=&quot;color: #F8F8F2; background-color: #272822;&quot;&gt;&lt;code data-lang=&quot;ocaml&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #F92672;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span style=&quot;color: #A6E22E;&quot;&gt; ()&lt;&#x2F;span&gt;&lt;span style=&quot;color: #66D9EF;font-style: italic;&quot;&gt; =&lt;&#x2F;span&gt;&lt;span&gt; print_string&lt;&#x2F;span&gt;&lt;span style=&quot;color: #E6DB74;&quot;&gt; &amp;quot;Hello World!!!&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;;;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;pre class=&quot;giallo&quot; style=&quot;color: #F8F8F2; background-color: #272822;&quot;&gt;&lt;code data-lang=&quot;rust&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #F92672;&quot;&gt;fn&lt;&#x2F;span&gt;&lt;span style=&quot;color: #A6E22E;&quot;&gt; main&lt;&#x2F;span&gt;&lt;span&gt;(){&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span style=&quot;color: #A6E22E;&quot;&gt;  println!&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color: #E6DB74;&quot;&gt;&amp;quot;Hiya&amp;quot;&lt;&#x2F;span&gt;&lt;span&gt;);&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;</content>
+        
+    </entry>
+</feed>

@@ -1,0 +1,164 @@
+% Adapted from the paper figure; per-panel dataset labels omitted for slides.
+\documentclass[border=10pt]{standalone}
+\usepackage{tikz}
+\usepackage{xcolor}
+\usetikzlibrary{patterns, patterns.meta}
+
+\definecolor{tolfp}{HTML}{228833}
+\definecolor{tolpps}{HTML}{4477AA}
+\definecolor{tolppf}{HTML}{CCBB44}
+\definecolor{tolsf}{HTML}{EE6677}
+
+\newlength{\cellsize}
+\setlength{\cellsize}{0.42cm}
+\newlength{\cellgap}
+\setlength{\cellgap}{0.08cm}
+\pgfmathsetmacro{\cellS}{0.42}
+\pgfmathsetmacro{\cellG}{0.08}
+\pgfmathsetmacro{\cellStep}{\cellS + \cellG}
+
+% ── Patterns ──
+\tikzset{
+  pat fp/.style={fill=tolfp},
+  pat pps/.style={fill=tolpps,
+    postaction={path picture={
+      \fill[white!70]
+        (path picture bounding box.center)
+        ++(0, 0.12cm) -- ++(-0.11cm, -0.19cm) -- ++(0.22cm, 0cm) -- cycle;
+    }}},
+  pat ppf/.style={fill=tolppf,
+    postaction={path picture={
+      \draw[white!70, line width=0.5pt]
+        (path picture bounding box.center) circle (0.11cm);
+    }}},
+  pat sf/.style={fill=tolsf,
+    postaction={path picture={
+      \draw[white!70, line width=0.6pt]
+        ([shift={(0.09cm,0.09cm)}]path picture bounding box.south west)
+        -- ([shift={(-0.09cm,-0.09cm)}]path picture bounding box.north east)
+        ([shift={(-0.09cm,0.09cm)}]path picture bounding box.south east)
+        -- ([shift={(0.09cm,-0.09cm)}]path picture bounding box.north west);
+    }}},
+}
+
+\begin{document}
+\begin{tikzpicture}[x=1cm, y=1cm]
+  \begin{scope}[shift={(0, 0)}]
+    \node[font=\sffamily\footnotesize\bfseries, anchor=south] at ({5*\cellStep - \cellG/2}, {5*\cellStep + 0.15}) {Lean baseline};
+    \fill[pat fp, rounded corners=1.5pt] (0*\cellStep, 4*\cellStep + 0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat pps, rounded corners=1.5pt] (1*\cellStep, 4*\cellStep + 0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat pps, rounded corners=1.5pt] (2*\cellStep, 4*\cellStep + 0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat pps, rounded corners=1.5pt] (3*\cellStep, 4*\cellStep + 0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat pps, rounded corners=1.5pt] (4*\cellStep, 4*\cellStep + 0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat pps, rounded corners=1.5pt] (5*\cellStep, 4*\cellStep + 0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat pps, rounded corners=1.5pt] (6*\cellStep, 4*\cellStep + 0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat pps, rounded corners=1.5pt] (7*\cellStep, 4*\cellStep + 0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat pps, rounded corners=1.5pt] (8*\cellStep, 4*\cellStep + 0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat pps, rounded corners=1.5pt] (9*\cellStep, 4*\cellStep + 0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat pps, rounded corners=1.5pt] (0*\cellStep, 3*\cellStep + 0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat ppf, rounded corners=1.5pt] (1*\cellStep, 3*\cellStep + 0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat ppf, rounded corners=1.5pt] (2*\cellStep, 3*\cellStep + 0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat ppf, rounded corners=1.5pt] (3*\cellStep, 3*\cellStep + 0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat sf, rounded corners=1.5pt] (4*\cellStep, 3*\cellStep + 0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat fp, rounded corners=1.5pt] (5*\cellStep, 3*\cellStep + -0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat fp, rounded corners=1.5pt] (6*\cellStep, 3*\cellStep + -0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat fp, rounded corners=1.5pt] (7*\cellStep, 3*\cellStep + -0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat fp, rounded corners=1.5pt] (8*\cellStep, 3*\cellStep + -0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat fp, rounded corners=1.5pt] (9*\cellStep, 3*\cellStep + -0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat fp, rounded corners=1.5pt] (0*\cellStep, 2*\cellStep + -0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat fp, rounded corners=1.5pt] (1*\cellStep, 2*\cellStep + -0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat fp, rounded corners=1.5pt] (2*\cellStep, 2*\cellStep + -0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat fp, rounded corners=1.5pt] (3*\cellStep, 2*\cellStep + -0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat fp, rounded corners=1.5pt] (4*\cellStep, 2*\cellStep + -0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat fp, rounded corners=1.5pt] (5*\cellStep, 2*\cellStep + -0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat fp, rounded corners=1.5pt] (6*\cellStep, 2*\cellStep + -0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat fp, rounded corners=1.5pt] (7*\cellStep, 2*\cellStep + -0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat fp, rounded corners=1.5pt] (8*\cellStep, 2*\cellStep + -0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat fp, rounded corners=1.5pt] (9*\cellStep, 2*\cellStep + -0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat fp, rounded corners=1.5pt] (0*\cellStep, 1*\cellStep + -0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat pps, rounded corners=1.5pt] (1*\cellStep, 1*\cellStep + -0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat pps, rounded corners=1.5pt] (2*\cellStep, 1*\cellStep + -0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat pps, rounded corners=1.5pt] (3*\cellStep, 1*\cellStep + -0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat pps, rounded corners=1.5pt] (4*\cellStep, 1*\cellStep + -0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat pps, rounded corners=1.5pt] (5*\cellStep, 1*\cellStep + -0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat pps, rounded corners=1.5pt] (6*\cellStep, 1*\cellStep + -0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat pps, rounded corners=1.5pt] (7*\cellStep, 1*\cellStep + -0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat pps, rounded corners=1.5pt] (8*\cellStep, 1*\cellStep + -0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat pps, rounded corners=1.5pt] (9*\cellStep, 1*\cellStep + -0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat pps, rounded corners=1.5pt] (0*\cellStep, 0*\cellStep + -0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat pps, rounded corners=1.5pt] (1*\cellStep, 0*\cellStep + -0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat pps, rounded corners=1.5pt] (2*\cellStep, 0*\cellStep + -0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat pps, rounded corners=1.5pt] (3*\cellStep, 0*\cellStep + -0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat ppf, rounded corners=1.5pt] (4*\cellStep, 0*\cellStep + -0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat ppf, rounded corners=1.5pt] (5*\cellStep, 0*\cellStep + -0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat ppf, rounded corners=1.5pt] (6*\cellStep, 0*\cellStep + -0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat ppf, rounded corners=1.5pt] (7*\cellStep, 0*\cellStep + -0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat sf, rounded corners=1.5pt] (8*\cellStep, 0*\cellStep + -0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat sf, rounded corners=1.5pt] (9*\cellStep, 0*\cellStep + -0.18) rectangle ++(\cellS, \cellS);
+  \end{scope}
+  \begin{scope}[shift={(6.5, 0)}]
+    \node[font=\sffamily\footnotesize\bfseries, anchor=south] at ({5*\cellStep - \cellG/2}, {5*\cellStep + 0.15}) {\textit{Velvet} pipeline};
+    \fill[pat fp, rounded corners=1.5pt] (0*\cellStep, 4*\cellStep + 0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat fp, rounded corners=1.5pt] (1*\cellStep, 4*\cellStep + 0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat fp, rounded corners=1.5pt] (2*\cellStep, 4*\cellStep + 0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat fp, rounded corners=1.5pt] (3*\cellStep, 4*\cellStep + 0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat fp, rounded corners=1.5pt] (4*\cellStep, 4*\cellStep + 0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat pps, rounded corners=1.5pt] (5*\cellStep, 4*\cellStep + 0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat pps, rounded corners=1.5pt] (6*\cellStep, 4*\cellStep + 0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat pps, rounded corners=1.5pt] (7*\cellStep, 4*\cellStep + 0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat pps, rounded corners=1.5pt] (8*\cellStep, 4*\cellStep + 0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat pps, rounded corners=1.5pt] (9*\cellStep, 4*\cellStep + 0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat pps, rounded corners=1.5pt] (0*\cellStep, 3*\cellStep + 0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat pps, rounded corners=1.5pt] (1*\cellStep, 3*\cellStep + 0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat sf, rounded corners=1.5pt] (2*\cellStep, 3*\cellStep + 0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat sf, rounded corners=1.5pt] (3*\cellStep, 3*\cellStep + 0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat sf, rounded corners=1.5pt] (4*\cellStep, 3*\cellStep + 0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat fp, rounded corners=1.5pt] (5*\cellStep, 3*\cellStep + -0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat fp, rounded corners=1.5pt] (6*\cellStep, 3*\cellStep + -0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat fp, rounded corners=1.5pt] (7*\cellStep, 3*\cellStep + -0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat fp, rounded corners=1.5pt] (8*\cellStep, 3*\cellStep + -0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat fp, rounded corners=1.5pt] (9*\cellStep, 3*\cellStep + -0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat fp, rounded corners=1.5pt] (0*\cellStep, 2*\cellStep + -0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat fp, rounded corners=1.5pt] (1*\cellStep, 2*\cellStep + -0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat fp, rounded corners=1.5pt] (2*\cellStep, 2*\cellStep + -0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat fp, rounded corners=1.5pt] (3*\cellStep, 2*\cellStep + -0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat fp, rounded corners=1.5pt] (4*\cellStep, 2*\cellStep + -0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat fp, rounded corners=1.5pt] (5*\cellStep, 2*\cellStep + -0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat fp, rounded corners=1.5pt] (6*\cellStep, 2*\cellStep + -0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat fp, rounded corners=1.5pt] (7*\cellStep, 2*\cellStep + -0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat fp, rounded corners=1.5pt] (8*\cellStep, 2*\cellStep + -0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat fp, rounded corners=1.5pt] (9*\cellStep, 2*\cellStep + -0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat fp, rounded corners=1.5pt] (0*\cellStep, 1*\cellStep + -0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat fp, rounded corners=1.5pt] (1*\cellStep, 1*\cellStep + -0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat fp, rounded corners=1.5pt] (2*\cellStep, 1*\cellStep + -0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat fp, rounded corners=1.5pt] (3*\cellStep, 1*\cellStep + -0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat fp, rounded corners=1.5pt] (4*\cellStep, 1*\cellStep + -0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat fp, rounded corners=1.5pt] (5*\cellStep, 1*\cellStep + -0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat fp, rounded corners=1.5pt] (6*\cellStep, 1*\cellStep + -0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat fp, rounded corners=1.5pt] (7*\cellStep, 1*\cellStep + -0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat pps, rounded corners=1.5pt] (8*\cellStep, 1*\cellStep + -0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat pps, rounded corners=1.5pt] (9*\cellStep, 1*\cellStep + -0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat pps, rounded corners=1.5pt] (0*\cellStep, 0*\cellStep + -0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat pps, rounded corners=1.5pt] (1*\cellStep, 0*\cellStep + -0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat pps, rounded corners=1.5pt] (2*\cellStep, 0*\cellStep + -0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat pps, rounded corners=1.5pt] (3*\cellStep, 0*\cellStep + -0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat pps, rounded corners=1.5pt] (4*\cellStep, 0*\cellStep + -0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat pps, rounded corners=1.5pt] (5*\cellStep, 0*\cellStep + -0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat pps, rounded corners=1.5pt] (6*\cellStep, 0*\cellStep + -0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat pps, rounded corners=1.5pt] (7*\cellStep, 0*\cellStep + -0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat pps, rounded corners=1.5pt] (8*\cellStep, 0*\cellStep + -0.18) rectangle ++(\cellS, \cellS);
+    \fill[pat sf, rounded corners=1.5pt] (9*\cellStep, 0*\cellStep + -0.18) rectangle ++(\cellS, \cellS);
+  \end{scope}
+  \begin{scope}[shift={(0, -0.9)}]
+    \pgfmathsetmacro{\sw}{0.28}
+    \fill[pat fp, rounded corners=1pt] (0.0, 0) rectangle ++(\sw, \sw);
+    \node[font=\sffamily\tiny, anchor=west] at (0.38, 0.14) {Fully proven};
+    \fill[pat pps, rounded corners=1pt] (2.0, 0) rectangle ++(\sw, \sw);
+    \node[font=\sffamily\tiny, anchor=west] at (2.38, 0.14) {Partially proven (Aristotle succeeds)};
+    \fill[pat ppf, rounded corners=1pt] (6.2, 0) rectangle ++(\sw, \sw);
+    \node[font=\sffamily\tiny, anchor=west] at (6.58, 0.14) {Partially proven (Aristotle fails)};
+    \fill[pat sf, rounded corners=1pt] (9.8, 0) rectangle ++(\sw, \sw);
+    \node[font=\sffamily\tiny, anchor=west] at (10.18, 0.14) {Synthesis failure};
+  \end{scope}
+\end{tikzpicture}
+\end{document}
